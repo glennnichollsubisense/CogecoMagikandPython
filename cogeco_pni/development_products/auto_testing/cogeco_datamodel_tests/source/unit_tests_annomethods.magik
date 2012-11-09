@@ -20,35 +20,14 @@ $
 
 ## testing for class figure_eight
 _method tc!figure_eight.test_method_for_cogeco_annotation_1()
-_self.assert_not_unset (figure_eight.method(:|cogeco_annotation_1_text|), 'missing an annotation method')
-_endmethod
-$
-
-
-## testing for class figure_eight
-_method tc!figure_eight.test_method_for_cogeco_location_1()
-_self.assert_not_unset (figure_eight.method(:|cogeco_location_1_text|), 'missing an annotation method')
-_endmethod
-$
-
-
-## testing for class figure_eight
-_method tc!figure_eight.test_method_for_cogeco_location_2()
-_self.assert_not_unset (figure_eight.method(:|cogeco_location_2_text|), 'missing an annotation method')
-_endmethod
-$
-
-
-## testing for class figure_eight
-_method tc!figure_eight.test_method_for_cogeco_location_3()
-_self.assert_not_unset (figure_eight.method(:|cogeco_location_3_text|), 'missing an annotation method')
+_self.assert_not_unset (fiber_figure_eight.method(:|cogeco_annotation_1_text|), 'missing an annotation method')
 _endmethod
 $
 
 
 ## testing for class figure_eight
 _method tc!figure_eight.test_method_for_cogeco_type_annotation()
-_self.assert_not_unset (figure_eight.method(:|cogeco_type_annotation_text|), 'missing an annotation method')
+_self.assert_not_unset (fiber_figure_eight.method(:|cogeco_type_annotation_text|), 'missing an annotation method')
 _endmethod
 $
 

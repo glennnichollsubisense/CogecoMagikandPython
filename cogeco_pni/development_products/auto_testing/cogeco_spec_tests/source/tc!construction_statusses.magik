@@ -1,0 +1,174 @@
+_package user
+
+def_slotted_exemplar (:tc!construction_statusses,
+	{},
+	{:tc!cogeco}
+)
+$
+
+
+_pragma(classify_level=advanced, topic={unit_tests, cogeco}, usage={redefinable, subclassable})
+_method tc!construction_statusses.test_construction_statusses_size()
+	## 
+	## 
+
+
+	_local l_cstatus << _self.template_view.collections[:construction_status_type]
+	_self.assert_equals (l_cstatus.size, 8, "Expecting 8 construction statusses")
+_endmethod
+$
+
+_pragma(classify_level=advanced, topic={unit_tests, cogeco}, usage={redefinable, subclassable})
+_private
+_method tc!construction_statusses.get_status (pStatusName)
+	## 
+	## 
+
+	_local l_cstatus << _self.template_view.collections[:construction_status_type]
+	_for i _over l_cstatus.fast_elements()
+	_loop
+		_if i.construction_status.write_string = pStatusName
+		_then
+			_return i
+		_endif
+	_endloop
+	
+_endmethod
+$
+
+_pragma(classify_level=advanced, topic={unit_tests, cogeco}, usage={redefinable, subclassable})
+_method tc!construction_statusses.test_for_abandoned_status()
+	## 
+	## 
+
+
+	_local l_status << _self.get_status ("Abandoned")
+	_self.assert_not_unset (l_status, "No status called abandoned")
+	_if l_status _is _unset
+	_then
+		_return 
+	_endif
+	_self.assert_equals (l_status.geometry_name, :abandoned, "expecting geom name to be abandoned")
+	_self.assert_equals (l_status.construction_code, :ab, "expecting construction code to be ab")
+_endmethod
+$
+_pragma(classify_level=advanced, topic={unit_tests, cogeco}, usage={redefinable, subclassable})
+_method tc!construction_statusses.test_for_awaiting_construction_status()
+	## 
+	## 
+
+
+	_local l_status << _self.get_status ("Awaiting Construction")
+	_self.assert_not_unset (l_status, "No status called Awaiting Construction")
+	_if l_status _is _unset
+	_then
+		_return 
+	_endif
+	_self.assert_equals (l_status.geometry_name, :inactive, "expecting geom name to be inactive")
+	_self.assert_equals (l_status.construction_code, :aw, "expecting construction code to be aw")
+_endmethod
+$
+_pragma(classify_level=advanced, topic={unit_tests, cogeco}, usage={redefinable, subclassable})
+_method tc!construction_statusses.test_for_awaiting_permits_status()
+	## 
+	## 
+
+
+	_local l_status << _self.get_status ("Awaiting Permits")
+	_self.assert_not_unset (l_status, "No status called Awaiting Permits")
+	_if l_status _is _unset
+	_then
+		_return 
+	_endif
+	_self.assert_equals (l_status.geometry_name, :inactive, "expecting geom name to be inactive")
+	_self.assert_equals (l_status.construction_code, :ap, "expecting construction code to be ap")
+_endmethod
+$
+_pragma(classify_level=advanced, topic={unit_tests, cogeco}, usage={redefinable, subclassable})
+_method tc!construction_statusses.test_for_built_status()
+	## 
+	## 
+
+
+	_local l_status << _self.get_status ("Built")
+	_self.assert_not_unset (l_status, "No status called Built")
+	_if l_status _is _unset
+	_then
+		_return 
+	_endif
+	_self.assert_equals (l_status.geometry_name, :active, "expecting geom name to be active")
+	_self.assert_equals (l_status.construction_code, :bt, "expecting construction code to be bt")
+_endmethod
+$
+_pragma(classify_level=advanced, topic={unit_tests, cogeco}, usage={redefinable, subclassable})
+_method tc!construction_statusses.test_for_built_and_verified_status()
+	## 
+	## 
+
+
+	_local l_status << _self.get_status ("Built and Verified")
+	_self.assert_not_unset (l_status, "No status called Built and Verified")
+	_if l_status _is _unset
+	_then
+		_return 
+	_endif
+	_self.assert_equals (l_status.geometry_name, :active, "expecting geom name to be active")
+	_self.assert_equals (l_status.construction_code, :bv, "expecting construction code to be bv")
+_endmethod
+$
+
+_pragma(classify_level=advanced, topic={unit_tests, cogeco}, usage={redefinable, subclassable})
+_method tc!construction_statusses.test_for_designed_status()
+	## 
+	## 
+
+
+	_local l_status << _self.get_status ("Designed")
+	_self.assert_not_unset (l_status, "No status called Designed")
+	_if l_status _is _unset
+	_then
+		_return 
+	_endif
+	_self.assert_equals (l_status.geometry_name, :inactive, "expecting geom name to be inactive")
+	_self.assert_equals (l_status.construction_code, :ds, "expecting construction code to be ds")
+_endmethod
+$
+_pragma(classify_level=advanced, topic={unit_tests, cogeco}, usage={redefinable, subclassable})
+_method tc!construction_statusses.test_for_planned_status()
+	## 
+	## 
+
+
+	_local l_status << _self.get_status ("Planned")
+	_self.assert_not_unset (l_status, "No status called Planned")
+	_if l_status _is _unset
+	_then
+		_return 
+	_endif
+	_self.assert_equals (l_status.geometry_name, :inactive, "expecting geom name to be inactive")
+	_self.assert_equals (l_status.construction_code, :pl, "expecting construction code to be pl")
+_endmethod
+$
+_pragma(classify_level=advanced, topic={unit_tests, cogeco}, usage={redefinable, subclassable})
+_method tc!construction_statusses.test_for_removal_status()
+	## 
+	## 
+
+
+	_local l_status << _self.get_status ("Removal")
+	_self.assert_not_unset (l_status, "No status called Removal")
+	_if l_status _is _unset
+	_then
+		_return 
+	_endif
+	_self.assert_equals (l_status.geometry_name, :inactive, "expecting geom name to be inactive")
+	_self.assert_equals (l_status.construction_code, :rl, "expecting construction code to be rl")
+_endmethod
+$
+
+
+_pragma(classify_level=advanced, topic={unit_tests,cogeco}, usage={subclassable})
+_method tc!construction_statusses.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!construction_statusses)
+_endmethod
+$

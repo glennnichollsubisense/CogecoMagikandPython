@@ -1,0 +1,120 @@
+def_slotted_exemplar(:ccad_cogeco_address,
+		    {},
+		    {:mit_rwo_record}
+)
+$
+
+def_slotted_exemplar(:ccad_cogeco_building,
+	{},
+	{:mit_rwo_record}
+)
+$
+
+def_slotted_exemplar(:ccad_cogeco_centre_line,
+	{},
+	{:mit_rwo_record}
+)
+$
+
+def_slotted_exemplar(:ccad_cogeco_coax_cell,
+	{},
+	{:mit_rwo_record}
+)
+$
+
+def_slotted_exemplar(:ccad_cogeco_curb,
+	{},
+	{:mit_rwo_record}
+)
+$
+
+def_slotted_exemplar(:ccad_cogeco_dip,
+	{},
+	{:mit_rwo_record}
+)
+$
+
+def_slotted_exemplar(:ccad_cogeco_fibre_cell,
+	{},
+	{:mit_rwo_record}
+
+$
+
+def_slotted_exemplar(:ccad_cogeco_fsa,
+	{},
+	{:mit_rwo_record}
+))
+$
+
+def_slotted_exemplar(:ccad_cogeco_gasline,
+	{},
+	{:mit_rwo_record}
+)
+$
+
+def_slotted_exemplar(:ccad_cogeco_ground,
+	{},
+	{:mit_rwo_record}
+)
+$
+
+def_slotted_exemplar(:ccad_cogeco_lot,
+	{},
+	{:mit_rwo_record}
+)
+$
+
+def_slotted_exemplar(:ccad_cogeco_mdu,
+	{},
+	{:mit_rwo_record}
+)
+$
+
+def_slotted_exemplar(:ccad_cogeco_railroad,
+	{},
+	{:mit_rwo_record}
+)
+$
+
+def_slotted_exemplar(:ccad_cogeco_river,
+	{},
+	{:mit_rwo_record}
+)
+$
+
+def_slotted_exemplar(:ccad_cogeco_rm_boundary,
+	{},
+	{:mit_rwo_record}
+)
+$
+
+def_slotted_exemplar(:ccad_cogeco_road,
+	{},
+	{:mit_rwo_record}
+)
+$
+
+def_slotted_exemplar(:ccad_cogeco_service_area,
+	{},
+	{:mit_rwo_record}
+)
+$
+
+def_slotted_exemplar(:ccad_cogeco_streetlight,
+	{},
+	{:mit_rwo_record}
+)
+$
+
+def_slotted_exemplar(:ccad_cogeco_transformer,
+	{},
+	{:mit_rwo_record}
+)
+$
+
+def_slotted_exemplar(:ccad_cogeco_work_order,
+	{},
+	{:mit_rwo_record}
+)
+$
+

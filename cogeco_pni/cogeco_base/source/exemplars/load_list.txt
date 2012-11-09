@@ -1,3 +1,4 @@
+exemplars_ccad_landbase_datamodel
 cogeco_boundary_mixin.magik
 cogeco_customer.magik
 cogeco_fibre_cell.magik

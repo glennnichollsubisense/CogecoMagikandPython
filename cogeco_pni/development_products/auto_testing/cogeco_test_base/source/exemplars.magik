@@ -196,6 +196,12 @@ def_slotted_exemplar (:tc!mit_rme_port,
 	{:tc!cogeco})
 $
 
+def_slotted_exemplar (:tc!port,
+	{
+	},
+	{:tc!cogeco})
+$
+
 def_slotted_exemplar (:tc!mit_shelf,
 	{
 	},

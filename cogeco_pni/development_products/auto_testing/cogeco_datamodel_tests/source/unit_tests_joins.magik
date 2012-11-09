@@ -26,6 +26,7 @@ _method tc!cogeco_migration_attributes.test_joins()
 							     :mit_conduit,
 							     :address,
 							     :mit_rme_port,
+							     :port,
 							     :optical_node,
 							     :sheath_splice,
 							     :anchor,

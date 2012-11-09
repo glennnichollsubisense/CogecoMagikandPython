@@ -765,6 +765,7 @@ _method pni_network_factory.place_aerial_route(a_route, _optional params)
 	t_params[:cogeco_operational_status] << t_params[:cogeco_operational_status].default("Existing" )
 	t_params[:cogeco_size] << t_params[:cogeco_size].default("Unknown" )
 	t_params[:cogeco_usage] << t_params[:cogeco_owner].default("Cogeco" )
+	t_params[:cogeco_strands] << t_params[:cogeco_strands].default("10M" )
 	a_rt << record_transaction.new_insert(_self.aerial_routes, t_params)
 	_return a_rt.run()
 	
