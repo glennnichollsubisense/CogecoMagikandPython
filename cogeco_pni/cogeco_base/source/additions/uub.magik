@@ -1,0 +1,32 @@
+_package user 
+
+##
+## Extensions to UUB class to provide behaviour for Cogeco
+##
+
+
+_pragma(classify_level=restricted, topic={structure, cogeco}, usage={redefinable, subclassable})
+_method uub.cogeco_annotation_1_text
+	## returns the value of the cogeco_owner field
+
+
+	_if _self.cogeco_owner _isnt _unset
+	_then
+		_return _self.cogeco_owner.write_string
+	_endif
+	_return "no value set for cogeco_owner"
+_endmethod
+$
+
+_pragma(classify_level=restricted, topic={structure, cogeco}, usage={redefinable, subclassable})
+_method uub.cogeco_annotation_2_text
+	## returns the value of the cogeco_model field
+
+
+	_if _self.cogeco_model _isnt _unset
+	_then
+		_return _self.cogeco_model.write_string
+	_endif
+	_return "no value set for cogeco_model"
+_endmethod
+$

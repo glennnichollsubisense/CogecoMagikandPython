@@ -1,0 +1,10 @@
+#% text_encoding = iso8859_1
+
+datamodel_export	1
+
+description
+	Dumps out a datamodel to Excel
+end
+
+requires
+end

@@ -1,0 +1,32 @@
+_package user
+$
+
+
+_pragma(classify_level=advanced, topic={unit_tests, cogeco}, usage={subclassable})
+_method tc!conduit_spec.test_generic_specs_exist()
+	## 
+	## Test for conduits specs with a manufacturer
+	## 'Generic'
+	## Passes the test if it finds a single Generic conduit
+
+
+	_local lhasgeneric?  << _false
+	_for i _over  _self.template_view.collections[:conduit_spec].fast_elements()
+	_loop
+		_if i.is_generic_spec?
+		_then
+			lhasgeneric?<< _true
+			_leave 
+		_endif
+	_endloop
+
+	_self.assert_true (lhasgeneric?, "No generic conduit specs found in the template view")
+_endmethod
+$
+
+
+_pragma(classify_level=advanced, topic={unit_tests, cogeco}, usage={subclassable})
+_method tc!conduit_spec.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!conduit_spec)
+_endmethod
+$

@@ -1,0 +1,35 @@
+_package user
+
+
+_pragma(classify_level=advanced, topic={unit_tests, cogeco}, usage={subclassable})
+def_mixin(:tc!cogeco_boundary_object_mixin
+	## 
+	## 
+	##
+	)
+$
+
+_pragma(classify_level=advanced, topic={unit_tests, cogeco}, usage={subclassable})
+_method tc!cogeco_boundary_object_mixin.make_attributes_for_insert( _optional pMakeName)
+	## 
+	## 
+
+	_local l_sec << sector.new()
+	l_sec.add(_self.base_coord)
+	l_sec.add(_self.base_coord + coordinate.new(0, 2000))
+	l_sec.add(_self.base_coord + coordinate.new(2000, 2000))
+	l_sec.add(_self.base_coord + coordinate.new(2000, 0))
+	l_sec.add(_self.base_coord)
+
+	
+	_local l_pa << pseudo_area.new_for_world(l_sec, _self.gis_view.world)
+	_local l_pl << property_list.new_with(:boundary, l_pa)
+	_if pMakeName.default(_true )
+	_then
+		l_pl[:name] << 'XX'
+	_endif
+	_return l_pl
+	
+_endmethod
+$
+

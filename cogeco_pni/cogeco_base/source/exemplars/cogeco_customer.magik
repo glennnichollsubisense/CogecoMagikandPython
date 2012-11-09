@@ -1,0 +1,40 @@
+
+_pragma(classify_level=basic, topic={cogeco,fibre}, usage={not_international, redefinable})
+##
+## CableCAD tracks the assets serving specific customers in a
+## particular table.  With standard PNI there isnt anything
+## that matches it closely enough, so a Cogeco-specific table
+## is required.  This is the exemplar for that table.
+## 
+def_slotted_exemplar(:cogeco_customer,
+	##
+	## 
+	## 
+	{
+	},
+	{:mit_user_ds_record})
+$
+
+
+_pragma(classify_level=restricted, topic={cogeco,fibre}, usage={redefinable})
+_method cogeco_customer.insert_trigger()
+	## 
+	## Stub
+	
+_endmethod
+$
+_pragma(classify_level=restricted, topic={cogeco,fibre}, usage={redefinable})
+_method cogeco_customer.update_trigger()
+	## 
+	## Stub
+	
+_endmethod
+$
+_pragma(classify_level=restricted, topic={cogeco,fibre}, usage={redefinable})
+_method cogeco_customer.delete_trigger()
+	## 
+	## Stub
+	
+_endmethod
+$
+

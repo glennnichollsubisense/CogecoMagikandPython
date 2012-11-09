@@ -1,0 +1,12 @@
+
+_package user
+
+_pragma(classify_level=advanced, topic={unit_tests, cogeco}, usage={subclassable})
+_method mit_common_spec_data_mixin.is_generic_spec?
+	## 
+	## 
+
+	_local l_manufacturer << _self.spec_record.manufacturer_id
+	_return l_manufacturer.write_string.canonical = 'generic'
+_endmethod
+$

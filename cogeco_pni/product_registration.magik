@@ -1,0 +1,36 @@
+#% text_encoding = iso8859_1
+_package sw
+$
+
+smallworld_product.register_application( 
+						:pni, :pni_application, 
+						:ace_name, :|Physical NI User|, 
+						:pni_app_type, :pni_user, 
+						:resource_module_name, :cogeco_applications, 
+						:gui_definition_module_name, :cogeco_applications, 
+						:config_definition_file_name, "config.xml", 
+						:gui_definition_file_name, "gui.xml", 
+						:description, "Customised Smallworld PNI product\nModelling Cogeco's Fibre and Landbase from Ontario and Quebec", 
+						:external_name, "ON/QC Fibre and Landbase",
+						:soc_name, :gis, 
+						:initial_layout_name, "default_layout", 
+						:initial_width, "1000", 
+						:initial_height, "800", 
+						:html_help_file_name, "swpni",
+ 						:default_application_coordinate_system_name, "greatlakesandstlawrence",
+						:application_coordinate_system_unit, :m)
+$
+
+smallworld_product.register_application( :pni_admin, :pni_application,
+					 :ace_name, :|Physical NI User|,
+					 :pni_app_type, :pni_admin,
+					 :resource_module_name, :pni_gui,
+					 :gui_definition_module_name, :pni_gui,
+					 :config_definition_file_name, "admin_config.xml",
+					 :gui_definition_file_name, "admin_gui.xml",
+					 :description, "Physical Network Inventory Admin application",
+					 :external_name, "Physical Network Inventory - Admin",
+					 :soc_name, :template,
+					 :html_help_file_name, "swpniadmin",
+					 :application_coordinate_system_unit, :cm )
+$

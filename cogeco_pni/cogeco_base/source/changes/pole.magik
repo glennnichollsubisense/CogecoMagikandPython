@@ -1,0 +1,72 @@
+_package user 
+
+##
+## Extensions to pole class to provide behaviour for Cogeco
+##
+
+
+_pragma(classify_level=restricted, topic={structure, cogeco}, usage={redefinable, subclassable})
+_method pole.annotation_1_text
+	# Returns the value in cogeco_address
+	
+	_if _self.cogeco_address _isnt _unset 
+	_then
+		_return _self.cogeco_address.write_string
+	_endif
+
+	_return 'no value set for cogeco_address'
+_endmethod
+
+
+_pragma(classify_level=restricted, topic={structure, cogeco}, usage={redefinable, subclassable})
+_method pole.annotation_2_text
+	## returns 'PS', always.
+	## Annotation is only placed if the pole is a service pole
+
+	_return "PS"	
+_endmethod
+$
+
+_pragma(classify_level=restricted, topic={structure, cogeco}, usage={redefinable, subclassable})
+_method pole.annotation_3_text
+	## Returns the value for the catv_pole_tag
+	## 
+	
+	_if _self.catv_pole_tag _isnt _unset 
+	_then
+		_return _self.catv_pole_tag.write_string
+	_endif
+
+	_return 'no value set for catv_pole_tag'
+_endmethod
+$
+
+_pragma(classify_level=restricted, topic={structure, cogeco}, usage={redefinable, subclassable})
+_method pole.annotation_4_text
+	## Returns the value for the power_pole_tag
+	## 
+	
+	_if _self.power_pole_tag _isnt _unset 
+	_then
+		_return _self.power_pole_tag.write_string
+	_endif
+
+	_return 'no value set for power_pole_tag'
+_endmethod
+$
+
+_pragma(classify_level=restricted, topic={structure, cogeco}, usage={redefinable, subclassable})
+_method pole.annotation_5_text
+	## Returns the value for the telco_pole_tag
+	## 
+	
+	_if _self.telco_pole_tag _isnt _unset 
+	_then
+		_return _self.telco_pole_tag.write_string
+	_endif
+
+	_return 'no value set for telco_pole_tag'
+_endmethod
+$
+
+

@@ -1,0 +1,30 @@
+_package user
+
+_block
+	_if tc!cogeco_franchise_tax_boundary.method(:|make_attributes_for_insert|) _is _unset 
+	_then
+		tc!cogeco_boundary_object_mixin.add_child(tc!cogeco_franchise_tax_boundary)
+	_endif
+_endblock
+
+_pragma(classify_level=advanced, topic={unit_tests,cogeco}, usage={subclassable})
+_method tc!cogeco_franchise_tax_boundary.test_iud()
+	## 
+	## 
+
+
+	_local l_pl << _self.make_attributes_for_insert()
+	_local l_rt << record_transaction.new_insert(_self.gis_view.collections[:cogeco_franchise_tax_boundary], l_pl, "Adding cogeco_franchise_tax_boundary")
+	_local l_obj << l_rt.run()
+	_self.assert_not_unset(l_obj, "No object created")
+
+
+_endmethod
+$
+
+
+_pragma(classify_level=advanced, topic={unit_tests,cogeco}, usage={subclassable})
+_method tc!cogeco_franchise_tax_boundary.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!cogeco_franchise_tax_boundary)
+_endmethod
+$

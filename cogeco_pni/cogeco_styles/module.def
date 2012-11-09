@@ -1,0 +1,9 @@
+cogeco_styles	1
+
+description
+	Code for mapping Cogeco's styles
+end
+
+requires
+	cogeco_base
+end

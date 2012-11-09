@@ -1,0 +1,53 @@
+# %text_encoding = iso8859_1
+_package user
+
+
+def_slotted_exemplar (:cogeco_unit_test_runner,
+		      {},
+		      {}
+		     )
+$
+
+
+
+cogeco_unit_test_runner.define_shared_constant(:test_results_filename, "C:\temp\munit_results\cogeco_installation_unit_test_results.xml", :private)
+$
+
+_pragma(classify_level=restricted, usage={redefinable})
+_method cogeco_unit_test_runner.new()
+	## 
+	## 
+
+	_return _clone.init()
+_endmethod
+$
+
+_pragma(classify_level=restricted, usage={redefinable})
+_method cogeco_unit_test_runner.init()
+	## 
+	## 
+
+	_return _self 
+_endmethod
+$
+
+_pragma(classify_level=restricted, usage={redefinable})
+_method cogeco_unit_test_runner.run_tests()
+	## 
+	## 
+	
+	_local l_view << gis_program_manager.databases[:gis]
+	_local l_listener << munit_xml_generator.new(_self.test_results_filename, l_view)
+	_local l_tr << test_result.new()
+	
+	l_tr.add_listener (l_listener)
+
+	_for i_test _over tc!test_installation_suite.suite().all_leaf_tests()
+	_loop
+		l_tr.run(i_test)
+	_endloop
+	
+	l_listener.close()
+
+_endmethod
+$

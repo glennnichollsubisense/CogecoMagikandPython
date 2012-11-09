@@ -1,0 +1,9 @@
+cogeco_applications	1
+
+description
+	Resources for different Cogeco Applications
+end
+
+requires
+	cogeco_base
+end

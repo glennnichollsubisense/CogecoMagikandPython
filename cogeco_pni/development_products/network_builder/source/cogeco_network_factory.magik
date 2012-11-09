@@ -1,0 +1,75 @@
+#% text_encoding = iso8859_1
+# Copyright GE Power Systems - Network Reliability Services 2003 - 2005
+_package user
+$
+
+_pragma(classify_level=basic, topic={unit_testing})
+def_slotted_exemplar(:cogeco_network_factory,
+                     {
+			     {:view, _unset}
+		     },
+		     {:pni_network_factory}
+)
+$
+
+
+_pragma(classify_level=restricted, topic={unit_testing})
+_method cogeco_network_factory.cogeco_customers
+	_return _self.view.collections[:cogeco_customer]
+_endmethod
+$
+
+_pragma(classify_level=restricted, topic={network_factory, cogeco})
+_method cogeco_network_factory.cogeco_fibre_cell
+	_return _self.view.collections[:cogeco_fibre_cell]
+_endmethod
+$
+
+_pragma(classify_level=restricted, topic={network_factory, cogeco})
+_method cogeco_network_factory.cogeco_frame
+	_return _self.view.collections[:cogeco_frame]
+_endmethod
+$
+
+_pragma(classify_level=restricted, topic={network_factory, cogeco})
+_method cogeco_network_factory.cogeco_franchise_tax_boundary
+	_return _self.view.collections[:cogeco_franchise_tax_boundary]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={network_factory, cogeco})
+_method cogeco_network_factory.cogeco_fsa_boundary
+	_return _self.view.collections[:cogeco_fsa_boundary]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={network_factory, cogeco})
+_method cogeco_network_factory.cogeco_migration_attributes
+	_return _self.view.collections[:cogeco_migration_attributes]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={network_factory, cogeco})
+_method cogeco_network_factory.cogeco_optical_loss
+	_return _self.view.collections[:cogeco_optical_loss]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={network_factory, cogeco})
+_method cogeco_network_factory.cogeco_province_boundary
+	_return _self.view.collections[:cogeco_province_boundary]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={network_factory, cogeco})
+_method cogeco_network_factory.cogeco_rm_boundary
+	_return _self.view.collections[:cogeco_rm_boundary]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={network_factory, cogeco})
+_method cogeco_network_factory.cogeco_service_area
+	_return _self.view.collections[:cogeco_service_area]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={network_factory, cogeco})
+_method cogeco_network_factory.cogeco_splice_tray_detail
+	_return _self.view.collections[:cogeco_splice_tray_detail]
+_endmethod
+$
+
+

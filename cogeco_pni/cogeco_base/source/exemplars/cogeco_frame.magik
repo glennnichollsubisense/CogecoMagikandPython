@@ -1,0 +1,44 @@
+
+_pragma(classify_level=basic, topic={cogeco,fibre}, usage={not_international, redefinable})
+##
+## The Cogeco Frame is a combination of plot and plot boundary.
+## A rectangular grid is laid over the map and each cell within
+## the grid is used as a plot boundary.
+## Each cell keeps a track of the names of its neighbours and
+## the name of the city and division it is located in
+## There are also attributes like approved by fields, that make
+## this object behave like a plot as well.
+## This is the exemplar for that table.
+## 
+def_slotted_exemplar(:cogeco_frame,
+	##
+	## 
+	## 
+	{
+	},
+	{:mit_rwo_record})
+$
+
+
+_pragma(classify_level=restricted, topic={cogeco,fibre}, usage={redefinable})
+_method cogeco_frame.insert_trigger()
+	## 
+	## Stub
+	
+_endmethod
+$
+_pragma(classify_level=restricted, topic={cogeco,fibre}, usage={redefinable})
+_method cogeco_frame.update_trigger()
+	## 
+	## Stub
+	
+_endmethod
+$
+_pragma(classify_level=restricted, topic={cogeco,fibre}, usage={redefinable})
+_method cogeco_frame.delete_trigger()
+	## 
+	## Stub
+	
+_endmethod
+$
+

@@ -1,0 +1,306 @@
+def_slotted_exemplar (:tc!access_point,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!address,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!aerial_route,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!anchor,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!building,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!cogeco_customer,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!cogeco_fibre_cell,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!cogeco_frame,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!cogeco_franchise_tax_boundary,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!cogeco_fsa_boundary,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!cogeco_migration_attributes,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!cogeco_optical_loss,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!cogeco_province_boundary,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!cogeco_rm_boundary,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!cogeco_service_area,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!cogeco_splice_tray_detail,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!conduit_spec,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!coordinate_systems,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!extension_arm,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!fiber_attribute,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!figure_eight,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!ground,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!lockbox,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!lot,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!manufacturer,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!midspan_junction,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!mit_cable,
+	{
+	},
+	{:tc!cogeco}
+)
+
+def_slotted_exemplar (:tc!mit_card,
+	{
+	},
+	{:tc!cogeco}
+)
+
+def_slotted_exemplar (:tc!mit_cloc_cloc_detail,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!mit_conduit,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!mit_hub,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!mit_network_connection,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!mit_rme_port,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!mit_shelf,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!mit_underground_route_annotation,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!optical_node,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!optical_node_spec,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!optical_splice_closure_spec,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!point_of_interest,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!pole,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!riser,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!sheath_annotation,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!sheath_spec,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!sheath_splice,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!sheath_with_loc,
+	{
+	},
+	{:tc!cogeco}
+)
+
+def_slotted_exemplar (:tc!sheath_with_loc_terminal,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!sheath_with_loc_terminal_spec,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!street,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!underground_route,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!uub,
+	{
+	},
+	{:tc!cogeco})
+$
+
+def_slotted_exemplar (:tc!uub_spec,
+	{
+	},
+	{:tc!cogeco})
+$
+

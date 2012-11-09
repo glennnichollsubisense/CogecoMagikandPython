@@ -1,0 +1,1622 @@
+## This file is machine generated.  Dont add any hand-edits
+_package user
+$
+## testing for class underground_route
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!underground_route.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:underground_route]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_route_1], 'no field called cogeco_route_1')
+	_self.assert_equals (lfields[:cogeco_route_1].external_name, 'Cogeco Route 1','field should be called Cogeco Route 1')
+	_self.assert_not_unset (lfields[:width], 'no field called width')
+	_self.assert_equals (lfields[:width].external_name, 'Width','field should be called Width')
+	_self.assert_not_unset (lfields[:upper_material_depth], 'no field called upper_material_depth')
+	_self.assert_equals (lfields[:upper_material_depth].external_name, 'Upper Material Depth','field should be called Upper Material Depth')
+	_self.assert_not_unset (lfields[:measured_length], 'no field called measured_length')
+	_self.assert_equals (lfields[:measured_length].external_name, 'Measured Length','field should be called Measured Length')
+	_self.assert_not_unset (lfields[:cogeco_is_joint_use], 'no field called cogeco_is_joint_use')
+	_self.assert_equals (lfields[:cogeco_is_joint_use].external_name, 'Joint Use?','field should be called Joint Use?')
+	_self.assert_not_unset (lfields[:cogeco_operational_status], 'no field called cogeco_operational_status')
+	_self.assert_equals (lfields[:cogeco_operational_status].external_name, 'Operational Status','field should be called Operational Status')
+	_self.assert_not_unset (lfields[:cogeco_route_crossing], 'no field called cogeco_route_crossing')
+	_self.assert_equals (lfields[:cogeco_route_crossing].external_name, 'Route Crossing','field should be called Route Crossing')
+	_self.assert_not_unset (lfields[:cogeco_duct_bank_width], 'no field called cogeco_duct_bank_width')
+	_self.assert_equals (lfields[:cogeco_duct_bank_width].external_name, 'Duct Bank Width','field should be called Duct Bank Width')
+	_self.assert_not_unset (lfields[:cogeco_duct_bank_height], 'no field called cogeco_duct_bank_height')
+	_self.assert_equals (lfields[:cogeco_duct_bank_height].external_name, 'Duct Bank Height','field should be called Duct Bank Height')
+	_self.assert_not_unset (lfields[:cogeco_cap1], 'no field called cogeco_cap1')
+	_self.assert_equals (lfields[:cogeco_cap1].external_name, 'Cap1','field should be called Cap1')
+	_self.assert_not_unset (lfields[:cogeco_cap2], 'no field called cogeco_cap2')
+	_self.assert_equals (lfields[:cogeco_cap2].external_name, 'Cap2','field should be called Cap2')
+	_self.assert_not_unset (lfields[:cogeco_has_capped_conduits], 'no field called cogeco_has_capped_conduits')
+	_self.assert_equals (lfields[:cogeco_has_capped_conduits].external_name, 'Has Capped Conduits?','field should be called Has Capped Conduits?')
+_endmethod
+$
+
+
+_method tc!underground_route.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!underground_route)
+_endmethod
+$
+
+
+## testing for class midspan_junction
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!midspan_junction.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:midspan_junction]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_house_count], 'no field called cogeco_house_count')
+	_self.assert_equals (lfields[:cogeco_house_count].external_name, 'House Count','field should be called House Count')
+	_self.assert_not_unset (lfields[:cogeco_potential_count], 'no field called cogeco_potential_count')
+	_self.assert_equals (lfields[:cogeco_potential_count].external_name, 'Potential Count','field should be called Potential Count')
+	_self.assert_not_unset (lfields[:cogeco_operational_status], 'no field called cogeco_operational_status')
+	_self.assert_equals (lfields[:cogeco_operational_status].external_name, 'Operational Status','field should be called Operational Status')
+_endmethod
+$
+
+
+_method tc!midspan_junction.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!midspan_junction)
+_endmethod
+$
+
+
+## testing for class cogeco_optical_loss
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!cogeco_optical_loss.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:cogeco_optical_loss]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:id], 'no field called id')
+	_self.assert_equals (lfields[:id].external_name, 'ID','field should be called ID')
+	_self.assert_not_unset (lfields[:loss], 'no field called loss')
+	_self.assert_equals (lfields[:loss].external_name, 'Loss','field should be called Loss')
+	_self.assert_not_unset (lfields[:wavelength], 'no field called wavelength')
+	_self.assert_equals (lfields[:wavelength].external_name, 'Wavelength','field should be called Wavelength')
+_endmethod
+$
+
+
+_method tc!cogeco_optical_loss.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!cogeco_optical_loss)
+_endmethod
+$
+
+
+## testing for class mit_hub
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!mit_hub.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:mit_hub]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_location_1], 'no field called cogeco_location_1')
+	_self.assert_equals (lfields[:cogeco_location_1].external_name, 'Cogeco Location 1','field should be called Cogeco Location 1')
+	_self.assert_not_unset (lfields[:cogeco_location_2], 'no field called cogeco_location_2')
+	_self.assert_equals (lfields[:cogeco_location_2].external_name, 'Cogeco Location 2','field should be called Cogeco Location 2')
+	_self.assert_not_unset (lfields[:name], 'no field called name')
+	_self.assert_equals (lfields[:name].external_name, 'Name','field should be called Name')
+	_self.assert_equals (lfields[:name].print_width, 50.0,' Expecting the name field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_location], 'no field called cogeco_location')
+	_self.assert_equals (lfields[:cogeco_location].external_name, 'Legacy Location','field should be called Legacy Location')
+	_self.assert_equals (lfields[:cogeco_location].print_width, 50.0,' Expecting the cogeco_location field to be of length 50.0')
+	_self.assert_not_unset (lfields[:type], 'no field called type')
+	_self.assert_equals (lfields[:type].external_name, 'Type','field should be called Type')
+	_self.assert_not_unset (lfields[:cogeco_owner], 'no field called cogeco_owner')
+	_self.assert_equals (lfields[:cogeco_owner].external_name, 'Owner','field should be called Owner')
+	_self.assert_not_unset (lfields[:cogeco_customer], 'no field called cogeco_customer')
+	_self.assert_equals (lfields[:cogeco_customer].external_name, 'Customer','field should be called Customer')
+	_self.assert_equals (lfields[:cogeco_customer].print_width, 20.0,' Expecting the cogeco_customer field to be of length 20.0')
+	_self.assert_not_unset (lfields[:cogeco_operational_status], 'no field called cogeco_operational_status')
+	_self.assert_equals (lfields[:cogeco_operational_status].external_name, 'Operational Status','field should be called Operational Status')
+	_self.assert_not_unset (lfields[:cogeco_hub_id], 'no field called cogeco_hub_id')
+	_self.assert_equals (lfields[:cogeco_hub_id].external_name, 'Hub ID','field should be called Hub ID')
+	_self.assert_equals (lfields[:cogeco_hub_id].print_width, 50.0,' Expecting the cogeco_hub_id field to be of length 50.0')
+_endmethod
+$
+
+
+_method tc!mit_hub.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!mit_hub)
+_endmethod
+$
+
+
+## testing for class optical_splice_closure_spec
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!optical_splice_closure_spec.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:optical_splice_closure_spec]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:model], 'no field called model')
+	_self.assert_equals (lfields[:model].external_name, 'Model','field should be called Model')
+	_self.assert_equals (lfields[:model].print_width, 50.0,' Expecting the model field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_max_nb_tray], 'no field called cogeco_max_nb_tray')
+	_self.assert_equals (lfields[:cogeco_max_nb_tray].external_name, 'Maximum No. of Trays','field should be called Maximum No. of Trays')
+	_self.assert_not_unset (lfields[:tray_capacity], 'no field called tray_capacity')
+	_self.assert_equals (lfields[:tray_capacity].external_name, 'Total Number of Mounting Positions','field should be called Total Number of Mounting Positions')
+	_self.assert_not_unset (lfields[:cogeco_nb_tray_incl], 'no field called cogeco_nb_tray_incl')
+	_self.assert_equals (lfields[:cogeco_nb_tray_incl].external_name, 'No. of Trays Included','field should be called No. of Trays Included')
+	_self.assert_equals (lfields[:cogeco_nb_tray_incl].print_width, 10.0,' Expecting the cogeco_nb_tray_incl field to be of length 10.0')
+	_self.assert_not_unset (lfields[:cogeco_nb_cable_max], 'no field called cogeco_nb_cable_max')
+	_self.assert_equals (lfields[:cogeco_nb_cable_max].external_name, 'Maximum No. of Cables','field should be called Maximum No. of Cables')
+	_self.assert_not_unset (lfields[:cogeco_nb_fusion_max], 'no field called cogeco_nb_fusion_max')
+	_self.assert_equals (lfields[:cogeco_nb_fusion_max].external_name, 'Maximum No. of Fusions','field should be called Maximum No. of Fusions')
+_endmethod
+$
+
+
+_method tc!optical_splice_closure_spec.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!optical_splice_closure_spec)
+_endmethod
+$
+
+
+## testing for class sheath_spec
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!sheath_spec.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:sheath_spec]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_model], 'no field called cogeco_model')
+	_self.assert_equals (lfields[:cogeco_model].external_name, 'Cable Type','field should be called Cable Type')
+	_self.assert_equals (lfields[:cogeco_model].print_width, 20.0,' Expecting the cogeco_model field to be of length 20.0')
+	_self.assert_not_unset (lfields[:cogeco_helix_factor], 'no field called cogeco_helix_factor')
+	_self.assert_equals (lfields[:cogeco_helix_factor].external_name, 'Helix Factor','field should be called Helix Factor')
+	_self.assert_not_unset (lfields[:model], 'no field called model')
+	_self.assert_equals (lfields[:model].external_name, 'Model','field should be called Model')
+	_self.assert_equals (lfields[:model].print_width, 50.0,' Expecting the model field to be of length 50.0')
+_endmethod
+$
+
+
+_method tc!sheath_spec.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!sheath_spec)
+_endmethod
+$
+
+
+## testing for class pole
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!pole.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:pole]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_location_1], 'no field called cogeco_location_1')
+	_self.assert_equals (lfields[:cogeco_location_1].external_name, 'Cogeco Location 1','field should be called Cogeco Location 1')
+	_self.assert_not_unset (lfields[:cogeco_location_2], 'no field called cogeco_location_2')
+	_self.assert_equals (lfields[:cogeco_location_2].external_name, 'Cogeco Location 2','field should be called Cogeco Location 2')
+	_self.assert_not_unset (lfields[:cogeco_location_3], 'no field called cogeco_location_3')
+	_self.assert_equals (lfields[:cogeco_location_3].external_name, 'Cogeco Location 3','field should be called Cogeco Location 3')
+	_self.assert_not_unset (lfields[:cogeco_location_4], 'no field called cogeco_location_4')
+	_self.assert_equals (lfields[:cogeco_location_4].external_name, 'Cogeco Location 4','field should be called Cogeco Location 4')
+	_self.assert_not_unset (lfields[:cogeco_location_5], 'no field called cogeco_location_5')
+	_self.assert_equals (lfields[:cogeco_location_5].external_name, 'Cogeco Location 5','field should be called Cogeco Location 5')
+	_self.assert_not_unset (lfields[:cogeco_location_6], 'no field called cogeco_location_6')
+	_self.assert_equals (lfields[:cogeco_location_6].external_name, 'Cogeco Location 6','field should be called Cogeco Location 6')
+	_self.assert_not_unset (lfields[:cogeco_location_7], 'no field called cogeco_location_7')
+	_self.assert_equals (lfields[:cogeco_location_7].external_name, 'Cogeco Location 7','field should be called Cogeco Location 7')
+	_self.assert_not_unset (lfields[:cogeco_location_8], 'no field called cogeco_location_8')
+	_self.assert_equals (lfields[:cogeco_location_8].external_name, 'Cogeco Location 8','field should be called Cogeco Location 8')
+	_self.assert_not_unset (lfields[:cogeco_location_9], 'no field called cogeco_location_9')
+	_self.assert_equals (lfields[:cogeco_location_9].external_name, 'Cogeco Location 9','field should be called Cogeco Location 9')
+	_self.assert_not_unset (lfields[:cogeco_location_10], 'no field called cogeco_location_10')
+	_self.assert_equals (lfields[:cogeco_location_10].external_name, 'Cogeco Location 10','field should be called Cogeco Location 10')
+	_self.assert_not_unset (lfields[:cogeco_location_11], 'no field called cogeco_location_11')
+	_self.assert_equals (lfields[:cogeco_location_11].external_name, 'Cogeco Location 11','field should be called Cogeco Location 11')
+	_self.assert_not_unset (lfields[:cogeco_location_12], 'no field called cogeco_location_12')
+	_self.assert_equals (lfields[:cogeco_location_12].external_name, 'Cogeco Location 12','field should be called Cogeco Location 12')
+	_self.assert_not_unset (lfields[:cogeco_location_13], 'no field called cogeco_location_13')
+	_self.assert_equals (lfields[:cogeco_location_13].external_name, 'Cogeco Location 13','field should be called Cogeco Location 13')
+	_self.assert_not_unset (lfields[:cogeco_id_number], 'no field called cogeco_id_number')
+	_self.assert_equals (lfields[:cogeco_id_number].external_name, 'ID No.','field should be called ID No.')
+	_self.assert_equals (lfields[:cogeco_id_number].print_width, 12.0,' Expecting the cogeco_id_number field to be of length 12.0')
+	_self.assert_not_unset (lfields[:cogeco_location], 'no field called cogeco_location')
+	_self.assert_equals (lfields[:cogeco_location].external_name, 'Legacy Type','field should be called Legacy Type')
+	_self.assert_equals (lfields[:cogeco_location].print_width, 20.0,' Expecting the cogeco_location field to be of length 20.0')
+	_self.assert_not_unset (lfields[:material_type], 'no field called material_type')
+	_self.assert_equals (lfields[:material_type].external_name, 'Material Type','field should be called Material Type')
+	_self.assert_not_unset (lfields[:cogeco_height], 'no field called cogeco_height')
+	_self.assert_equals (lfields[:cogeco_height].external_name, 'Height','field should be called Height')
+	_self.assert_not_unset (lfields[:cogeco_address], 'no field called cogeco_address')
+	_self.assert_equals (lfields[:cogeco_address].external_name, 'Address','field should be called Address')
+	_self.assert_equals (lfields[:cogeco_address].print_width, 75.0,' Expecting the cogeco_address field to be of length 75.0')
+	_self.assert_not_unset (lfields[:cogeco_owner], 'no field called cogeco_owner')
+	_self.assert_equals (lfields[:cogeco_owner].external_name, 'Owner','field should be called Owner')
+	_self.assert_equals (lfields[:cogeco_owner].print_width, 20.0,' Expecting the cogeco_owner field to be of length 20.0')
+	_self.assert_not_unset (lfields[:cogeco_label], 'no field called cogeco_label')
+	_self.assert_equals (lfields[:cogeco_label].external_name, 'Label','field should be called Label')
+	_self.assert_equals (lfields[:cogeco_label].print_width, 20.0,' Expecting the cogeco_label field to be of length 20.0')
+	_self.assert_not_unset (lfields[:cogeco_is_joint_use], 'no field called cogeco_is_joint_use')
+	_self.assert_equals (lfields[:cogeco_is_joint_use].external_name, 'Joint Use?','field should be called Joint Use?')
+	_self.assert_not_unset (lfields[:cogeco_is_service_pole], 'no field called cogeco_is_service_pole')
+	_self.assert_equals (lfields[:cogeco_is_service_pole].external_name, 'Service Pole?','field should be called Service Pole?')
+	_self.assert_not_unset (lfields[:usage], 'no field called usage')
+	_self.assert_equals (lfields[:usage].external_name, 'Usage','field should be called Usage')
+	_self.assert_not_unset (lfields[:cogeco_operational_status], 'no field called cogeco_operational_status')
+	_self.assert_equals (lfields[:cogeco_operational_status].external_name, 'Operational Status','field should be called Operational Status')
+	_self.assert_not_unset (lfields[:cogeco_legacy_pole], 'no field called cogeco_legacy_pole')
+	_self.assert_equals (lfields[:cogeco_legacy_pole].external_name, 'Legacy Pole?','field should be called Legacy Pole?')
+	_self.assert_not_unset (lfields[:telco_pole_tag], 'no field called telco_pole_tag')
+	_self.assert_equals (lfields[:telco_pole_tag].external_name, 'Telco Pole Tag','field should be called Telco Pole Tag')
+	_self.assert_equals (lfields[:telco_pole_tag].print_width, 20.0,' Expecting the telco_pole_tag field to be of length 20.0')
+	_self.assert_not_unset (lfields[:cogeco_class], 'no field called cogeco_class')
+	_self.assert_equals (lfields[:cogeco_class].external_name, 'Class','field should be called Class')
+	_self.assert_not_unset (lfields[:cogeco_permit_number], 'no field called cogeco_permit_number')
+	_self.assert_equals (lfields[:cogeco_permit_number].external_name, 'Permit No.','field should be called Permit No.')
+	_self.assert_equals (lfields[:cogeco_permit_number].print_width, 15.0,' Expecting the cogeco_permit_number field to be of length 15.0')
+	_self.assert_not_unset (lfields[:power_pole_tag], 'no field called power_pole_tag')
+	_self.assert_equals (lfields[:power_pole_tag].external_name, 'Power Pole Tag','field should be called Power Pole Tag')
+	_self.assert_equals (lfields[:power_pole_tag].print_width, 20.0,' Expecting the power_pole_tag field to be of length 20.0')
+	_self.assert_not_unset (lfields[:cogeco_parc_number], 'no field called cogeco_parc_number')
+	_self.assert_equals (lfields[:cogeco_parc_number].external_name, 'Parc No.','field should be called Parc No.')
+	_self.assert_equals (lfields[:cogeco_parc_number].print_width, 10.0,' Expecting the cogeco_parc_number field to be of length 10.0')
+	_self.assert_not_unset (lfields[:cogeco_service_distance], 'no field called cogeco_service_distance')
+	_self.assert_equals (lfields[:cogeco_service_distance].external_name, 'Service Distance','field should be called Service Distance')
+	_self.assert_not_unset (lfields[:catv_pole_tag], 'no field called catv_pole_tag')
+	_self.assert_equals (lfields[:catv_pole_tag].external_name, 'CATV Pole Tag','field should be called CATV Pole Tag')
+	_self.assert_equals (lfields[:catv_pole_tag].print_width, 20.0,' Expecting the catv_pole_tag field to be of length 20.0')
+_endmethod
+$
+
+
+_method tc!pole.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!pole)
+_endmethod
+$
+
+
+## testing for class street
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!street.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:street]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:name], 'no field called name')
+	_self.assert_equals (lfields[:name].external_name, 'Name','field should be called Name')
+	_self.assert_equals (lfields[:name].print_width, 40.0,' Expecting the name field to be of length 40.0')
+	_self.assert_not_unset (lfields[:cogeco_community], 'no field called cogeco_community')
+	_self.assert_equals (lfields[:cogeco_community].external_name, 'Community','field should be called Community')
+	_self.assert_equals (lfields[:cogeco_community].print_width, 4.0,' Expecting the cogeco_community field to be of length 4.0')
+_endmethod
+$
+
+
+_method tc!street.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!street)
+_endmethod
+$
+
+
+## testing for class cogeco_migration_attributes
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!cogeco_migration_attributes.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:cogeco_migration_attributes]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:project_number], 'no field called project_number')
+	_self.assert_equals (lfields[:project_number].external_name, 'Project No.','field should be called Project No.')
+	_self.assert_equals (lfields[:project_number].print_width, 12.0,' Expecting the project_number field to be of length 12.0')
+	_self.assert_not_unset (lfields[:id], 'no field called id')
+	_self.assert_equals (lfields[:id].external_name, 'ID','field should be called ID')
+	_self.assert_not_unset (lfields[:manufacturer], 'no field called manufacturer')
+	_self.assert_equals (lfields[:manufacturer].external_name, 'Manufacturer','field should be called Manufacturer')
+	_self.assert_equals (lfields[:manufacturer].print_width, 50.0,' Expecting the manufacturer field to be of length 50.0')
+	_self.assert_not_unset (lfields[:std_dwg_number], 'no field called std_dwg_number')
+	_self.assert_equals (lfields[:std_dwg_number].external_name, 'DWG No.','field should be called DWG No.')
+	_self.assert_equals (lfields[:std_dwg_number].print_width, 8.0,' Expecting the std_dwg_number field to be of length 8.0')
+	_self.assert_not_unset (lfields[:ngf_id], 'no field called ngf_id')
+	_self.assert_equals (lfields[:ngf_id].external_name, 'NGF ID','field should be called NGF ID')
+	_self.assert_equals (lfields[:ngf_id].print_width, 12.0,' Expecting the ngf_id field to be of length 12.0')
+	_self.assert_not_unset (lfields[:grf_id], 'no field called grf_id')
+	_self.assert_equals (lfields[:grf_id].external_name, 'GRF ID','field should be called GRF ID')
+	_self.assert_equals (lfields[:grf_id].print_width, 12.0,' Expecting the grf_id field to be of length 12.0')
+	_self.assert_not_unset (lfields[:import_filename], 'no field called import_filename')
+	_self.assert_equals (lfields[:import_filename].external_name, 'Import Filename','field should be called Import Filename')
+	_self.assert_equals (lfields[:import_filename].print_width, 12.0,' Expecting the import_filename field to be of length 12.0')
+	_self.assert_not_unset (lfields[:year_installed], 'no field called year_installed')
+	_self.assert_equals (lfields[:year_installed].external_name, 'Year Installed','field should be called Year Installed')
+	_self.assert_not_unset (lfields[:work_order], 'no field called work_order')
+	_self.assert_equals (lfields[:work_order].external_name, 'Project No.','field should be called Project No.')
+	_self.assert_equals (lfields[:work_order].print_width, 12.0,' Expecting the work_order field to be of length 12.0')
+	_self.assert_not_unset (lfields[:tmp_str2], 'no field called tmp_str2')
+	_self.assert_equals (lfields[:tmp_str2].external_name, 'TMP STR 2','field should be called TMP STR 2')
+	_self.assert_equals (lfields[:tmp_str2].print_width, 50.0,' Expecting the tmp_str2 field to be of length 50.0')
+	_self.assert_not_unset (lfields[:tmp_str3], 'no field called tmp_str3')
+	_self.assert_equals (lfields[:tmp_str3].external_name, 'TMP STR 3','field should be called TMP STR 3')
+	_self.assert_equals (lfields[:tmp_str3].print_width, 50.0,' Expecting the tmp_str3 field to be of length 50.0')
+	_self.assert_not_unset (lfields[:tmp_str4], 'no field called tmp_str4')
+	_self.assert_equals (lfields[:tmp_str4].external_name, 'TMP STR 4','field should be called TMP STR 4')
+	_self.assert_equals (lfields[:tmp_str4].print_width, 50.0,' Expecting the tmp_str4 field to be of length 50.0')
+	_self.assert_not_unset (lfields[:tmp_str5], 'no field called tmp_str5')
+	_self.assert_equals (lfields[:tmp_str5].external_name, 'TMP STR 5','field should be called TMP STR 5')
+	_self.assert_equals (lfields[:tmp_str5].print_width, 50.0,' Expecting the tmp_str5 field to be of length 50.0')
+	_self.assert_not_unset (lfields[:tmp_dec1], 'no field called tmp_dec1')
+	_self.assert_equals (lfields[:tmp_dec1].external_name, 'TMP DEC 1','field should be called TMP DEC 1')
+	_self.assert_not_unset (lfields[:tmp_dec2], 'no field called tmp_dec2')
+	_self.assert_equals (lfields[:tmp_dec2].external_name, 'TMP DEC 2','field should be called TMP DEC 2')
+	_self.assert_not_unset (lfields[:tmp_dec3], 'no field called tmp_dec3')
+	_self.assert_equals (lfields[:tmp_dec3].external_name, 'TMP DEC 3','field should be called TMP DEC 3')
+	_self.assert_not_unset (lfields[:tmp_dec4], 'no field called tmp_dec4')
+	_self.assert_equals (lfields[:tmp_dec4].external_name, 'TMP DEC 4','field should be called TMP DEC 4')
+	_self.assert_not_unset (lfields[:tmp_dec5], 'no field called tmp_dec5')
+	_self.assert_equals (lfields[:tmp_dec5].external_name, 'TMP DEC 5','field should be called TMP DEC 5')
+	_self.assert_not_unset (lfields[:tmp_str1], 'no field called tmp_str1')
+	_self.assert_equals (lfields[:tmp_str1].external_name, 'TMP STR 1','field should be called TMP STR 1')
+	_self.assert_equals (lfields[:tmp_str1].print_width, 50.0,' Expecting the tmp_str1 field to be of length 50.0')
+_endmethod
+$
+
+
+_method tc!cogeco_migration_attributes.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!cogeco_migration_attributes)
+_endmethod
+$
+
+
+## testing for class mit_network_connection
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!mit_network_connection.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:mit_network_connection]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_id_code], 'no field called cogeco_id_code')
+	_self.assert_equals (lfields[:cogeco_id_code].external_name, 'ID Code','field should be called ID Code')
+	_self.assert_equals (lfields[:cogeco_id_code].print_width, 16.0,' Expecting the cogeco_id_code field to be of length 16.0')
+	_self.assert_not_unset (lfields[:cogeco_origin_id_code], 'no field called cogeco_origin_id_code')
+	_self.assert_equals (lfields[:cogeco_origin_id_code].external_name, 'Origin ID Code','field should be called Origin ID Code')
+	_self.assert_equals (lfields[:cogeco_origin_id_code].print_width, 16.0,' Expecting the cogeco_origin_id_code field to be of length 16.0')
+	_self.assert_not_unset (lfields[:cogeco_destination_id_code], 'no field called cogeco_destination_id_code')
+	_self.assert_equals (lfields[:cogeco_destination_id_code].external_name, 'Destination ID Code','field should be called Destination ID Code')
+	_self.assert_equals (lfields[:cogeco_destination_id_code].print_width, 16.0,' Expecting the cogeco_destination_id_code field to be of length 16.0')
+	_self.assert_not_unset (lfields[:cogeco_origin_port_fib_nbr], 'no field called cogeco_origin_port_fib_nbr')
+	_self.assert_equals (lfields[:cogeco_origin_port_fib_nbr].external_name, 'Origin Port/Fibre No.','field should be called Origin Port/Fibre No.')
+	_self.assert_not_unset (lfields[:cogeco_destination_port_fib_nbr], 'no field called cogeco_destination_port_fib_nbr')
+	_self.assert_equals (lfields[:cogeco_destination_port_fib_nbr].external_name, 'Destination Port/Fibre No.','field should be called Destination Port/Fibre No.')
+_endmethod
+$
+
+
+_method tc!mit_network_connection.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!mit_network_connection)
+_endmethod
+$
+
+
+## testing for class ground
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!ground.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:ground]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_location_1], 'no field called cogeco_location_1')
+	_self.assert_equals (lfields[:cogeco_location_1].external_name, 'Cogeco Location 1','field should be called Cogeco Location 1')
+	_self.assert_not_unset (lfields[:cogeco_location_2], 'no field called cogeco_location_2')
+	_self.assert_equals (lfields[:cogeco_location_2].external_name, 'Cogeco Location 2','field should be called Cogeco Location 2')
+	_self.assert_not_unset (lfields[:cogeco_type], 'no field called cogeco_type')
+	_self.assert_equals (lfields[:cogeco_type].external_name, 'Type','field should be called Type')
+	_self.assert_not_unset (lfields[:cogeco_owner], 'no field called cogeco_owner')
+	_self.assert_equals (lfields[:cogeco_owner].external_name, 'Owner','field should be called Owner')
+	_self.assert_not_unset (lfields[:cogeco_operational_status], 'no field called cogeco_operational_status')
+	_self.assert_equals (lfields[:cogeco_operational_status].external_name, 'Operational Status','field should be called Operational Status')
+_endmethod
+$
+
+
+_method tc!ground.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!ground)
+_endmethod
+$
+
+
+## testing for class uub
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!uub.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:uub]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_annotation_1], 'no field called cogeco_annotation_1')
+	_self.assert_equals (lfields[:cogeco_annotation_1].external_name, 'Cogeco Annotation 1','field should be called Cogeco Annotation 1')
+	_self.assert_not_unset (lfields[:cogeco_annotation_2], 'no field called cogeco_annotation_2')
+	_self.assert_equals (lfields[:cogeco_annotation_2].external_name, 'Cogeco Annotation 2','field should be called Cogeco Annotation 2')
+	_self.assert_not_unset (lfields[:cogeco_location_1], 'no field called cogeco_location_1')
+	_self.assert_equals (lfields[:cogeco_location_1].external_name, 'Cogeco Location 1','field should be called Cogeco Location 1')
+	_self.assert_not_unset (lfields[:cogeco_location_2], 'no field called cogeco_location_2')
+	_self.assert_equals (lfields[:cogeco_location_2].external_name, 'Cogeco Location 2','field should be called Cogeco Location 2')
+	_self.assert_not_unset (lfields[:cogeco_location_3], 'no field called cogeco_location_3')
+	_self.assert_equals (lfields[:cogeco_location_3].external_name, 'Cogeco Location 3','field should be called Cogeco Location 3')
+	_self.assert_not_unset (lfields[:cogeco_location_4], 'no field called cogeco_location_4')
+	_self.assert_equals (lfields[:cogeco_location_4].external_name, 'Cogeco Location 4','field should be called Cogeco Location 4')
+	_self.assert_not_unset (lfields[:cogeco_location_5], 'no field called cogeco_location_5')
+	_self.assert_equals (lfields[:cogeco_location_5].external_name, 'Cogeco Location 5','field should be called Cogeco Location 5')
+	_self.assert_not_unset (lfields[:cogeco_location_6], 'no field called cogeco_location_6')
+	_self.assert_equals (lfields[:cogeco_location_6].external_name, 'Cogeco Location 6','field should be called Cogeco Location 6')
+	_self.assert_not_unset (lfields[:cogeco_location_7], 'no field called cogeco_location_7')
+	_self.assert_equals (lfields[:cogeco_location_7].external_name, 'Cogeco Location 7','field should be called Cogeco Location 7')
+	_self.assert_not_unset (lfields[:cogeco_location_8], 'no field called cogeco_location_8')
+	_self.assert_equals (lfields[:cogeco_location_8].external_name, 'Cogeco Location 8','field should be called Cogeco Location 8')
+	_self.assert_not_unset (lfields[:cogeco_location_9], 'no field called cogeco_location_9')
+	_self.assert_equals (lfields[:cogeco_location_9].external_name, 'Cogeco Location 9','field should be called Cogeco Location 9')
+	_self.assert_not_unset (lfields[:cogeco_location_10], 'no field called cogeco_location_10')
+	_self.assert_equals (lfields[:cogeco_location_10].external_name, 'Cogeco Location 10','field should be called Cogeco Location 10')
+	_self.assert_not_unset (lfields[:cogeco_location_11], 'no field called cogeco_location_11')
+	_self.assert_equals (lfields[:cogeco_location_11].external_name, 'Cogeco Location 11','field should be called Cogeco Location 11')
+	_self.assert_not_unset (lfields[:label], 'no field called label')
+	_self.assert_equals (lfields[:label].external_name, 'Label','field should be called Label')
+	_self.assert_equals (lfields[:label].print_width, 20.0,' Expecting the label field to be of length 20.0')
+	_self.assert_not_unset (lfields[:cogeco_size], 'no field called cogeco_size')
+	_self.assert_equals (lfields[:cogeco_size].external_name, 'Size','field should be called Size')
+	_self.assert_equals (lfields[:cogeco_size].print_width, 10.0,' Expecting the cogeco_size field to be of length 10.0')
+	_self.assert_not_unset (lfields[:cogeco_location], 'no field called cogeco_location')
+	_self.assert_equals (lfields[:cogeco_location].external_name, 'Legacy Location','field should be called Legacy Location')
+	_self.assert_equals (lfields[:cogeco_location].print_width, 30.0,' Expecting the cogeco_location field to be of length 30.0')
+	_self.assert_not_unset (lfields[:cogeco_owner], 'no field called cogeco_owner')
+	_self.assert_equals (lfields[:cogeco_owner].external_name, 'Owner','field should be called Owner')
+	_self.assert_equals (lfields[:cogeco_owner].print_width, 20.0,' Expecting the cogeco_owner field to be of length 20.0')
+	_self.assert_not_unset (lfields[:cogeco_model_number], 'no field called cogeco_model_number')
+	_self.assert_equals (lfields[:cogeco_model_number].external_name, 'Model No.','field should be called Model No.')
+	_self.assert_equals (lfields[:cogeco_model_number].print_width, 20.0,' Expecting the cogeco_model_number field to be of length 20.0')
+	_self.assert_not_unset (lfields[:cogeco_type], 'no field called cogeco_type')
+	_self.assert_equals (lfields[:cogeco_type].external_name, 'Legacy Type','field should be called Legacy Type')
+	_self.assert_equals (lfields[:cogeco_type].print_width, 20.0,' Expecting the cogeco_type field to be of length 20.0')
+	_self.assert_not_unset (lfields[:cogeco_house_count], 'no field called cogeco_house_count')
+	_self.assert_equals (lfields[:cogeco_house_count].external_name, 'House Count','field should be called House Count')
+	_self.assert_not_unset (lfields[:cogeco_potential_count], 'no field called cogeco_potential_count')
+	_self.assert_equals (lfields[:cogeco_potential_count].external_name, 'Potential Count','field should be called Potential Count')
+	_self.assert_not_unset (lfields[:cogeco_class], 'no field called cogeco_class')
+	_self.assert_equals (lfields[:cogeco_class].external_name, 'Class','field should be called Class')
+	_self.assert_not_unset (lfields[:cogeco_operational_status], 'no field called cogeco_operational_status')
+	_self.assert_equals (lfields[:cogeco_operational_status].external_name, 'Operational Status','field should be called Operational Status')
+	_self.assert_not_unset (lfields[:cogeco_address], 'no field called cogeco_address')
+	_self.assert_equals (lfields[:cogeco_address].external_name, 'Address','field should be called Address')
+	_self.assert_equals (lfields[:cogeco_address].print_width, 75.0,' Expecting the cogeco_address field to be of length 75.0')
+	_self.assert_not_unset (lfields[:cogeco_service_distance], 'no field called cogeco_service_distance')
+	_self.assert_equals (lfields[:cogeco_service_distance].external_name, 'Distance','field should be called Distance')
+	_self.assert_not_unset (lfields[:cogeco_catv_tag], 'no field called cogeco_catv_tag')
+	_self.assert_equals (lfields[:cogeco_catv_tag].external_name, 'CATV Tag','field should be called CATV Tag')
+	_self.assert_equals (lfields[:cogeco_catv_tag].print_width, 15.0,' Expecting the cogeco_catv_tag field to be of length 15.0')
+	_self.assert_not_unset (lfields[:cogeco_model], 'no field called cogeco_model')
+	_self.assert_equals (lfields[:cogeco_model].external_name, 'Model','field should be called Model')
+	_self.assert_equals (lfields[:cogeco_model].print_width, 50.0,' Expecting the cogeco_model field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_length], 'no field called cogeco_length')
+	_self.assert_equals (lfields[:cogeco_length].external_name, 'Length','field should be called Length')
+	_self.assert_not_unset (lfields[:width], 'no field called width')
+	_self.assert_equals (lfields[:width].external_name, 'Width','field should be called Width')
+	_self.assert_not_unset (lfields[:depth], 'no field called depth')
+	_self.assert_equals (lfields[:depth].external_name, 'Depth','field should be called Depth')
+	_self.assert_not_unset (lfields[:cogeco_permit_no], 'no field called cogeco_permit_no')
+	_self.assert_equals (lfields[:cogeco_permit_no].external_name, 'Permit No.','field should be called Permit No.')
+	_self.assert_equals (lfields[:cogeco_permit_no].print_width, 10.0,' Expecting the cogeco_permit_no field to be of length 10.0')
+_endmethod
+$
+
+
+_method tc!uub.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!uub)
+_endmethod
+$
+
+
+## testing for class sheath_with_loc
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!sheath_with_loc.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:sheath_with_loc]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_route_1], 'no field called cogeco_route_1')
+	_self.assert_equals (lfields[:cogeco_route_1].external_name, 'Cogeco Route 1','field should be called Cogeco Route 1')
+	_self.assert_not_unset (lfields[:cogeco_route_2], 'no field called cogeco_route_2')
+	_self.assert_equals (lfields[:cogeco_route_2].external_name, 'Cogeco Route 2','field should be called Cogeco Route 2')
+	_self.assert_not_unset (lfields[:cogeco_route_3], 'no field called cogeco_route_3')
+	_self.assert_equals (lfields[:cogeco_route_3].external_name, 'Cogeco Route 3','field should be called Cogeco Route 3')
+	_self.assert_not_unset (lfields[:cogeco_route_4], 'no field called cogeco_route_4')
+	_self.assert_equals (lfields[:cogeco_route_4].external_name, 'Cogeco Route 4','field should be called Cogeco Route 4')
+	_self.assert_not_unset (lfields[:cogeco_route_5], 'no field called cogeco_route_5')
+	_self.assert_equals (lfields[:cogeco_route_5].external_name, 'Cogeco Route 5','field should be called Cogeco Route 5')
+	_self.assert_not_unset (lfields[:cogeco_route_6], 'no field called cogeco_route_6')
+	_self.assert_equals (lfields[:cogeco_route_6].external_name, 'Cogeco Route 6','field should be called Cogeco Route 6')
+	_self.assert_not_unset (lfields[:cogeco_route_7], 'no field called cogeco_route_7')
+	_self.assert_equals (lfields[:cogeco_route_7].external_name, 'Cogeco Route 7','field should be called Cogeco Route 7')
+	_self.assert_not_unset (lfields[:cogeco_route_8], 'no field called cogeco_route_8')
+	_self.assert_equals (lfields[:cogeco_route_8].external_name, 'Cogeco Route 8','field should be called Cogeco Route 8')
+	_self.assert_not_unset (lfields[:cogeco_legacy_name], 'no field called cogeco_legacy_name')
+	_self.assert_equals (lfields[:cogeco_legacy_name].external_name, 'Legacy Name','field should be called Legacy Name')
+	_self.assert_equals (lfields[:cogeco_legacy_name].print_width, 50.0,' Expecting the cogeco_legacy_name field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_id_number], 'no field called cogeco_id_number')
+	_self.assert_equals (lfields[:cogeco_id_number].external_name, 'ID No.','field should be called ID No.')
+	_self.assert_equals (lfields[:cogeco_id_number].print_width, 50.0,' Expecting the cogeco_id_number field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_cable_type], 'no field called cogeco_cable_type')
+	_self.assert_equals (lfields[:cogeco_cable_type].external_name, 'Cable Type','field should be called Cable Type')
+	_self.assert_equals (lfields[:cogeco_cable_type].print_width, 20.0,' Expecting the cogeco_cable_type field to be of length 20.0')
+	_self.assert_not_unset (lfields[:cogeco_fiber_type], 'no field called cogeco_fiber_type')
+	_self.assert_equals (lfields[:cogeco_fiber_type].external_name, 'Fibre Type','field should be called Fibre Type')
+	_self.assert_equals (lfields[:cogeco_fiber_type].print_width, 20.0,' Expecting the cogeco_fiber_type field to be of length 20.0')
+	_self.assert_not_unset (lfields[:cogeco_origin_reel_measurement], 'no field called cogeco_origin_reel_measurement')
+	_self.assert_equals (lfields[:cogeco_origin_reel_measurement].external_name, 'Origin Reel Measurement','field should be called Origin Reel Measurement')
+	_self.assert_not_unset (lfields[:cogeco_dest_reel_measurement], 'no field called cogeco_dest_reel_measurement')
+	_self.assert_equals (lfields[:cogeco_dest_reel_measurement].external_name, 'Destination Reel Measurement','field should be called Destination Reel Measurement')
+	_self.assert_not_unset (lfields[:measured_length], 'no field called measured_length')
+	_self.assert_equals (lfields[:measured_length].external_name, 'Measured Length','field should be called Measured Length')
+	_self.assert_not_unset (lfields[:cogeco_helix_factor], 'no field called cogeco_helix_factor')
+	_self.assert_equals (lfields[:cogeco_helix_factor].external_name, 'Helix Factor','field should be called Helix Factor')
+	_self.assert_not_unset (lfields[:cogeco_number_of_fibers], 'no field called cogeco_number_of_fibers')
+	_self.assert_equals (lfields[:cogeco_number_of_fibers].external_name, 'No. of Fibres','field should be called No. of Fibres')
+	_self.assert_not_unset (lfields[:cogeco_number_of_tubes], 'no field called cogeco_number_of_tubes')
+	_self.assert_equals (lfields[:cogeco_number_of_tubes].external_name, 'No. of Tubes','field should be called No. of Tubes')
+	_self.assert_not_unset (lfields[:cogeco_number_of_slacks], 'no field called cogeco_number_of_slacks')
+	_self.assert_equals (lfields[:cogeco_number_of_slacks].external_name, 'No. of Slacks','field should be called No. of Slacks')
+	_self.assert_not_unset (lfields[:cogeco_flag], 'no field called cogeco_flag')
+	_self.assert_equals (lfields[:cogeco_flag].external_name, 'Flag','field should be called Flag')
+	_self.assert_equals (lfields[:cogeco_flag].print_width, 10.0,' Expecting the cogeco_flag field to be of length 10.0')
+	_self.assert_not_unset (lfields[:cogeco_type], 'no field called cogeco_type')
+	_self.assert_equals (lfields[:cogeco_type].external_name, 'Type','field should be called Type')
+	_self.assert_equals (lfields[:cogeco_type].print_width, 50.0,' Expecting the cogeco_type field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_model], 'no field called cogeco_model')
+	_self.assert_equals (lfields[:cogeco_model].external_name, 'Model','field should be called Model')
+	_self.assert_equals (lfields[:cogeco_model].print_width, 50.0,' Expecting the cogeco_model field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_nb_fibre_needed], 'no field called cogeco_nb_fibre_needed')
+	_self.assert_equals (lfields[:cogeco_nb_fibre_needed].external_name, 'No. of Fibres Needed','field should be called No. of Fibres Needed')
+	_self.assert_not_unset (lfields[:cogeco_nb_fibre], 'no field called cogeco_nb_fibre')
+	_self.assert_equals (lfields[:cogeco_nb_fibre].external_name, 'No. of Fibres','field should be called No. of Fibres')
+	_self.assert_not_unset (lfields[:cogeco_calculate_value], 'no field called cogeco_calculate_value')
+	_self.assert_equals (lfields[:cogeco_calculate_value].external_name, 'Calculate Value?','field should be called Calculate Value?')
+	_self.assert_not_unset (lfields[:cogeco_calculate_needed_value], 'no field called cogeco_calculate_needed_value')
+	_self.assert_equals (lfields[:cogeco_calculate_needed_value].external_name, 'Calculate Needed Value?','field should be called Calculate Needed Value?')
+	_self.assert_not_unset (lfields[:cogeco_lcp], 'no field called cogeco_lcp')
+	_self.assert_equals (lfields[:cogeco_lcp].external_name, 'LCP','field should be called LCP')
+	_self.assert_equals (lfields[:cogeco_lcp].print_width, 10.0,' Expecting the cogeco_lcp field to be of length 10.0')
+	_self.assert_not_unset (lfields[:cogeco_lcp_offset], 'no field called cogeco_lcp_offset')
+	_self.assert_equals (lfields[:cogeco_lcp_offset].external_name, 'LCP Offset','field should be called LCP Offset')
+	_self.assert_not_unset (lfields[:cogeco_status], 'no field called cogeco_status')
+	_self.assert_equals (lfields[:cogeco_status].external_name, 'Legacy Status','field should be called Legacy Status')
+	_self.assert_equals (lfields[:cogeco_status].print_width, 50.0,' Expecting the cogeco_status field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_operational_status], 'no field called cogeco_operational_status')
+	_self.assert_equals (lfields[:cogeco_operational_status].external_name, 'Operational Status','field should be called Operational Status')
+	_self.assert_not_unset (lfields[:cogeco_sheath_usage], 'no field called cogeco_sheath_usage')
+	_self.assert_equals (lfields[:cogeco_sheath_usage].external_name, 'Usage','field should be called Usage')
+	_self.assert_not_unset (lfields[:cogeco_owner], 'no field called cogeco_owner')
+	_self.assert_equals (lfields[:cogeco_owner].external_name, 'Owner','field should be called Owner')
+	_self.assert_equals (lfields[:cogeco_owner].print_width, 50.0,' Expecting the cogeco_owner field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_number_of_fibres], 'no field called cogeco_number_of_fibres')
+	_self.assert_equals (lfields[:cogeco_number_of_fibres].external_name, 'No. of Fibres','field should be called No. of Fibres')
+	_self.assert_not_unset (lfields[:cogeco_nb_fibre_per_tube], 'no field called cogeco_nb_fibre_per_tube')
+	_self.assert_equals (lfields[:cogeco_nb_fibre_per_tube].external_name, 'No. of Fibres per Tube','field should be called No. of Fibres per Tube')
+	_self.assert_not_unset (lfields[:name], 'no field called name')
+	_self.assert_equals (lfields[:name].external_name, 'Name','field should be called ')
+	_self.assert_equals (lfields[:name].print_width, 50.0,' Expecting the name field to be of length 50.0')
+_endmethod
+$
+
+
+_method tc!sheath_with_loc.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!sheath_with_loc)
+_endmethod
+$
+
+
+## testing for class conduit_spec
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!conduit_spec.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:conduit_spec]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:inner_diameter], 'no field called inner_diameter')
+	_self.assert_equals (lfields[:inner_diameter].external_name, 'Inner Diameter','field should be called Inner Diameter')
+	_self.assert_not_unset (lfields[:material], 'no field called material')
+	_self.assert_equals (lfields[:material].external_name, 'Material','field should be called Material')
+	_self.assert_equals (lfields[:material].print_width, 20.0,' Expecting the material field to be of length 20.0')
+	_self.assert_not_unset (lfields[:color], 'no field called color')
+	_self.assert_equals (lfields[:color].external_name, 'Colour','field should be called Colour')
+_endmethod
+$
+
+
+_method tc!conduit_spec.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!conduit_spec)
+_endmethod
+$
+
+
+## testing for class optical_node_spec
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!optical_node_spec.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:optical_node_spec]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_number_of_fibre_ports], 'no field called cogeco_number_of_fibre_ports')
+	_self.assert_equals (lfields[:cogeco_number_of_fibre_ports].external_name, 'No. of Fibre Ports','field should be called No. of Fibre Ports')
+	_self.assert_not_unset (lfields[:cogeco_station_model_number], 'no field called cogeco_station_model_number')
+	_self.assert_equals (lfields[:cogeco_station_model_number].external_name, 'Station Model No.','field should be called Station Model No.')
+	_self.assert_equals (lfields[:cogeco_station_model_number].print_width, 15.0,' Expecting the cogeco_station_model_number field to be of length 15.0')
+	_self.assert_not_unset (lfields[:cogeco_model], 'no field called cogeco_model')
+	_self.assert_equals (lfields[:cogeco_model].external_name, 'Legacy Model','field should be called Legacy Model')
+	_self.assert_equals (lfields[:cogeco_model].print_width, 50.0,' Expecting the cogeco_model field to be of length 50.0')
+_endmethod
+$
+
+
+_method tc!optical_node_spec.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!optical_node_spec)
+_endmethod
+$
+
+
+## testing for class mit_shelf
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!mit_shelf.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:mit_shelf]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_id_code], 'no field called cogeco_id_code')
+	_self.assert_equals (lfields[:cogeco_id_code].external_name, 'ID Code','field should be called ID Code')
+	_self.assert_equals (lfields[:cogeco_id_code].print_width, 16.0,' Expecting the cogeco_id_code field to be of length 16.0')
+	_self.assert_not_unset (lfields[:cogeco_patch_panel_description], 'no field called cogeco_patch_panel_description')
+	_self.assert_equals (lfields[:cogeco_patch_panel_description].external_name, 'Patch Panel Description','field should be called Patch Panel Description')
+	_self.assert_equals (lfields[:cogeco_patch_panel_description].print_width, 50.0,' Expecting the cogeco_patch_panel_description field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_node_number], 'no field called cogeco_node_number')
+	_self.assert_equals (lfields[:cogeco_node_number].external_name, 'Node No.','field should be called Node No.')
+	_self.assert_equals (lfields[:cogeco_node_number].print_width, 15.0,' Expecting the cogeco_node_number field to be of length 15.0')
+	_self.assert_not_unset (lfields[:cogeco_location], 'no field called cogeco_location')
+	_self.assert_equals (lfields[:cogeco_location].external_name, 'Location','field should be called Location')
+	_self.assert_equals (lfields[:cogeco_location].print_width, 50.0,' Expecting the cogeco_location field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_type], 'no field called cogeco_type')
+	_self.assert_equals (lfields[:cogeco_type].external_name, 'Type','field should be called Type')
+	_self.assert_equals (lfields[:cogeco_type].print_width, 20.0,' Expecting the cogeco_type field to be of length 20.0')
+	_self.assert_not_unset (lfields[:cogeco_number_of_entry_ports], 'no field called cogeco_number_of_entry_ports')
+	_self.assert_equals (lfields[:cogeco_number_of_entry_ports].external_name, 'No. of Entry Ports','field should be called No. of Entry Ports')
+	_self.assert_not_unset (lfields[:cogeco_number_of_panel_ports], 'no field called cogeco_number_of_panel_ports')
+	_self.assert_equals (lfields[:cogeco_number_of_panel_ports].external_name, 'No. of Panel Ports','field should be called No. of Panel Ports')
+	_self.assert_not_unset (lfields[:cogeco_nb_connector], 'no field called cogeco_nb_connector')
+	_self.assert_equals (lfields[:cogeco_nb_connector].external_name, 'No. of Connectors','field should be called No. of Connectors')
+	_self.assert_not_unset (lfields[:ne_name], 'no field called ne_name')
+	_self.assert_equals (lfields[:ne_name].external_name, 'NE Name','field should be called NE Name')
+	_self.assert_equals (lfields[:ne_name].print_width, 50.0,' Expecting the ne_name field to be of length 50.0')
+	_self.assert_not_unset (lfields[:description], 'no field called description')
+	_self.assert_equals (lfields[:description].external_name, 'Description','field should be called Description')
+	_self.assert_equals (lfields[:description].print_width, 50.0,' Expecting the description field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_fo_equip_number_of_ports], 'no field called cogeco_fo_equip_number_of_ports')
+	_self.assert_equals (lfields[:cogeco_fo_equip_number_of_ports].external_name, 'No. of Equipment Ports','field should be called No. of Equipment Ports')
+_endmethod
+$
+
+
+_method tc!mit_shelf.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!mit_shelf)
+_endmethod
+$
+
+
+## testing for class figure_eight
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!figure_eight.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:figure_eight]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_annotation_1], 'no field called cogeco_annotation_1')
+	_self.assert_equals (lfields[:cogeco_annotation_1].external_name, 'Cogeco Annotation 1','field should be called Cogeco Annotation 1')
+	_self.assert_not_unset (lfields[:cogeco_location_1], 'no field called cogeco_location_1')
+	_self.assert_equals (lfields[:cogeco_location_1].external_name, 'Cogeco Location 1','field should be called Cogeco Location 1')
+	_self.assert_not_unset (lfields[:cogeco_location_2], 'no field called cogeco_location_2')
+	_self.assert_equals (lfields[:cogeco_location_2].external_name, 'Cogeco Location 2','field should be called Cogeco Location 2')
+	_self.assert_not_unset (lfields[:cogeco_location_3], 'no field called cogeco_location_3')
+	_self.assert_equals (lfields[:cogeco_location_3].external_name, 'Cogeco Location 3','field should be called Cogeco Location 3')
+	_self.assert_not_unset (lfields[:cogeco_type_annotation], 'no field called cogeco_type_annotation')
+	_self.assert_equals (lfields[:cogeco_type_annotation].external_name, 'Cogeco Type Annotation','field should be called Cogeco Type Annotation')
+	_self.assert_not_unset (lfields[:length], 'no field called length')
+	_self.assert_equals (lfields[:length].external_name, 'Length','field should be called Length')
+	_self.assert_not_unset (lfields[:cogeco_operational_status], 'no field called cogeco_operational_status')
+	_self.assert_equals (lfields[:cogeco_operational_status].external_name, 'Operational Status','field should be called Operational Status')
+	_self.assert_not_unset (lfields[:cogeco_location], 'no field called cogeco_location')
+	_self.assert_equals (lfields[:cogeco_location].external_name, 'Legacy Location','field should be called Legacy Location')
+	_self.assert_equals (lfields[:cogeco_location].print_width, 30.0,' Expecting the cogeco_location field to be of length 30.0')
+	_self.assert_not_unset (lfields[:type], 'no field called type')
+	_self.assert_equals (lfields[:type].external_name, 'Type','field should be called Type')
+	_self.assert_not_unset (lfields[:cogeco_description], 'no field called cogeco_description')
+	_self.assert_equals (lfields[:cogeco_description].external_name, 'Description','field should be called Description')
+	_self.assert_equals (lfields[:cogeco_description].print_width, 50.0,' Expecting the cogeco_description field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_legacy_name], 'no field called cogeco_legacy_name')
+	_self.assert_equals (lfields[:cogeco_legacy_name].external_name, 'Legacy Name','field should be called Legacy Name')
+	_self.assert_equals (lfields[:cogeco_legacy_name].print_width, 50.0,' Expecting the cogeco_legacy_name field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_type_annotation_text], 'no field called cogeco_type_annotation_text')
+	_self.assert_equals (lfields[:cogeco_type_annotation_text].external_name, 'Type Annotation Text','field should be called Type Annotation Text')
+	_self.assert_equals (lfields[:cogeco_type_annotation_text].print_width, 50.0,' Expecting the cogeco_type_annotation_text field to be of length 50.0')
+_endmethod
+$
+
+
+_method tc!figure_eight.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!figure_eight)
+_endmethod
+$
+
+
+## testing for class aerial_route
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!aerial_route.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:aerial_route]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_route_1], 'no field called cogeco_route_1')
+	_self.assert_equals (lfields[:cogeco_route_1].external_name, 'Cogeco Route 1','field should be called Cogeco Route 1')
+	_self.assert_not_unset (lfields[:cogeco_route_2], 'no field called cogeco_route_2')
+	_self.assert_equals (lfields[:cogeco_route_2].external_name, 'Cogeco Route 2','field should be called Cogeco Route 2')
+	_self.assert_not_unset (lfields[:cogeco_route_3], 'no field called cogeco_route_3')
+	_self.assert_equals (lfields[:cogeco_route_3].external_name, 'Cogeco Route 3','field should be called Cogeco Route 3')
+	_self.assert_not_unset (lfields[:cogeco_route_4], 'no field called cogeco_route_4')
+	_self.assert_equals (lfields[:cogeco_route_4].external_name, 'Cogeco Route 4','field should be called Cogeco Route 4')
+	_self.assert_not_unset (lfields[:cogeco_route_5], 'no field called cogeco_route_5')
+	_self.assert_equals (lfields[:cogeco_route_5].external_name, 'Cogeco Route 5','field should be called Cogeco Route 5')
+	_self.assert_not_unset (lfields[:cogeco_size], 'no field called cogeco_size')
+	_self.assert_equals (lfields[:cogeco_size].external_name, 'Size','field should be called Size')
+	_self.assert_not_unset (lfields[:cogeco_owner], 'no field called cogeco_owner')
+	_self.assert_equals (lfields[:cogeco_owner].external_name, 'Owner','field should be called Owner')
+	_self.assert_equals (lfields[:cogeco_owner].print_width, 20.0,' Expecting the cogeco_owner field to be of length 20.0')
+	_self.assert_not_unset (lfields[:measured_length], 'no field called measured_length')
+	_self.assert_equals (lfields[:measured_length].external_name, 'Measured Length','field should be called Measured Length')
+	_self.assert_not_unset (lfields[:cogeco_operational_status], 'no field called cogeco_operational_status')
+	_self.assert_equals (lfields[:cogeco_operational_status].external_name, 'Operational Status','field should be called Operational Status')
+	_self.assert_not_unset (lfields[:cogeco_is_front_lot], 'no field called cogeco_is_front_lot')
+	_self.assert_equals (lfields[:cogeco_is_front_lot].external_name, 'Front Lot?','field should be called Front Lot?')
+	_self.assert_not_unset (lfields[:cogeco_usage], 'no field called cogeco_usage')
+	_self.assert_equals (lfields[:cogeco_usage].external_name, 'Owner','field should be called Owner')
+	_self.assert_not_unset (lfields[:cogeco_strands], 'no field called cogeco_strands')
+	_self.assert_equals (lfields[:cogeco_strands].external_name, 'Strands','field should be called Strands')
+_endmethod
+$
+
+
+_method tc!aerial_route.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!aerial_route)
+_endmethod
+$
+
+
+## testing for class cogeco_splice_tray_detail
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!cogeco_splice_tray_detail.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:cogeco_splice_tray_detail]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:SPLICE_TRAY_1], 'no field called SPLICE_TRAY_1')
+	_self.assert_equals (lfields[:SPLICE_TRAY_1].external_name, 'Splice Tray 1','field should be called Splice Tray 1')
+	_self.assert_not_unset (lfields[:SPLICE_TRAY_2], 'no field called SPLICE_TRAY_2')
+	_self.assert_equals (lfields[:SPLICE_TRAY_2].external_name, 'Splice Tray 2','field should be called Splice Tray 2')
+	_self.assert_not_unset (lfields[:SPLICE_TRAY_3], 'no field called SPLICE_TRAY_3')
+	_self.assert_equals (lfields[:SPLICE_TRAY_3].external_name, 'Splice Tray 3','field should be called Splice Tray 3')
+	_self.assert_not_unset (lfields[:SPLICE_TRAY_4], 'no field called SPLICE_TRAY_4')
+	_self.assert_equals (lfields[:SPLICE_TRAY_4].external_name, 'Splice Tray 4','field should be called Splice Tray 4')
+	_self.assert_not_unset (lfields[:SPLICE_TRAY_5], 'no field called SPLICE_TRAY_5')
+	_self.assert_equals (lfields[:SPLICE_TRAY_5].external_name, 'Splice Tray 5','field should be called Splice Tray 5')
+	_self.assert_not_unset (lfields[:SPLICE_TRAY_6], 'no field called SPLICE_TRAY_6')
+	_self.assert_equals (lfields[:SPLICE_TRAY_6].external_name, 'Splice Tray 6','field should be called Splice Tray 6')
+	_self.assert_not_unset (lfields[:SPLICE_TRAY_7], 'no field called SPLICE_TRAY_7')
+	_self.assert_equals (lfields[:SPLICE_TRAY_7].external_name, 'Splice Tray 7','field should be called Splice Tray 7')
+	_self.assert_not_unset (lfields[:SPLICE_TRAY_8], 'no field called SPLICE_TRAY_8')
+	_self.assert_equals (lfields[:SPLICE_TRAY_8].external_name, 'Splice Tray 8','field should be called Splice Tray 8')
+	_self.assert_not_unset (lfields[:SPLICE_TRAY_9], 'no field called SPLICE_TRAY_9')
+	_self.assert_equals (lfields[:SPLICE_TRAY_9].external_name, 'Splice Tray 9','field should be called Splice Tray 9')
+	_self.assert_not_unset (lfields[:SPLICE_TRAY_10], 'no field called SPLICE_TRAY_10')
+	_self.assert_equals (lfields[:SPLICE_TRAY_10].external_name, 'Splice Tray 10','field should be called Splice Tray 10')
+	_self.assert_not_unset (lfields[:SPLICE_TRAY_11], 'no field called SPLICE_TRAY_11')
+	_self.assert_equals (lfields[:SPLICE_TRAY_11].external_name, 'Splice Tray 11','field should be called Splice Tray 11')
+	_self.assert_not_unset (lfields[:SPLICE_TRAY_12], 'no field called SPLICE_TRAY_12')
+	_self.assert_equals (lfields[:SPLICE_TRAY_12].external_name, 'Splice Tray 12','field should be called Splice Tray 12')
+	_self.assert_not_unset (lfields[:id], 'no field called id')
+	_self.assert_equals (lfields[:id].external_name, 'ID','field should be called ID')
+_endmethod
+$
+
+
+_method tc!cogeco_splice_tray_detail.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!cogeco_splice_tray_detail)
+_endmethod
+$
+
+
+## testing for class sheath_with_loc_terminal
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!sheath_with_loc_terminal.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:sheath_with_loc_terminal]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_annotation_1], 'no field called cogeco_annotation_1')
+	_self.assert_equals (lfields[:cogeco_annotation_1].external_name, 'Cogeco Annotation 1','field should be called Cogeco Annotation 1')
+	_self.assert_not_unset (lfields[:cogeco_location_1], 'no field called cogeco_location_1')
+	_self.assert_equals (lfields[:cogeco_location_1].external_name, 'Cogeco Location 1','field should be called Cogeco Location 1')
+	_self.assert_not_unset (lfields[:name], 'no field called name')
+	_self.assert_equals (lfields[:name].external_name, 'Name','field should be called Name')
+	_self.assert_equals (lfields[:name].print_width, 50.0,' Expecting the name field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_nap_type], 'no field called cogeco_nap_type')
+	_self.assert_equals (lfields[:cogeco_nap_type].external_name, 'Type','field should be called Type')
+	_self.assert_not_unset (lfields[:cogeco_model], 'no field called cogeco_model')
+	_self.assert_equals (lfields[:cogeco_model].external_name, 'Model','field should be called Model')
+	_self.assert_equals (lfields[:cogeco_model].print_width, 50.0,' Expecting the cogeco_model field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_size], 'no field called cogeco_size')
+	_self.assert_equals (lfields[:cogeco_size].external_name, 'Size','field should be called Size')
+	_self.assert_not_unset (lfields[:cogeco_nb_ports_needed], 'no field called cogeco_nb_ports_needed')
+	_self.assert_equals (lfields[:cogeco_nb_ports_needed].external_name, 'No. of Ports Needed','field should be called No. of Ports Needed')
+	_self.assert_not_unset (lfields[:cogeco_calculate_value], 'no field called cogeco_calculate_value')
+	_self.assert_equals (lfields[:cogeco_calculate_value].external_name, 'Calculate Value?','field should be called Calculate Value?')
+	_self.assert_not_unset (lfields[:cogeco_stub_length], 'no field called cogeco_stub_length')
+	_self.assert_equals (lfields[:cogeco_stub_length].external_name, 'Stub Length','field should be called Stub Length')
+	_self.assert_not_unset (lfields[:cogeco_address], 'no field called cogeco_address')
+	_self.assert_equals (lfields[:cogeco_address].external_name, 'Address','field should be called Address')
+	_self.assert_equals (lfields[:cogeco_address].print_width, 50.0,' Expecting the cogeco_address field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_lcp], 'no field called cogeco_lcp')
+	_self.assert_equals (lfields[:cogeco_lcp].external_name, 'LCP','field should be called LCP')
+	_self.assert_equals (lfields[:cogeco_lcp].print_width, 10.0,' Expecting the cogeco_lcp field to be of length 10.0')
+	_self.assert_not_unset (lfields[:cogeco_lcp_offset], 'no field called cogeco_lcp_offset')
+	_self.assert_equals (lfields[:cogeco_lcp_offset].external_name, 'LCP Offset','field should be called LCP Offset')
+	_self.assert_not_unset (lfields[:cogeco_operational_status], 'no field called cogeco_operational_status')
+	_self.assert_equals (lfields[:cogeco_operational_status].external_name, 'Operational Status','field should be called Operational Status')
+_endmethod
+$
+
+
+_method tc!sheath_with_loc_terminal.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!sheath_with_loc_terminal)
+_endmethod
+$
+
+
+## testing for class mit_cloc_cloc_detail
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!mit_cloc_cloc_detail.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:mit_cloc_cloc_detail]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_id_code], 'no field called cogeco_id_code')
+	_self.assert_equals (lfields[:cogeco_id_code].external_name, 'ID Code','field should be called ID Code')
+	_self.assert_equals (lfields[:cogeco_id_code].print_width, 16.0,' Expecting the cogeco_id_code field to be of length 16.0')
+	_self.assert_not_unset (lfields[:cogeco_type], 'no field called cogeco_type')
+	_self.assert_equals (lfields[:cogeco_type].external_name, 'Type','field should be called Type')
+	_self.assert_equals (lfields[:cogeco_type].print_width, 20.0,' Expecting the cogeco_type field to be of length 20.0')
+	_self.assert_not_unset (lfields[:cogeco_splice_method], 'no field called cogeco_splice_method')
+	_self.assert_equals (lfields[:cogeco_splice_method].external_name, 'Splice Method','field should be called Splice Method')
+	_self.assert_not_unset (lfields[:cogeco_port_connection_type], 'no field called cogeco_port_connection_type')
+	_self.assert_equals (lfields[:cogeco_port_connection_type].external_name, 'Port Connection Type','field should be called Port Connection Type')
+_endmethod
+$
+
+
+_method tc!mit_cloc_cloc_detail.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!mit_cloc_cloc_detail)
+_endmethod
+$
+
+
+## testing for class cogeco_fibre_cell
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!cogeco_fibre_cell.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:cogeco_fibre_cell]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:name], 'no field called name')
+	_self.assert_equals (lfields[:name].external_name, 'Name','field should be called Name')
+	_self.assert_equals (lfields[:name].print_width, 32.0,' Expecting the name field to be of length 32.0')
+	_self.assert_not_unset (lfields[:id], 'no field called id')
+	_self.assert_equals (lfields[:id].external_name, 'ID','field should be called ID')
+	_self.assert_not_unset (lfields[:boundary], 'no field called boundary')
+	_self.assert_equals (lfields[:boundary].external_name, 'Boundary','field should be called Boundary')
+_endmethod
+$
+
+
+_method tc!cogeco_fibre_cell.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!cogeco_fibre_cell)
+_endmethod
+$
+
+
+## testing for class cogeco_province_boundary
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!cogeco_province_boundary.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:cogeco_province_boundary]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:boundary], 'no field called boundary')
+	_self.assert_equals (lfields[:boundary].external_name, 'Boundary','field should be called Boundary')
+	_self.assert_not_unset (lfields[:name], 'no field called name')
+	_self.assert_equals (lfields[:name].external_name, 'Name','field should be called Name')
+	_self.assert_equals (lfields[:name].print_width, 2.0,' Expecting the name field to be of length 2.0')
+	_self.assert_not_unset (lfields[:id], 'no field called id')
+	_self.assert_equals (lfields[:id].external_name, 'ID','field should be called ID')
+_endmethod
+$
+
+
+_method tc!cogeco_province_boundary.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!cogeco_province_boundary)
+_endmethod
+$
+
+
+## testing for class sheath_annotation
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!sheath_annotation.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:sheath_annotation]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_annotation_1], 'no field called cogeco_annotation_1')
+	_self.assert_equals (lfields[:cogeco_annotation_1].external_name, 'Cogeco Annotation 1','field should be called Cogeco Annotation 1')
+	_self.assert_not_unset (lfields[:cogeco_annotation_2], 'no field called cogeco_annotation_2')
+	_self.assert_equals (lfields[:cogeco_annotation_2].external_name, 'Cogeco Annotation 2','field should be called Cogeco Annotation 2')
+	_self.assert_not_unset (lfields[:cogeco_annotation_3], 'no field called cogeco_annotation_3')
+	_self.assert_equals (lfields[:cogeco_annotation_3].external_name, 'Cogeco Annotation 3','field should be called Cogeco Annotation 3')
+_endmethod
+$
+
+
+_method tc!sheath_annotation.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!sheath_annotation)
+_endmethod
+$
+
+
+## testing for class cogeco_frame
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!cogeco_frame.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:cogeco_frame]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:name], 'no field called name')
+	_self.assert_equals (lfields[:name].external_name, 'Name','field should be called Name')
+	_self.assert_equals (lfields[:name].print_width, 50.0,' Expecting the name field to be of length 50.0')
+	_self.assert_not_unset (lfields[:division], 'no field called division')
+	_self.assert_equals (lfields[:division].external_name, 'Division','field should be called Division')
+	_self.assert_equals (lfields[:division].print_width, 50.0,' Expecting the division field to be of length 50.0')
+	_self.assert_not_unset (lfields[:city], 'no field called city')
+	_self.assert_equals (lfields[:city].external_name, 'City','field should be called City')
+	_self.assert_equals (lfields[:city].print_width, 50.0,' Expecting the city field to be of length 50.0')
+	_self.assert_not_unset (lfields[:title], 'no field called title')
+	_self.assert_equals (lfields[:title].external_name, 'Title','field should be called Title')
+	_self.assert_equals (lfields[:title].print_width, 50.0,' Expecting the title field to be of length 50.0')
+	_self.assert_not_unset (lfields[:drawn_by], 'no field called drawn_by')
+	_self.assert_equals (lfields[:drawn_by].external_name, 'Drawn By','field should be called Drawn By')
+	_self.assert_equals (lfields[:drawn_by].print_width, 50.0,' Expecting the drawn_by field to be of length 50.0')
+	_self.assert_not_unset (lfields[:projected_by], 'no field called projected_by')
+	_self.assert_equals (lfields[:projected_by].external_name, 'Projected By','field should be called Projected By')
+	_self.assert_equals (lfields[:projected_by].print_width, 50.0,' Expecting the projected_by field to be of length 50.0')
+	_self.assert_not_unset (lfields[:approved_by_1], 'no field called approved_by_1')
+	_self.assert_equals (lfields[:approved_by_1].external_name, 'Approved By (1)','field should be called Approved By (1)')
+	_self.assert_equals (lfields[:approved_by_1].print_width, 50.0,' Expecting the approved_by_1 field to be of length 50.0')
+	_self.assert_not_unset (lfields[:approved_by_2], 'no field called approved_by_2')
+	_self.assert_equals (lfields[:approved_by_2].external_name, 'Approved By (2)','field should be called Approved By (2)')
+	_self.assert_equals (lfields[:approved_by_2].print_width, 50.0,' Expecting the approved_by_2 field to be of length 50.0')
+	_self.assert_not_unset (lfields[:approved_date], 'no field called approved_date')
+	_self.assert_equals (lfields[:approved_date].external_name, 'Approved Date','field should be called Approved Date')
+	_self.assert_equals (lfields[:approved_date].print_width, 50.0,' Expecting the approved_date field to be of length 50.0')
+	_self.assert_not_unset (lfields[:scale], 'no field called scale')
+	_self.assert_equals (lfields[:scale].external_name, 'Scale','field should be called Scale')
+	_self.assert_equals (lfields[:scale].print_width, 50.0,' Expecting the scale field to be of length 50.0')
+	_self.assert_not_unset (lfields[:revision], 'no field called revision')
+	_self.assert_equals (lfields[:revision].external_name, 'Revision','field should be called Revision')
+	_self.assert_equals (lfields[:revision].print_width, 50.0,' Expecting the revision field to be of length 50.0')
+	_self.assert_not_unset (lfields[:project], 'no field called project')
+	_self.assert_equals (lfields[:project].external_name, 'Project','field should be called Project')
+	_self.assert_equals (lfields[:project].print_width, 50.0,' Expecting the project field to be of length 50.0')
+	_self.assert_not_unset (lfields[:nw], 'no field called nw')
+	_self.assert_equals (lfields[:nw].external_name, 'NW','field should be called NW')
+	_self.assert_equals (lfields[:nw].print_width, 36.0,' Expecting the nw field to be of length 36.0')
+	_self.assert_not_unset (lfields[:n], 'no field called n')
+	_self.assert_equals (lfields[:n].external_name, 'N','field should be called N')
+	_self.assert_equals (lfields[:n].print_width, 36.0,' Expecting the n field to be of length 36.0')
+	_self.assert_not_unset (lfields[:ne], 'no field called ne')
+	_self.assert_equals (lfields[:ne].external_name, 'NE','field should be called NE')
+	_self.assert_equals (lfields[:ne].print_width, 36.0,' Expecting the ne field to be of length 36.0')
+	_self.assert_not_unset (lfields[:w], 'no field called w')
+	_self.assert_equals (lfields[:w].external_name, 'W','field should be called W')
+	_self.assert_equals (lfields[:w].print_width, 36.0,' Expecting the w field to be of length 36.0')
+	_self.assert_not_unset (lfields[:centre], 'no field called centre')
+	_self.assert_equals (lfields[:centre].external_name, 'Centre','field should be called Centre')
+	_self.assert_equals (lfields[:centre].print_width, 36.0,' Expecting the centre field to be of length 36.0')
+	_self.assert_not_unset (lfields[:e], 'no field called e')
+	_self.assert_equals (lfields[:e].external_name, 'E','field should be called E')
+	_self.assert_equals (lfields[:e].print_width, 36.0,' Expecting the e field to be of length 36.0')
+	_self.assert_not_unset (lfields[:sw], 'no field called sw')
+	_self.assert_equals (lfields[:sw].external_name, 'SW','field should be called SW')
+	_self.assert_equals (lfields[:sw].print_width, 36.0,' Expecting the sw field to be of length 36.0')
+	_self.assert_not_unset (lfields[:s], 'no field called s')
+	_self.assert_equals (lfields[:s].external_name, 'S','field should be called S')
+	_self.assert_equals (lfields[:s].print_width, 36.0,' Expecting the s field to be of length 36.0')
+	_self.assert_not_unset (lfields[:se], 'no field called se')
+	_self.assert_equals (lfields[:se].external_name, 'SE','field should be called SE')
+	_self.assert_equals (lfields[:se].print_width, 36.0,' Expecting the se field to be of length 36.0')
+	_self.assert_not_unset (lfields[:notes], 'no field called notes')
+	_self.assert_equals (lfields[:notes].external_name, 'Notes','field should be called Notes')
+	_self.assert_equals (lfields[:notes].print_width, 79.0,' Expecting the notes field to be of length 79.0')
+	_self.assert_not_unset (lfields[:id], 'no field called id')
+	_self.assert_equals (lfields[:id].external_name, 'ID','field should be called ID')
+	_self.assert_not_unset (lfields[:boundary], 'no field called boundary')
+	_self.assert_equals (lfields[:boundary].external_name, 'Boundary','field should be called Boundary')
+_endmethod
+$
+
+
+_method tc!cogeco_frame.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!cogeco_frame)
+_endmethod
+$
+
+
+## testing for class cogeco_franchise_tax_boundary
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!cogeco_franchise_tax_boundary.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:cogeco_franchise_tax_boundary]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:name], 'no field called name')
+	_self.assert_equals (lfields[:name].external_name, 'Name','field should be called Name')
+	_self.assert_equals (lfields[:name].print_width, 32.0,' Expecting the name field to be of length 32.0')
+	_self.assert_not_unset (lfields[:id], 'no field called id')
+	_self.assert_equals (lfields[:id].external_name, 'ID','field should be called ID')
+	_self.assert_not_unset (lfields[:boundary], 'no field called boundary')
+	_self.assert_equals (lfields[:boundary].external_name, 'Boundary','field should be called Boundary')
+_endmethod
+$
+
+
+_method tc!cogeco_franchise_tax_boundary.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!cogeco_franchise_tax_boundary)
+_endmethod
+$
+
+
+## testing for class sheath_with_loc_terminal_spec
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!sheath_with_loc_terminal_spec.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:sheath_with_loc_terminal_spec]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:model], 'no field called model')
+	_self.assert_equals (lfields[:model].external_name, 'Model','field should be called Model')
+	_self.assert_equals (lfields[:model].print_width, 50.0,' Expecting the model field to be of length 50.0')
+	_self.assert_not_unset (lfields[:size], 'no field called size')
+	_self.assert_equals (lfields[:size].external_name, 'Size','field should be called Size')
+_endmethod
+$
+
+
+_method tc!sheath_with_loc_terminal_spec.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!sheath_with_loc_terminal_spec)
+_endmethod
+$
+
+
+## testing for class mit_conduit
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!mit_conduit.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:mit_conduit]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_inner_diameter], 'no field called cogeco_inner_diameter')
+	_self.assert_equals (lfields[:cogeco_inner_diameter].external_name, 'Inner Diameter','field should be called Inner Diameter')
+	_self.assert_not_unset (lfields[:cogeco_material], 'no field called cogeco_material')
+	_self.assert_equals (lfields[:cogeco_material].external_name, 'Material','field should be called Material')
+	_self.assert_equals (lfields[:cogeco_material].print_width, 20.0,' Expecting the cogeco_material field to be of length 20.0')
+	_self.assert_not_unset (lfields[:cogeco_installation_method], 'no field called cogeco_installation_method')
+	_self.assert_equals (lfields[:cogeco_installation_method].external_name, 'Installation Method','field should be called Installation Method')
+	_self.assert_not_unset (lfields[:owner], 'no field called owner')
+	_self.assert_equals (lfields[:owner].external_name, 'Owner','field should be called Owner')
+	_self.assert_equals (lfields[:owner].print_width, 50.0,' Expecting the owner field to be of length 50.0')
+	_self.assert_not_unset (lfields[:name], 'no field called name')
+	_self.assert_equals (lfields[:name].external_name, 'Name','field should be called Name')
+	_self.assert_equals (lfields[:name].print_width, 15.0,' Expecting the name field to be of length 15.0')
+	_self.assert_not_unset (lfields[:cogeco_color], 'no field called cogeco_color')
+	_self.assert_equals (lfields[:cogeco_color].external_name, 'Colour','field should be called Colour')
+	_self.assert_equals (lfields[:cogeco_color].print_width, 12.0,' Expecting the cogeco_color field to be of length 12.0')
+	_self.assert_not_unset (lfields[:cogeco_is_capped], 'no field called cogeco_is_capped')
+	_self.assert_equals (lfields[:cogeco_is_capped].external_name, 'Is Capped?','field should be called Is Capped?')
+_endmethod
+$
+
+
+_method tc!mit_conduit.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!mit_conduit)
+_endmethod
+$
+
+
+## testing for class address
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!address.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:address]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_annotation_1], 'no field called cogeco_annotation_1')
+	_self.assert_equals (lfields[:cogeco_annotation_1].external_name, 'Cogeco Annotation 1','field should be called Cogeco Annotation 1')
+	_self.assert_not_unset (lfields[:cogeco_annotation_2], 'no field called cogeco_annotation_2')
+	_self.assert_equals (lfields[:cogeco_annotation_2].external_name, 'Cogeco Annotation 2','field should be called Cogeco Annotation 2')
+	_self.assert_not_unset (lfields[:cogeco_lot_number], 'no field called cogeco_lot_number')
+	_self.assert_equals (lfields[:cogeco_lot_number].external_name, 'Lot No.','field should be called Lot No.')
+	_self.assert_equals (lfields[:cogeco_lot_number].print_width, 10.0,' Expecting the cogeco_lot_number field to be of length 10.0')
+	_self.assert_not_unset (lfields[:address_number], 'no field called address_number')
+	_self.assert_equals (lfields[:address_number].external_name, 'Civic No.','field should be called Civic No.')
+	_self.assert_equals (lfields[:address_number].print_width, 10.0,' Expecting the address_number field to be of length 10.0')
+	_self.assert_not_unset (lfields[:cogeco_street_name], 'no field called cogeco_street_name')
+	_self.assert_equals (lfields[:cogeco_street_name].external_name, 'Street Name','field should be called Street Name')
+	_self.assert_equals (lfields[:cogeco_street_name].print_width, 75.0,' Expecting the cogeco_street_name field to be of length 75.0')
+	_self.assert_not_unset (lfields[:cogeco_city], 'no field called cogeco_city')
+	_self.assert_equals (lfields[:cogeco_city].external_name, 'City','field should be called City')
+	_self.assert_equals (lfields[:cogeco_city].print_width, 20.0,' Expecting the cogeco_city field to be of length 20.0')
+	_self.assert_not_unset (lfields[:cogeco_region], 'no field called cogeco_region')
+	_self.assert_equals (lfields[:cogeco_region].external_name, 'Region','field should be called Region')
+	_self.assert_equals (lfields[:cogeco_region].print_width, 20.0,' Expecting the cogeco_region field to be of length 20.0')
+	_self.assert_not_unset (lfields[:zip_code], 'no field called zip_code')
+	_self.assert_equals (lfields[:zip_code].external_name, 'Postal Code','field should be called Postal Code')
+	_self.assert_equals (lfields[:zip_code].print_width, 8.0,' Expecting the zip_code field to be of length 8.0')
+	_self.assert_not_unset (lfields[:cogeco_node_number], 'no field called cogeco_node_number')
+	_self.assert_equals (lfields[:cogeco_node_number].external_name, 'Node No.','field should be called Node No.')
+	_self.assert_equals (lfields[:cogeco_node_number].print_width, 15.0,' Expecting the cogeco_node_number field to be of length 15.0')
+	_self.assert_not_unset (lfields[:cogeco_serviceable], 'no field called cogeco_serviceable')
+	_self.assert_equals (lfields[:cogeco_serviceable].external_name, 'Serviceable?','field should be called Serviceable?')
+	_self.assert_not_unset (lfields[:cogeco_tele_activated], 'no field called cogeco_tele_activated')
+	_self.assert_equals (lfields[:cogeco_tele_activated].external_name, 'Tele Activated?','field should be called Tele Activated?')
+	_self.assert_not_unset (lfields[:cogeco_tax_roll_number], 'no field called cogeco_tax_roll_number')
+	_self.assert_equals (lfields[:cogeco_tax_roll_number].external_name, 'Tax Roll  No.','field should be called Tax Roll  No.')
+	_self.assert_equals (lfields[:cogeco_tax_roll_number].print_width, 20.0,' Expecting the cogeco_tax_roll_number field to be of length 20.0')
+	_self.assert_not_unset (lfields[:cogeco_no_of_residential], 'no field called cogeco_no_of_residential')
+	_self.assert_equals (lfields[:cogeco_no_of_residential].external_name, 'No. of Residentials','field should be called No. of Residentials')
+	_self.assert_not_unset (lfields[:cogeco_no_of_commercial], 'no field called cogeco_no_of_commercial')
+	_self.assert_equals (lfields[:cogeco_no_of_commercial].external_name, 'No. of Commercials','field should be called No. of Commercials')
+	_self.assert_not_unset (lfields[:cogeco_no_of_industrial], 'no field called cogeco_no_of_industrial')
+	_self.assert_equals (lfields[:cogeco_no_of_industrial].external_name, 'No. of Industrials','field should be called No. of Industrials')
+	_self.assert_not_unset (lfields[:cogeco_operational_status], 'no field called cogeco_operational_status')
+	_self.assert_equals (lfields[:cogeco_operational_status].external_name, 'Operational Status','field should be called Operational Status')
+	_self.assert_not_unset (lfields[:cogeco_owner], 'no field called cogeco_owner')
+	_self.assert_equals (lfields[:cogeco_owner].external_name, 'Owner','field should be called Owner')
+	_self.assert_equals (lfields[:cogeco_owner].print_width, 20.0,' Expecting the cogeco_owner field to be of length 20.0')
+	_self.assert_not_unset (lfields[:cogeco_location], 'no field called cogeco_location')
+	_self.assert_equals (lfields[:cogeco_location].external_name, 'Legacy Location','field should be called Legacy Location')
+	_self.assert_equals (lfields[:cogeco_location].print_width, 30.0,' Expecting the cogeco_location field to be of length 30.0')
+	_self.assert_not_unset (lfields[:cogeco_type], 'no field called cogeco_type')
+	_self.assert_equals (lfields[:cogeco_type].external_name, 'Type','field should be called Type')
+	_self.assert_equals (lfields[:cogeco_type].print_width, 20.0,' Expecting the cogeco_type field to be of length 20.0')
+	_self.assert_not_unset (lfields[:cogeco_code_headend], 'no field called cogeco_code_headend')
+	_self.assert_equals (lfields[:cogeco_code_headend].external_name, 'HeadEnd Code','field should be called HeadEnd Code')
+	_self.assert_equals (lfields[:cogeco_code_headend].print_width, 14.0,' Expecting the cogeco_code_headend field to be of length 14.0')
+	_self.assert_not_unset (lfields[:name], 'no field called name')
+	_self.assert_equals (lfields[:name].external_name, 'Name','field should be called Name')
+	_self.assert_equals (lfields[:name].print_width, 75.0,' Expecting the name field to be of length 75.0')
+	_self.assert_not_unset (lfields[:cogeco_amp_source], 'no field called cogeco_amp_source')
+	_self.assert_equals (lfields[:cogeco_amp_source].external_name, 'Amplifier Source','field should be called Amplifier Source')
+	_self.assert_equals (lfields[:cogeco_amp_source].print_width, 50.0,' Expecting the cogeco_amp_source field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_date_validation], 'no field called cogeco_date_validation')
+	_self.assert_equals (lfields[:cogeco_date_validation].external_name, 'Validation Date','field should be called Validation Date')
+_endmethod
+$
+
+
+_method tc!address.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!address)
+_endmethod
+$
+
+
+## testing for class mit_rme_port
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!mit_rme_port.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:mit_rme_port]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_id_code], 'no field called cogeco_id_code')
+	_self.assert_equals (lfields[:cogeco_id_code].external_name, 'ID Code','field should be called ID Code')
+	_self.assert_equals (lfields[:cogeco_id_code].print_width, 16.0,' Expecting the cogeco_id_code field to be of length 16.0')
+	_self.assert_not_unset (lfields[:cogeco_port_number], 'no field called cogeco_port_number')
+	_self.assert_equals (lfields[:cogeco_port_number].external_name, 'Port No.','field should be called Port No.')
+_endmethod
+$
+
+
+_method tc!mit_rme_port.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!mit_rme_port)
+_endmethod
+$
+
+
+## testing for class manufacturer
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!manufacturer.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:manufacturer]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:name], 'no field called name')
+	_self.assert_equals (lfields[:name].external_name, 'Name','field should be called Name')
+	_self.assert_equals (lfields[:name].print_width, 50.0,' Expecting the name field to be of length 50.0')
+_endmethod
+$
+
+
+_method tc!manufacturer.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!manufacturer)
+_endmethod
+$
+
+
+## testing for class fiber_attribute
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!fiber_attribute.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:fiber_attribute]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_name], 'no field called cogeco_name')
+	_self.assert_equals (lfields[:cogeco_name].external_name, 'Name','field should be called Name')
+	_self.assert_equals (lfields[:cogeco_name].print_width, 50.0,' Expecting the cogeco_name field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_is_lit], 'no field called cogeco_is_lit')
+	_self.assert_equals (lfields[:cogeco_is_lit].external_name, 'Lit?','field should be called Lit?')
+	_self.assert_not_unset (lfields[:cogeco_transmitter], 'no field called cogeco_transmitter')
+	_self.assert_equals (lfields[:cogeco_transmitter].external_name, 'Transmitter','field should be called Transmitter')
+	_self.assert_equals (lfields[:cogeco_transmitter].print_width, 15.0,' Expecting the cogeco_transmitter field to be of length 15.0')
+_endmethod
+$
+
+
+_method tc!fiber_attribute.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!fiber_attribute)
+_endmethod
+$
+
+
+## testing for class cogeco_fsa_boundary
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!cogeco_fsa_boundary.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:cogeco_fsa_boundary]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:name], 'no field called name')
+	_self.assert_equals (lfields[:name].external_name, 'Name','field should be called Name')
+	_self.assert_equals (lfields[:name].print_width, 32.0,' Expecting the name field to be of length 32.0')
+	_self.assert_not_unset (lfields[:id], 'no field called id')
+	_self.assert_equals (lfields[:id].external_name, 'ID','field should be called ID')
+	_self.assert_not_unset (lfields[:boundary], 'no field called boundary')
+	_self.assert_equals (lfields[:boundary].external_name, 'Boundary','field should be called Boundary')
+_endmethod
+$
+
+
+_method tc!cogeco_fsa_boundary.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!cogeco_fsa_boundary)
+_endmethod
+$
+
+
+## testing for class cogeco_service_area
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!cogeco_service_area.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:cogeco_service_area]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:service_area_name], 'no field called service_area_name')
+	_self.assert_equals (lfields[:service_area_name].external_name, 'Service Area Name','field should be called Service Area Name')
+	_self.assert_equals (lfields[:service_area_name].print_width, 30.0,' Expecting the service_area_name field to be of length 30.0')
+	_self.assert_not_unset (lfields[:potential_count], 'no field called potential_count')
+	_self.assert_equals (lfields[:potential_count].external_name, 'Potential Count','field should be called Potential Count')
+	_self.assert_not_unset (lfields[:number_of_cnu], 'no field called number_of_cnu')
+	_self.assert_equals (lfields[:number_of_cnu].external_name, 'No. of CNU','field should be called No. of CNU')
+	_self.assert_not_unset (lfields[:id], 'no field called id')
+	_self.assert_equals (lfields[:id].external_name, 'ID','field should be called ID')
+	_self.assert_not_unset (lfields[:boundary], 'no field called boundary')
+	_self.assert_equals (lfields[:boundary].external_name, 'Boundary','field should be called Boundary')
+_endmethod
+$
+
+
+_method tc!cogeco_service_area.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!cogeco_service_area)
+_endmethod
+$
+
+
+## testing for class cogeco_customer
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!cogeco_customer.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:cogeco_customer]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:id_code], 'no field called id_code')
+	_self.assert_equals (lfields[:id_code].external_name, 'ID Code','field should be called ID Code')
+	_self.assert_equals (lfields[:id_code].print_width, 16.0,' Expecting the id_code field to be of length 16.0')
+	_self.assert_not_unset (lfields[:id_number], 'no field called id_number')
+	_self.assert_equals (lfields[:id_number].external_name, 'ID No.','field should be called ID No.')
+	_self.assert_equals (lfields[:id_number].print_width, 20.0,' Expecting the id_number field to be of length 20.0')
+	_self.assert_not_unset (lfields[:origin_port_fib_nbr], 'no field called origin_port_fib_nbr')
+	_self.assert_equals (lfields[:origin_port_fib_nbr].external_name, 'Origin Port Fibre No.','field should be called Origin Port Fibre No.')
+	_self.assert_not_unset (lfields[:name], 'no field called name')
+	_self.assert_equals (lfields[:name].external_name, 'Name','field should be called Name')
+	_self.assert_equals (lfields[:name].print_width, 20.0,' Expecting the name field to be of length 20.0')
+	_self.assert_not_unset (lfields[:location], 'no field called location')
+	_self.assert_equals (lfields[:location].external_name, 'Location','field should be called Location')
+	_self.assert_equals (lfields[:location].print_width, 30.0,' Expecting the location field to be of length 30.0')
+	_self.assert_not_unset (lfields[:id], 'no field called id')
+	_self.assert_equals (lfields[:id].external_name, 'ID','field should be called ID')
+_endmethod
+$
+
+
+_method tc!cogeco_customer.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!cogeco_customer)
+_endmethod
+$
+
+
+## testing for class cogeco_rm_boundary
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!cogeco_rm_boundary.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:cogeco_rm_boundary]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:name], 'no field called name')
+	_self.assert_equals (lfields[:name].external_name, 'Name','field should be called Name')
+	_self.assert_equals (lfields[:name].print_width, 32.0,' Expecting the name field to be of length 32.0')
+	_self.assert_not_unset (lfields[:id], 'no field called id')
+	_self.assert_equals (lfields[:id].external_name, 'ID','field should be called ID')
+	_self.assert_not_unset (lfields[:boundary], 'no field called boundary')
+	_self.assert_equals (lfields[:boundary].external_name, 'Boundary','field should be called Boundary')
+_endmethod
+$
+
+
+_method tc!cogeco_rm_boundary.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!cogeco_rm_boundary)
+_endmethod
+$
+
+
+## testing for class optical_node
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!optical_node.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:optical_node]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_annotation_1], 'no field called cogeco_annotation_1')
+	_self.assert_equals (lfields[:cogeco_annotation_1].external_name, 'Cogeco Annotation 1','field should be called Cogeco Annotation 1')
+	_self.assert_not_unset (lfields[:cogeco_annotation_2], 'no field called cogeco_annotation_2')
+	_self.assert_equals (lfields[:cogeco_annotation_2].external_name, 'Cogeco Annotation 2','field should be called Cogeco Annotation 2')
+	_self.assert_not_unset (lfields[:cogeco_location_1], 'no field called cogeco_location_1')
+	_self.assert_equals (lfields[:cogeco_location_1].external_name, 'Cogeco Location 1','field should be called Cogeco Location 1')
+	_self.assert_not_unset (lfields[:cogeco_location_2], 'no field called cogeco_location_2')
+	_self.assert_equals (lfields[:cogeco_location_2].external_name, 'Cogeco Location 2','field should be called Cogeco Location 2')
+	_self.assert_not_unset (lfields[:cogeco_location_3], 'no field called cogeco_location_3')
+	_self.assert_equals (lfields[:cogeco_location_3].external_name, 'Cogeco Location 3','field should be called Cogeco Location 3')
+	_self.assert_not_unset (lfields[:cogeco_location_4], 'no field called cogeco_location_4')
+	_self.assert_equals (lfields[:cogeco_location_4].external_name, 'Cogeco Location 4','field should be called Cogeco Location 4')
+	_self.assert_not_unset (lfields[:name], 'no field called name')
+	_self.assert_equals (lfields[:name].external_name, 'Name','field should be called Name')
+	_self.assert_equals (lfields[:name].print_width, 50.0,' Expecting the name field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_location], 'no field called cogeco_location')
+	_self.assert_equals (lfields[:cogeco_location].external_name, 'Legacy Location','field should be called Legacy Location')
+	_self.assert_equals (lfields[:cogeco_location].print_width, 75.0,' Expecting the cogeco_location field to be of length 75.0')
+	_self.assert_not_unset (lfields[:cogeco_number_of_fibre_ports], 'no field called cogeco_number_of_fibre_ports')
+	_self.assert_equals (lfields[:cogeco_number_of_fibre_ports].external_name, 'No. of Fibre Ports','field should be called No. of Fibre Ports')
+	_self.assert_not_unset (lfields[:cogeco_station_model_number], 'no field called cogeco_station_model_number')
+	_self.assert_equals (lfields[:cogeco_station_model_number].external_name, 'Station Model No.','field should be called Station Model No.')
+	_self.assert_equals (lfields[:cogeco_station_model_number].print_width, 15.0,' Expecting the cogeco_station_model_number field to be of length 15.0')
+	_self.assert_not_unset (lfields[:cogeco_id_code], 'no field called cogeco_id_code')
+	_self.assert_equals (lfields[:cogeco_id_code].external_name, 'ID Code','field should be called ID Code')
+	_self.assert_equals (lfields[:cogeco_id_code].print_width, 50.0,' Expecting the cogeco_id_code field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_type], 'no field called cogeco_type')
+	_self.assert_equals (lfields[:cogeco_type].external_name, 'Type','field should be called Type')
+	_self.assert_equals (lfields[:cogeco_type].print_width, 50.0,' Expecting the cogeco_type field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_model], 'no field called cogeco_model')
+	_self.assert_equals (lfields[:cogeco_model].external_name, 'Model No.','field should be called Model No.')
+	_self.assert_equals (lfields[:cogeco_model].print_width, 50.0,' Expecting the cogeco_model field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_fsa], 'no field called cogeco_fsa')
+	_self.assert_equals (lfields[:cogeco_fsa].external_name, 'FSA','field should be called FSA')
+	_self.assert_equals (lfields[:cogeco_fsa].print_width, 10.0,' Expecting the cogeco_fsa field to be of length 10.0')
+	_self.assert_not_unset (lfields[:cogeco_operational_status], 'no field called cogeco_operational_status')
+	_self.assert_equals (lfields[:cogeco_operational_status].external_name, 'Operational Status','field should be called Operational Status')
+	_self.assert_not_unset (lfields[:cogeco_node_type], 'no field called cogeco_node_type')
+	_self.assert_equals (lfields[:cogeco_node_type].external_name, 'Node Type','field should be called Node Type')
+	_self.assert_not_unset (lfields[:cogeco_description], 'no field called cogeco_description')
+	_self.assert_equals (lfields[:cogeco_description].external_name, 'Description','field should be called Description')
+	_self.assert_equals (lfields[:cogeco_description].print_width, 50.0,' Expecting the cogeco_description field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_model_number], 'no field called cogeco_model_number')
+	_self.assert_equals (lfields[:cogeco_model_number].external_name, 'Legacy Model','field should be called Legacy Model')
+	_self.assert_equals (lfields[:cogeco_model_number].print_width, 50.0,' Expecting the cogeco_model_number field to be of length 50.0')
+_endmethod
+$
+
+
+_method tc!optical_node.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!optical_node)
+_endmethod
+$
+
+
+## testing for class sheath_splice
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!sheath_splice.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:sheath_splice]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_annotation_1], 'no field called cogeco_annotation_1')
+	_self.assert_equals (lfields[:cogeco_annotation_1].external_name, 'Cogeco Annotation 1','field should be called Cogeco Annotation 1')
+	_self.assert_not_unset (lfields[:cogeco_annotation_2], 'no field called cogeco_annotation_2')
+	_self.assert_equals (lfields[:cogeco_annotation_2].external_name, 'Cogeco Annotation 2','field should be called Cogeco Annotation 2')
+	_self.assert_not_unset (lfields[:cogeco_annotation_3], 'no field called cogeco_annotation_3')
+	_self.assert_equals (lfields[:cogeco_annotation_3].external_name, 'Cogeco Annotation 3','field should be called Cogeco Annotation 3')
+	_self.assert_not_unset (lfields[:cogeco_location_1], 'no field called cogeco_location_1')
+	_self.assert_equals (lfields[:cogeco_location_1].external_name, 'Cogeco Location 1','field should be called Cogeco Location 1')
+	_self.assert_not_unset (lfields[:cogeco_location_2], 'no field called cogeco_location_2')
+	_self.assert_equals (lfields[:cogeco_location_2].external_name, 'Cogeco Location 2','field should be called Cogeco Location 2')
+	_self.assert_not_unset (lfields[:cogeco_id_code], 'no field called cogeco_id_code')
+	_self.assert_equals (lfields[:cogeco_id_code].external_name, 'ID Code','field should be called ID Code')
+	_self.assert_equals (lfields[:cogeco_id_code].print_width, 16.0,' Expecting the cogeco_id_code field to be of length 16.0')
+	_self.assert_not_unset (lfields[:cogeco_legacy_name], 'no field called cogeco_legacy_name')
+	_self.assert_equals (lfields[:cogeco_legacy_name].external_name, 'Legacy Name','field should be called Legacy Name')
+	_self.assert_equals (lfields[:cogeco_legacy_name].print_width, 50.0,' Expecting the cogeco_legacy_name field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_location], 'no field called cogeco_location')
+	_self.assert_equals (lfields[:cogeco_location].external_name, 'Legacy Location','field should be called Legacy Location')
+	_self.assert_equals (lfields[:cogeco_location].print_width, 75.0,' Expecting the cogeco_location field to be of length 75.0')
+	_self.assert_not_unset (lfields[:cogeco_enclosure_type], 'no field called cogeco_enclosure_type')
+	_self.assert_equals (lfields[:cogeco_enclosure_type].external_name, 'Enclosure Type','field should be called Enclosure Type')
+	_self.assert_equals (lfields[:cogeco_enclosure_type].print_width, 20.0,' Expecting the cogeco_enclosure_type field to be of length 20.0')
+	_self.assert_not_unset (lfields[:cogeco_number_of_trays], 'no field called cogeco_number_of_trays')
+	_self.assert_equals (lfields[:cogeco_number_of_trays].external_name, 'No. of Trays','field should be called No. of Trays')
+	_self.assert_not_unset (lfields[:cogeco_operational_status], 'no field called cogeco_operational_status')
+	_self.assert_equals (lfields[:cogeco_operational_status].external_name, 'Operational Status','field should be called Operational Status')
+	_self.assert_not_unset (lfields[:cogeco_type], 'no field called cogeco_type')
+	_self.assert_equals (lfields[:cogeco_type].external_name, 'Type','field should be called Type')
+	_self.assert_equals (lfields[:cogeco_type].print_width, 50.0,' Expecting the cogeco_type field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_model], 'no field called cogeco_model')
+	_self.assert_equals (lfields[:cogeco_model].external_name, 'Model','field should be called Model')
+	_self.assert_equals (lfields[:cogeco_model].print_width, 50.0,' Expecting the cogeco_model field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_max_nb_tray], 'no field called cogeco_max_nb_tray')
+	_self.assert_equals (lfields[:cogeco_max_nb_tray].external_name, 'Maximum No. of Trays','field should be called Maximum No. of Trays')
+	_self.assert_not_unset (lfields[:cogeco_lcp], 'no field called cogeco_lcp')
+	_self.assert_equals (lfields[:cogeco_lcp].external_name, 'LCP','field should be called LCP')
+	_self.assert_equals (lfields[:cogeco_lcp].print_width, 10.0,' Expecting the cogeco_lcp field to be of length 10.0')
+	_self.assert_not_unset (lfields[:cogeco_tray_capacity], 'no field called cogeco_tray_capacity')
+	_self.assert_equals (lfields[:cogeco_tray_capacity].external_name, 'Total Number of Mounting Positions','field should be called Total Number of Mounting Positions')
+	_self.assert_not_unset (lfields[:cogeco_nb_tray_incl], 'no field called cogeco_nb_tray_incl')
+	_self.assert_equals (lfields[:cogeco_nb_tray_incl].external_name, 'No. of Trays Included','field should be called No. of Trays Included')
+	_self.assert_equals (lfields[:cogeco_nb_tray_incl].print_width, 10.0,' Expecting the cogeco_nb_tray_incl field to be of length 10.0')
+	_self.assert_not_unset (lfields[:cogeco_nb_of_fusions], 'no field called cogeco_nb_of_fusions')
+	_self.assert_equals (lfields[:cogeco_nb_of_fusions].external_name, 'No. of Fusions','field should be called No. of Fusions')
+	_self.assert_not_unset (lfields[:cogeco_network_type], 'no field called cogeco_network_type')
+	_self.assert_equals (lfields[:cogeco_network_type].external_name, 'Network Type','field should be called Network Type')
+	_self.assert_equals (lfields[:cogeco_network_type].print_width, 50.0,' Expecting the cogeco_network_type field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_owner], 'no field called cogeco_owner')
+	_self.assert_equals (lfields[:cogeco_owner].external_name, 'Owner','field should be called Owner')
+	_self.assert_equals (lfields[:cogeco_owner].print_width, 50.0,' Expecting the cogeco_owner field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_description], 'no field called cogeco_description')
+	_self.assert_equals (lfields[:cogeco_description].external_name, 'Description','field should be called Description')
+	_self.assert_equals (lfields[:cogeco_description].print_width, 50.0,' Expecting the cogeco_description field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_status], 'no field called cogeco_status')
+	_self.assert_equals (lfields[:cogeco_status].external_name, 'Legacy Status','field should be called Legacy Status')
+	_self.assert_equals (lfields[:cogeco_status].print_width, 50.0,' Expecting the cogeco_status field to be of length 50.0')
+	_self.assert_not_unset (lfields[:cogeco_nb_cable_max], 'no field called cogeco_nb_cable_max')
+	_self.assert_equals (lfields[:cogeco_nb_cable_max].external_name, 'Maximum No. of Cables','field should be called Maximum No. of Cables')
+	_self.assert_not_unset (lfields[:cogeco_nb_fusion_max], 'no field called cogeco_nb_fusion_max')
+	_self.assert_equals (lfields[:cogeco_nb_fusion_max].external_name, 'Maximum No. of Fusions','field should be called Maximum No. of Fusions')
+_endmethod
+$
+
+
+_method tc!sheath_splice.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!sheath_splice)
+_endmethod
+$
+
+
+## testing for class mit_underground_route_annotation
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!mit_underground_route_annotation.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:mit_underground_route_annotation]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_annotation_1], 'no field called cogeco_annotation_1')
+	_self.assert_equals (lfields[:cogeco_annotation_1].external_name, 'Cogeco Annotation 1','field should be called Cogeco Annotation 1')
+	_self.assert_not_unset (lfields[:cogeco_annotation_2], 'no field called cogeco_annotation_2')
+	_self.assert_equals (lfields[:cogeco_annotation_2].external_name, 'Cogeco Annotation 2','field should be called Cogeco Annotation 2')
+_endmethod
+$
+
+
+_method tc!mit_underground_route_annotation.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!mit_underground_route_annotation)
+_endmethod
+$
+
+
+## testing for class anchor
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!anchor.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:anchor]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_location_1], 'no field called cogeco_location_1')
+	_self.assert_equals (lfields[:cogeco_location_1].external_name, 'Cogeco Location 1','field should be called Cogeco Location 1')
+	_self.assert_not_unset (lfields[:cogeco_location_2], 'no field called cogeco_location_2')
+	_self.assert_equals (lfields[:cogeco_location_2].external_name, 'Cogeco Location 2','field should be called Cogeco Location 2')
+	_self.assert_not_unset (lfields[:cogeco_location_3], 'no field called cogeco_location_3')
+	_self.assert_equals (lfields[:cogeco_location_3].external_name, 'Cogeco Location 3','field should be called Cogeco Location 3')
+	_self.assert_not_unset (lfields[:cogeco_location_4], 'no field called cogeco_location_4')
+	_self.assert_equals (lfields[:cogeco_location_4].external_name, 'Cogeco Location 4','field should be called Cogeco Location 4')
+	_self.assert_not_unset (lfields[:cogeco_location_5], 'no field called cogeco_location_5')
+	_self.assert_equals (lfields[:cogeco_location_5].external_name, 'Cogeco Location 5','field should be called Cogeco Location 5')
+	_self.assert_not_unset (lfields[:cogeco_location_6], 'no field called cogeco_location_6')
+	_self.assert_equals (lfields[:cogeco_location_6].external_name, 'Cogeco Location 6','field should be called Cogeco Location 6')
+	_self.assert_not_unset (lfields[:cogeco_location_7], 'no field called cogeco_location_7')
+	_self.assert_equals (lfields[:cogeco_location_7].external_name, 'Cogeco Location 7','field should be called Cogeco Location 7')
+	_self.assert_not_unset (lfields[:cogeco_location_8], 'no field called cogeco_location_8')
+	_self.assert_equals (lfields[:cogeco_location_8].external_name, 'Cogeco Location 8','field should be called Cogeco Location 8')
+	_self.assert_not_unset (lfields[:cogeco_location_9], 'no field called cogeco_location_9')
+	_self.assert_equals (lfields[:cogeco_location_9].external_name, 'Cogeco Location 9','field should be called Cogeco Location 9')
+	_self.assert_not_unset (lfields[:cogeco_location_10], 'no field called cogeco_location_10')
+	_self.assert_equals (lfields[:cogeco_location_10].external_name, 'Cogeco Location 10','field should be called Cogeco Location 10')
+	_self.assert_not_unset (lfields[:cogeco_location_11], 'no field called cogeco_location_11')
+	_self.assert_equals (lfields[:cogeco_location_11].external_name, 'Cogeco Location 11','field should be called Cogeco Location 11')
+	_self.assert_not_unset (lfields[:cogeco_location_12], 'no field called cogeco_location_12')
+	_self.assert_equals (lfields[:cogeco_location_12].external_name, 'Cogeco Location 12','field should be called Cogeco Location 12')
+	_self.assert_not_unset (lfields[:cogeco_location_13], 'no field called cogeco_location_13')
+	_self.assert_equals (lfields[:cogeco_location_13].external_name, 'Cogeco Location 13','field should be called Cogeco Location 13')
+	_self.assert_not_unset (lfields[:cogeco_location_14], 'no field called cogeco_location_14')
+	_self.assert_equals (lfields[:cogeco_location_14].external_name, 'Cogeco Location 14','field should be called Cogeco Location 14')
+	_self.assert_not_unset (lfields[:cogeco_location_15], 'no field called cogeco_location_15')
+	_self.assert_equals (lfields[:cogeco_location_15].external_name, 'Cogeco Location 15','field should be called Cogeco Location 15')
+	_self.assert_not_unset (lfields[:cogeco_location_16], 'no field called cogeco_location_16')
+	_self.assert_equals (lfields[:cogeco_location_16].external_name, 'Cogeco Location 16','field should be called Cogeco Location 16')
+	_self.assert_not_unset (lfields[:cogeco_location_17], 'no field called cogeco_location_17')
+	_self.assert_equals (lfields[:cogeco_location_17].external_name, 'Cogeco Location 17','field should be called Cogeco Location 17')
+	_self.assert_not_unset (lfields[:cogeco_location_18], 'no field called cogeco_location_18')
+	_self.assert_equals (lfields[:cogeco_location_18].external_name, 'Cogeco Location 18','field should be called Cogeco Location 18')
+	_self.assert_not_unset (lfields[:cogeco_location_19], 'no field called cogeco_location_19')
+	_self.assert_equals (lfields[:cogeco_location_19].external_name, 'Cogeco Location 19','field should be called Cogeco Location 19')
+	_self.assert_not_unset (lfields[:cogeco_model_number], 'no field called cogeco_model_number')
+	_self.assert_equals (lfields[:cogeco_model_number].external_name, 'Model No.','field should be called Model No.')
+	_self.assert_equals (lfields[:cogeco_model_number].print_width, 20.0,' Expecting the cogeco_model_number field to be of length 20.0')
+	_self.assert_not_unset (lfields[:type], 'no field called type')
+	_self.assert_equals (lfields[:type].external_name, 'Type','field should be called Type')
+	_self.assert_not_unset (lfields[:cogeco_owner], 'no field called cogeco_owner')
+	_self.assert_equals (lfields[:cogeco_owner].external_name, 'Owner','field should be called Owner')
+	_self.assert_not_unset (lfields[:cogeco_representation], 'no field called cogeco_representation')
+	_self.assert_equals (lfields[:cogeco_representation].external_name, 'Representation','field should be called Representation')
+	_self.assert_not_unset (lfields[:cogeco_operational_status], 'no field called cogeco_operational_status')
+	_self.assert_equals (lfields[:cogeco_operational_status].external_name, 'Operational Status','field should be called Operational Status')
+	_self.assert_not_unset (lfields[:cogeco_anchor_size_or_type], 'no field called cogeco_anchor_size_or_type')
+	_self.assert_equals (lfields[:cogeco_anchor_size_or_type].external_name, 'Anchor Size/Type','field should be called Anchor Size/Type')
+	_self.assert_equals (lfields[:cogeco_anchor_size_or_type].print_width, 8.0,' Expecting the cogeco_anchor_size_or_type field to be of length 8.0')
+	_self.assert_not_unset (lfields[:cogeco_fixture_size], 'no field called cogeco_fixture_size')
+	_self.assert_equals (lfields[:cogeco_fixture_size].external_name, 'Fixture Size','field should be called Fixture Size')
+	_self.assert_not_unset (lfields[:cogeco_lead], 'no field called cogeco_lead')
+	_self.assert_equals (lfields[:cogeco_lead].external_name, 'Lead','field should be called Lead')
+	_self.assert_not_unset (lfields[:cogeco_guy_size], 'no field called cogeco_guy_size')
+	_self.assert_equals (lfields[:cogeco_guy_size].external_name, 'Guy Size','field should be called Guy Size')
+	_self.assert_not_unset (lfields[:cogeco_users], 'no field called cogeco_users')
+	_self.assert_equals (lfields[:cogeco_users].external_name, 'Users','field should be called Users')
+	_self.assert_not_unset (lfields[:cogeco_no_of_attachment_points], 'no field called cogeco_no_of_attachment_points')
+	_self.assert_equals (lfields[:cogeco_no_of_attachment_points].external_name, 'No. of Attachment Points','field should be called No. of Attachment Points')
+_endmethod
+$
+
+
+_method tc!anchor.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!anchor)
+_endmethod
+$
+
+
+## testing for class point_of_interest
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!point_of_interest.test_datamodel()
+	_local l_obj << _self.gis_view.collections[:point_of_interest]
+	_local l_descriptor<< l_obj.descriptor
+	_local lfields << l_descriptor.all_fields
+	_self.assert_not_unset (lfields[:cogeco_house_count], 'no field called cogeco_house_count')
+	_self.assert_equals (lfields[:cogeco_house_count].external_name, 'House Count','field should be called House Count')
+	_self.assert_not_unset (lfields[:cogeco_potential_count], 'no field called cogeco_potential_count')
+	_self.assert_equals (lfields[:cogeco_potential_count].external_name, 'Potential Count','field should be called Potential Count')
+	_self.assert_not_unset (lfields[:cogeco_operational_status], 'no field called cogeco_operational_status')
+	_self.assert_equals (lfields[:cogeco_operational_status].external_name, 'Operational Status','field should be called Operational Status')
+_endmethod
+$
+
+
+_method tc!point_of_interest.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!point_of_interest)
+_endmethod
+$
+
+

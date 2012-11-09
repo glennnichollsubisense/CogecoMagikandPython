@@ -1,0 +1,22 @@
+# %text_encoding = iso8859_1
+_package user
+
+def_slotted_exemplar(:production_specs_factory,
+                     {},
+		     {:development_specs_factory}
+)
+$
+
+production_specs_factory.define_shared_constant (:spec_names, property_list.new_with (), :private)
+$
+
+_method production_specs_factory.get_spec_name (p_type)
+	## 
+	##
+	_if _self.spec_names[p_type] _is _unset
+	_then
+		_return _super.get_spec_name (p_type)
+	_endif
+	_return _self.spec_names[p_type]
+_endmethod
+$

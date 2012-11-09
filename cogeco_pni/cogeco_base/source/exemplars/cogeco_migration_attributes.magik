@@ -1,0 +1,45 @@
+
+_pragma(classify_level=basic, topic={cogeco,fibre}, usage={not_international, redefinable})
+##
+## Many records migrated from CableCAD have the same set of
+## fields defined for them.
+## In addition, there are several pieces of information that
+## need to come over for each record (CableCAD id field, for example).
+## This information is more for checking the migration than
+## being of any use to the user, so it makes more sense to put
+## this information into a joined record instead of as
+## attributes on the rwo records themselves.  This is the
+## exemplar for that migration-data record.
+## 
+def_slotted_exemplar(:cogeco_migration_attributes,
+	##
+	## 
+	## 
+	{
+	},
+	{:mit_user_ds_record})
+$
+
+
+_pragma(classify_level=restricted, topic={cogeco,fibre}, usage={redefinable})
+_method cogeco_migration_attributes.insert_trigger()
+	## 
+	## Stub
+	
+_endmethod
+$
+_pragma(classify_level=restricted, topic={cogeco,fibre}, usage={redefinable})
+_method cogeco_migration_attributes.update_trigger()
+	## 
+	## Stub
+	
+_endmethod
+$
+_pragma(classify_level=restricted, topic={cogeco,fibre}, usage={redefinable})
+_method cogeco_migration_attributes.delete_trigger()
+	## 
+	## Stub
+	
+_endmethod
+$
+

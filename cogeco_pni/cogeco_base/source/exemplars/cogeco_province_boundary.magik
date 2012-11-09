@@ -1,0 +1,39 @@
+
+_pragma(classify_level=basic, topic={cogeco,fibre}, usage={not_international, redefinable})
+##
+## The Canadian provinces QC & ON are kept in this table.
+## Its main purpose is to drive style differences in the same
+## tables between the two provinces.
+## 
+def_slotted_exemplar(:cogeco_province_boundary,
+	##
+	## 
+	## 
+	{
+	},
+	{:mit_rwo_record, :cogeco_boundary_mixin})
+$
+
+
+_pragma(classify_level=restricted, topic={cogeco,fibre}, usage={redefinable})
+_method cogeco_province_boundary.insert_trigger()
+	## 
+	## Stub
+	
+_endmethod
+$
+_pragma(classify_level=restricted, topic={cogeco,fibre}, usage={redefinable})
+_method cogeco_province_boundary.update_trigger()
+	## 
+	## Stub
+	
+_endmethod
+$
+_pragma(classify_level=restricted, topic={cogeco,fibre}, usage={redefinable})
+_method cogeco_province_boundary.delete_trigger()
+	## 
+	## Stub
+	
+_endmethod
+$
+

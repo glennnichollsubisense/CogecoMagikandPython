@@ -1,0 +1,288 @@
+# %text_encoding = iso8859_1
+_package user
+
+
+def_slotted_exemplar (:tc!cogeco,
+
+		      {
+			      {:pni_view, _unset},
+			      {:de_view, _unset},
+			      {:template_view, _unset},
+			      {:spec_id, _unset},
+			      {:a_nf, _unset},
+			      {:specs_factory, _unset}
+		      },
+		      {:test_case}
+)
+$
+
+
+_pragma(classify_level=restricted, topic={unit_testing})
+## returns coordinate.new(-10000, -10000)
+tc!cogeco.define_shared_constant (:base_coord, coordinate.new (-10000, -10000), :public)
+$
+
+_pragma(classify_level=restricted, topic={unit_testing})
+tc!cogeco.define_shared_variable (:saved_spec_id, 0, :public)
+$
+_pragma(classify_level=restricted, topic={unit_testing})
+## Returns "Cogeco Assembly 1"
+tc!cogeco.define_shared_constant (:specs_name, "Cogeco Generics", :public)
+$
+
+_pragma(classify_level=restricted, topic={unit_testing})
+_method tc!cogeco.init( a_name)
+	## 
+	## 
+	
+	_super.init (a_name)
+	.a_nf << cogeco_network_factory.new()
+	_return _self
+_endmethod
+$
+
+_private
+_method tc!cogeco.ensure_specs( name )
+	## 
+	## 
+	
+	v_g << _self.gis_view
+
+	a_pred << predicate.eq (:name, name)
+	template_spec_assemblies << _self.template_view.collections[:spec_assembly]
+	specs << template_spec_assemblies.select(a_pred).an_element()
+	
+	spec_id << specs.id
+	
+	_self.saved_spec_id << v_g.current_design_spec
+	_if v_g.current_design_spec ~= spec_id
+	_then
+		v_g.set_current_design_spec(spec_id)
+	_endif
+
+_endmethod
+$
+
+_pragma(classify_level=basic, topic={unit_testing})
+_private
+_method tc!cogeco.length_to_world_units(a_length, _optional world)
+	## 
+	## converts the length into world units.
+	## returns the value of this conversion
+	
+	t_world << world.default(!current_world!)
+
+	_return a_length.convert_to (t_world.world_units).value
+_endmethod
+$
+
+_method tc!cogeco.nf
+	## 
+	## 
+
+	_return .a_nf
+_endmethod
+$
+
+_method tc!cogeco.specs_factory
+	## 
+	## 
+
+	_return .specs_factory
+_endmethod
+$
+
+_pragma(classify_level=basic, topic={unit_testing})
+_method tc!cogeco.restore_spec_id()
+	## 
+	## 
+
+	v_g << _self.gis_view
+	_if v_g.current_design_spec ~= _self.saved_spec_id
+	_then
+		v_g.set_current_design_spec(_self.saved_spec_id)
+	_endif
+_endmethod
+$
+
+_method tc!cogeco.check_for_existing_geometry( _optional base_location )
+	## 
+	## 
+
+	a_nf << pni_network_factory.new()
+	a_nf.check_for_existing_geometry( base_location )
+_endmethod
+$
+
+_method tc!cogeco.gis_view
+	## 
+	## 
+
+	_return .pni_view
+_endmethod
+$
+
+_pragma(classify_level=basic, topic={testing_framework}, usage={redefinable, subclassable})
+_method tc!cogeco.pni_view
+	## 
+	## the gis view 
+
+	>> .pni_view
+_endmethod
+$
+
+_pragma(classify_level=basic, topic={testing_framework}, usage={redefinable, subclassable})
+_method tc!cogeco.de_view
+	## 
+	## the dynamic enum view
+
+	>> .de_view
+_endmethod
+$
+
+_pragma(classify_level=basic, topic={testing_framework}, usage={redefinable, subclassable})
+_method tc!cogeco.template_view
+	## 
+	## the template view
+
+	>> .template_view
+_endmethod
+$
+
+_pragma(classify_level=basic, topic={testing_framework}, usage={redefinable, subclassable})
+_method tc!cogeco.set_up()
+
+	_dynamic !current_world!
+	
+	.pni_view << gis_program_manager.cached_dataset(:gis)
+	.de_view  << gis_program_manager.cached_dataset(:dynamic_enumerator)
+	.template_view << gis_program_manager.cached_dataset(:template)
+
+	!current_world! << .pni_view.world
+
+	_if .pni_view.world.universe_id _isnt 0
+	_then
+		condition.raise (:user_error, :string, "Please start tests from outside world")
+	_endif
+	_self.check_for_existing_geometry( _self.base_coord )
+	_self.ensure_specs (_self.specs_name)
+
+	.specs_factory << _self.get_specs_factory()
+_endmethod
+$
+
+
+_pragma(classify_level=basic, topic={testing_framework}, usage={redefinable, subclassable})
+_method tc!cogeco.tear_down()
+	## 
+	## rolls back and restores the specs 
+
+  	.pni_view.rollback()
+	_self.restore_spec_id()
+_endmethod
+$
+
+_pragma(classify_level=advanced, topic={testing_framework}, usage={redefinable, subclassable})
+_method tc!cogeco.get_physical_fields (table_name)
+	## 
+	## 
+
+	_local physical_fields << hash_table.new()
+
+	_for a_physical_field _over .pni_view.collections[table_name].descriptor.physical_fields.elements() 
+	_loop
+		physical_fields[a_physical_field.name] << a_physical_field
+	_endloop
+
+	_return physical_fields
+_endmethod
+$
+
+_pragma(classify_level=advanced, topic={testing_framework}, usage={redefinable, subclassable})
+_method tc!cogeco.get_logical_fields (table_name)
+	## 
+	## 
+
+	_local logical_fields << hash_table.new()
+
+	_for a_logical_field _over .pni_view.collections[table_name].descriptor.logical_fields.elements() 
+	_loop
+		logical_fields[a_logical_field.name] << a_logical_field
+	_endloop
+
+	_return logical_fields
+_endmethod
+$
+
+_pragma(classify_level=advanced, topic={testing_framework}, usage={redefinable, subclassable})
+_method tc!cogeco.get_join_fields (table_name)
+	## 
+	## 
+
+	_local join_fields << hash_table.new()
+
+	_for a_join_field _over .pni_view.collections[table_name].descriptor.join_fields.elements() 
+	_loop
+		join_fields[a_join_field.name] << a_join_field
+	_endloop
+
+	_return join_fields
+_endmethod
+$
+
+_pragma(classify_level=advanced, topic={testing_framework}, usage={redefinable, subclassable})
+_method tc!cogeco.get_geometry_fields (table_name)
+	## 
+	## 
+
+	_local geometry_fields << hash_table.new()
+
+	_for a_geometry_field _over .pni_view.collections[table_name].descriptor.geometry_fields.elements() 
+	_loop
+		geometry_fields[a_geometry_field.name] << a_geometry_field
+	_endloop
+
+	_return geometry_fields
+_endmethod
+$
+
+_private
+_method tc!cogeco.get_specs_factory()
+	## 
+	## Looks at the current environment and returns the appropriate
+	## specs factory.
+	## So development environment would return the development
+	## specs factory
+
+	_if _self.current_environment _is :development
+	_then
+		_return development_specs_factory.new()
+	_elif _self.current_environment _is :production
+	_then
+		_return production_specs_factory.new()
+	_endif
+
+	condition.raise (:user_error, :string, "Unknown environment")
+_endmethod
+$
+
+_private
+_method tc!cogeco.current_environment
+	## 
+	## 
+
+	searchpath << _self.gis_view.searchpath
+	
+	_for a_path _over searchpath.fast_elements()
+	_loop
+		_if a_path.index_of_seq ("dev") _isnt _unset
+		_then
+			_return :development
+		_endif
+		
+	_endloop
+
+	_return :production
+_endmethod
+$
+

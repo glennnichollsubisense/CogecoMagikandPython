@@ -1,0 +1,31 @@
+_package user
+
+_pragma(classify_level=advanced, topic={unit_tests,cogeco}, usage={subclassable})
+_method tc!cogeco_optical_loss.test_iud()
+	## 
+	## 
+
+
+	_local lsha, lss, lshb
+	(lss, lsha, lshb)<< _self.nf.s_closure_and_two_sheaths()
+
+	write (lsha, lss, lshb)
+	write (lsha.pins.size)
+	print (lsha.pins[1])
+	print (lsha.pins[1].connections())
+
+	_local l_pl << property_list.new_with(:loss, loss_value.new(10, :db), :wavelength, 1510.0)
+	_local l_rt << record_transaction.new_insert(_self.gis_view.collections[:cogeco_optical_loss], l_pl, "Adding cogeco_optical_loss")
+	_local l_obj << l_rt.run()
+	_self.assert_not_unset(l_obj, "No object created")
+
+
+_endmethod
+$
+
+
+_pragma(classify_level=advanced, topic={unit_tests,cogeco}, usage={subclassable})
+_method tc!cogeco_optical_loss.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!cogeco_optical_loss)
+_endmethod
+$

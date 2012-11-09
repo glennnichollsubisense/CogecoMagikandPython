@@ -1,0 +1,41 @@
+
+_pragma(classify_level=basic, topic={cogeco,fibre}, usage={not_international, redefinable})
+##
+## A table to help keep track of data migrated from CableCAD.
+## The splice closures (foscs) in CableCAD maintain this data
+## on the splice closure record itself.  Instead of adding all
+## those fields to the PNI sheath splice, they are stored here
+## in a joined record
+## 
+def_slotted_exemplar(:cogeco_splice_tray_detail,
+	##
+	## 
+	## 
+	{
+	},
+	{:mit_user_ds_record})
+$
+
+
+_pragma(classify_level=restricted, topic={cogeco,fibre}, usage={redefinable})
+_method cogeco_splice_tray_detail.insert_trigger()
+	## 
+	## Stub
+	
+_endmethod
+$
+_pragma(classify_level=restricted, topic={cogeco,fibre}, usage={redefinable})
+_method cogeco_splice_tray_detail.update_trigger()
+	## 
+	## Stub
+	
+_endmethod
+$
+_pragma(classify_level=restricted, topic={cogeco,fibre}, usage={redefinable})
+_method cogeco_splice_tray_detail.delete_trigger()
+	## 
+	## Stub
+	
+_endmethod
+$
+

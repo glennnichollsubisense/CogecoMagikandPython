@@ -1,0 +1,43 @@
+# %text_encoding = iso8859_1
+_package user
+
+def_slotted_exemplar (:development_specs_factory,
+                      {},
+					  {}
+)
+$
+
+
+development_specs_factory.define_shared_constant (:spec_names,
+                                               	  property_list.new_with ( :power_port, property_list.new_with(:spec_name, "Generic Power Port", :assembly, "All Specs"),
+									   :dc_port, property_list.new_with(:spec_name, "Generic DC Port", :assembly, "All Specs")
+								), :private)
+$
+
+
+_method development_specs_factory.new()
+	## 
+	## 
+
+	_return _clone.init()
+_endmethod
+$
+
+_method development_specs_factory.init()
+	## 
+	## 
+
+	_return _self
+_endmethod
+$
+
+_method development_specs_factory.get_spec_name (p_type)
+	## 
+	##
+	_if _self.spec_names[p_type] _is _unset
+	_then
+		condition.raise (:user_error, :string, "No spec defined for type " + p_type)
+	_endif
+	 _return _self.spec_names[p_type]
+_endmethod
+$

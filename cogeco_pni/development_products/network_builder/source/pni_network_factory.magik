@@ -1,0 +1,2065 @@
+#% text_encoding = iso8859_1
+# Copyright GE Power Systems - Network Reliability Services 2003 - 2005
+_package user
+$
+
+_pragma(classify_level=basic, topic={unit_testing})
+def_slotted_exemplar(:pni_network_factory,
+                     {
+			     {:view, _unset}
+		     },
+		     {}
+)
+$
+
+
+_pragma(classify_level=restricted, topic={unit_testing})
+pni_network_factory.define_shared_variable (:base_location, coordinate.new(-4000, 0), :public)
+$
+
+_pragma(classify_level=restricted, topic={unit_testing})
+pni_network_factory.define_shared_variable (:default_construction_status, "Unknown", :public)
+$
+
+_pragma(classify_level=restricted, topic={unit_testing})
+pni_network_factory.define_shared_constant(:structure_types,
+				       {:uub}
+				       , :private)
+$
+
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.new()
+
+	.view << gis_program_manager.cached_dataset(:gis)
+	>> _clone.init()
+_endmethod
+$
+
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.init()
+
+	>> _self
+_endmethod
+$
+
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.addresses
+	_return .view.collections[:address]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.anchors
+	_return .view.collections[:anchor]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.amplifiers
+	_return .view.collections[:amplifier]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.bays
+	_return .view.collections[:mit_bay]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.buildings
+	_return .view.collections[:building]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.building_structures
+	_return .view.collections[:mit_building_structure]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.cards
+	_return .view.collections[:mit_card]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.coaxial_cables
+	_return .view.collections[:coaxial_cable]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.coaxial_splices
+	_return .view.collections[:coaxial_splice]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.coaxial_splitters
+	_return .view.collections[:coaxial_splitter]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.aerial_routes
+	_return .view.collections[:aerial_route]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.underground_routes
+	_return .view.collections[:underground_route]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.counts
+	_return .view.collections[:count]	
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.drops
+	_return .view.collections[:drop]	
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.extension_arms
+	_return .view.collections[:extension_arm]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.figure_eights
+	_return .view.collections[:figure_eight]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.grounds
+	_return .view.collections[:ground]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.il_equalizers
+	_return .view.collections[:in_line_equalizer]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.hi_legs
+	_return .view.collections[:hi_leg]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.lockboxes
+	_return .view.collections[:lockbox]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.midspan_junctions
+	_return .view.collections[:midspan_junction]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.optical_nodes
+	_return .view.collections[:optical_node]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.poles
+	_return .view.collections[:pole]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.ports
+	_return .view.collections[:port]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.power_inserters
+	_return .view.collections[:power_inserter]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.power_supplies
+	_return .view.collections[:power_supply]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.sheaths
+	_return .view.collections[:sheath]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.sheath_with_locs
+	_return .view.collections[:sheath_with_loc]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.shelves
+	_return .view.collections[:mit_shelf]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.splice_closures
+	_return .view.collections[:splice_closure]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.sheath_splices
+	_return .view.collections[:sheath_splice]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.streets
+	_return .view.collections[:street]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.taps
+	_return .view.collections[:tap]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.terminators
+	_return .view.collections[:terminator]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.uubs
+	_return .view.collections[:uub]
+_endmethod
+$
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.hubs
+	_return .view.collections[:mit_hub]
+_endmethod
+$
+
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.new_position(c1, dist, theta)
+	## 
+	## 
+
+	_dynamic !current_world!
+	
+	len << length_value.new (dist, :m).convert_to(!current_world!.world_units)
+	
+	tmp << c1.new_with_polar(len.value,theta.degrees_to_radians)
+        c2 << coordinate.new((c1.x + tmp.x),(c1.y + tmp.y))
+       
+	_return c2
+_endmethod
+$
+
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.new_route(c1, dist, theta)
+	## 
+	## 
+
+	_dynamic !current_world!
+	
+	len << length_value.new (dist, :m).convert_to(!current_world!.world_units)
+	
+	tmp << c1.new_with_polar(len.value,theta.degrees_to_radians)
+        c2 << coordinate.new((c1.x + tmp.x),(c1.y + tmp.y))
+       
+	sr << sector.new()
+	sr.add(c1)
+	sr.add(c2)
+	
+	_return sr
+_endmethod
+$
+
+_method pni_network_factory.place_in_line_equalizer(position, _optional params)
+	## 
+	## 
+	
+	_dynamic !current_world!
+	!current_world! << .view.world
+	_dynamic !current_dsview!
+	!current_dsview! << .view
+
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:construction_status, _self.default_construction_status)
+	_else
+		t_params << params.deep_copy()
+	_endif
+	a_coord << position.default(_self.base_location)
+	a_pt << pseudo_point.new(a_coord)
+
+	t_params[:location]         << t_params[:location].default(a_pt)
+	t_params[:spec_id]          << t_params[:spec_id].default("FFE-8-750-63")
+	t_params[:reverse_conditioner?]          << t_params[:reverse_conditioner?].default(_false)
+
+	a_rt << record_transaction.new_insert(_self.il_equalizers, t_params)
+
+	_return a_rt.run()
+_endmethod
+$
+
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.set_view (a_view)
+	## 
+	## Write accessor for the view slot
+	## 
+
+	.view << a_view
+_endmethod
+$
+
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.s_closure_and_two_sheaths(_optional sheath_spec, splice_spec, puselocs?)
+	## 
+	## Places a splice closures and 2 sheaths connecting to it.
+	## Or, if puselocs? is true it places a sheath splice and 2 sheath_with_locs
+
+	_local lme << _self 
+
+	_local l_place_a_cable<< _proc (psec, pspec, puselocs?)
+					 # places a sheath or sheath_with_loc with a route of sectors in
+					 # psec, a spec given by pspec
+					 _import lme
+					 _local l_rt, l_pl
+					 a_pc << pseudo_chain.new_with(psec)
+					 l_pl<< property_list.new_with(:route, a_pc, :spec_id, pspec)
+					 _if puselocs?
+					 _then
+						 l_pl[:cogeco_operational_status]<< "Existing"
+						 l_pl[:cogeco_sheath_usage]<< "Feeder"
+						 
+						 a_rt << record_transaction.new_insert(lme.sheath_with_locs, l_pl)
+					 _else 
+						 a_rt << record_transaction.new_insert(lme.sheaths, l_pl)
+					 _endif
+					 _return a_rt.run()
+					 
+				 _endproc
+	
+	_dynamic !current_world!
+	!current_world!  << .view.world
+
+	t_sheath_spec << sheath_spec.default("Generic 12F")
+	_local luselocs? << puselocs?.default(_true)
+	_local a_sc, a_sh, b_sh
+
+	# Place a splice
+	a_pt << pseudo_point.new(_self.base_location + coordinate.new(0, 600))
+	_if luselocs?
+	_then
+		a_sc << _self.place_sheath_splice (a_pt)
+	_else
+		a_sc << _self.place_splice_closure (a_pt)
+	_endif
+
+	
+	# run out 1 sheath
+	a_sec << sector.new()
+	a_sec.add(a_sc.location.coord)
+	a_sec.add(a_sc.location.coord + coordinate.new(1000, 0))
+	a_sh << l_place_a_cable(a_sec, t_sheath_spec, luselocs?)
+
+	# run out a second
+	a_sec << sector.new()
+	a_sec.add(a_sc.location.coord + coordinate.new(-1000, 0))
+	a_sec.add(a_sc.location.coord)
+	b_sh << l_place_a_cable(a_sec, t_sheath_spec, luselocs?)
+
+	_return (a_sc, a_sh, b_sh)
+_endmethod
+$
+
+_pragma(classify_level=advanced, topic={pni_network_factory})
+_method pni_network_factory.fibre_splitter (a_splice_closure, _optional splitter_spec)
+	## 
+	## Adds a fibre splitter into A_SPLICE_CLOSURE
+
+	t_splitter_spec << splitter_spec.default("Test Spl 1")
+	a_rt << record_transaction.new_insert (_self.fibre_splitters, property_list.new_with (:spec_id, t_splitter_spec,
+										  :splice_closure_id, a_splice_closure.id
+									))
+	_return a_rt.run()
+_endmethod
+$
+
+_pragma(classify_level=advanced, topic={pni_network_factory})
+_method pni_network_factory.place_channel_insertion(position, _optional  params)
+	## 
+	## 
+	_dynamic !current_world!
+	!current_world! << .view.world
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new()
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location]   << t_params[:location].default(position)
+	t_params[:spec_id]    << t_params[:spec_id].default("MDN")
+	t_params[:construction_status]    << t_params[:construction_status].default("As Built")
+	
+
+	a_rt << record_transaction.new_insert(_self.channel_insertions, t_params)
+	_return a_rt.run()
+	
+_endmethod
+$
+
+_pragma(classify_level=advanced, topic={pni_network_factory})
+_method pni_network_factory.place_xlbp(position, _optional  params)
+	## 
+	## 
+	_dynamic !current_world!
+	!current_world! << .view.world
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new()
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location]   << t_params[:location].default(position)
+	t_params[:spec_id]    << t_params[:spec_id].default("XLBP1")
+	t_params[:construction_status]    << t_params[:construction_status].default("As Built")
+	
+
+	a_rt << record_transaction.new_insert(_self.xlbps, t_params)
+	_return a_rt.run()
+	
+_endmethod
+$
+
+
+_pragma(classify_level=restricted, topic={pni_network_factory})
+_method pni_network_factory.two_sheaths_connected_in_a_splice()
+	## 
+	## 
+
+	_dynamic !current_world!
+	!current_world!  << .view.world
+
+	(a_sc, a_sh, b_sh) << _self.s_closure_and_two_sheaths()
+
+	# get sheath pins connected to the sc
+	_local a_sh_pin, b_sh_pin
+
+	_if a_sh.pins[1].location.coord.distance_to (a_sc.location.coord) < 10
+	_then
+		a_sh_pin << a_sh.pins[1]
+	_else
+		a_sh_pin << a_sh.pins[2]
+	_endif
+	_if b_sh.pins[1].location.coord.distance_to (a_sc.location.coord) < 10
+	_then
+		b_sh_pin << b_sh.pins[1]
+	_else
+		b_sh_pin << b_sh.pins[2]
+	_endif
+	
+	# make a connection between the two sheaths
+	_self.connect_fibres (a_sh_pin, 1, 1, b_sh_pin, 1, 1)
+	
+	_return (a_sc, a_sh, b_sh)
+_endmethod
+$
+
+_pragma(classify_level=restricted, topic={unit_testing})
+_private
+_method pni_network_factory.connect_fibres(a_sh_pin, a_bundle_no, a_fibre_no, b_sh_pin, b_bundle_no, b_fibre_no)
+	## 
+	## 
+
+	fibre_a << a_sh_pin.get_fiber_pin (a_bundle_no, a_fibre_no)
+	fibre_b << b_sh_pin.get_fiber_pin (b_bundle_no, b_fibre_no)
+	fibre_a.connect_to (fibre_b)
+	
+_endmethod
+$
+
+
+_method pni_network_factory.address_and_pole( _optional p_base_coord )
+	## 
+	## Places an address and a pole at P-BASE_COORD if given , uses
+	## the constant BASE_COORD IF NOT.
+	## Associates the address to the pole and returns
+	## (ADDRESS, POLE)
+	
+	_dynamic !current_world!
+	!current_world! << .view.world
+	
+	pole_coord << p_base_coord.default(_self.base_location)
+	count_coord << pole_coord + coordinate.new(200, 200)
+	address_coord << pole_coord + coordinate.new(1000, 2000)
+	
+	a_pp << pseudo_point.new (pole_coord)
+	a_rt << record_transaction.new_insert(_self.poles, property_list.new_with(:location, a_pp))
+	a_pole << a_rt.run()
+
+	b_pp << pseudo_point.new (address_coord)
+	a_rt << record_transaction.new_insert(_self.addresses, property_list.new_with(:location, b_pp, :type, "Residential", :address_number, "1066"))
+	a_add << a_rt.run()
+
+	c_pp << pseudo_point.new (count_coord)
+	a_rt << record_transaction.new_insert(_self.counts, property_list.new_with())
+	a_cnt << a_rt.run()
+
+	a_cnt.associate_structure(a_pole)
+	a_rt << record_transaction.new_update(a_cnt, property_list.new_with(:location, c_pp))
+	a_cnt << a_rt.run()
+	a_pole.associate_customer_addresses(equality_set.new_with(a_add))
+
+	_return (a_add, a_pole)
+_endmethod
+$
+
+_method pni_network_factory.street_and_addresses (no_of_addresses)
+	## 
+	## 
+
+	_dynamic !current_world!
+	!current_world! << .view.world
+
+	a_sec << sector.new()
+	a_sec.add (_self.base_location)
+	a_sec.add (_self.base_location + coordinate.new (0, 3000))
+
+	a_pc << pseudo_chain.new_with(a_sec)
+	a_rt << record_transaction.new_insert(_self.streets, property_list.new_with(:route, a_sec, :name, "Easy"))
+	a_street << a_rt.run()
+
+	base << _self.base_location + coordinate.new(1000, 0 )
+	offset << 200
+	my_addresses << rope.new()
+
+	_if no_of_addresses = 0
+	_then
+		_return (a_street, {})
+	_endif
+
+	_for i _over range (1, no_of_addresses) 
+	_loop
+		a_coord << base + coordinate.new(0, offset*i)
+		b_rt << record_transaction.new_insert(_self.addresses, property_list.new_with(:location, a_coord, :address_number, i.write_string))
+		my_addresses.add_last(b_rt.run())
+	_endloop
+
+	_return (a_street, my_addresses)
+_endmethod
+$
+
+
+_method pni_network_factory.new_addresses(no, _optional base_coord, p_world)
+	## 
+	## 
+
+	_dynamic !current_world!
+	!current_world! << .view.world 
+
+	trs << rope.new()
+	t_base << base_coord.default(_self.base_location)
+	t_world << p_world.default(.view.world)
+	
+	house_no << 10
+	_for e _over range (1, no) 
+	_loop
+		a_ppt << pseudo_point.new_for_world(t_base, t_world)
+		a_rt << record_transaction.new_insert(_self.addresses, property_list.new_with(:location, a_ppt,
+											      :address_number, house_no.write_string,
+											      :type, "Residential"
+
+										     ))
+		trs.add(a_rt)
+		t_base +<< coordinate.new(0, 5000)
+		house_no +<< 10
+	_endloop
+	_if _not trs.empty?
+	_then
+		dt << dataset_transaction.new(trs)
+		_return dt.run()
+	_endif
+
+	_return {}
+_endmethod
+$
+
+_method pni_network_factory.create_address_units_of_type(a_add, type, _optional low, high)
+	## 
+	## 
+	
+	l_low <<  low.default(1)
+	l_high << high.default(10)
+
+	units << a_add.create_address_unit_range("", "", l_low, l_high, 1)
+
+	trans << rope.new()
+	_for a_unit _over units.fast_elements()
+	_loop
+		a_rt << record_transaction.new_update (a_unit, property_list.new_with(:account_type_enum, type))
+		trans.add(a_rt)
+	_endloop
+
+	a_dt << dataset_transaction.new(trans)
+	a_dt.run()
+_endmethod
+$
+
+_method pni_network_factory.place_structure (type, position, _optional params)
+	## 
+	## 
+
+	_handling db_create__created_world
+	_with _proc(condition)
+	_endproc
+	
+	_dynamic !current_world!
+	!current_world! << .view.world 
+
+	_if type _is :pole
+	_then
+		_return _self.place_pole ( position, params )
+	_elif type _is :midspan_junction
+	_then
+		_return _self.place_midspan_junction ( position, params )
+	_elif type _is :uub
+	_then
+		_return _self.place_uub ( position, params )
+	_elif type _is :lockbox
+	_then
+		_return _self.place_lockbox ( position, params )
+	_elif type _is :transition_marker
+	_then
+		_return _self.place_transition_marker ( position, params )
+	_elif type _is :figure_eight
+	_then
+		_return _self.place_figure_eight ( position, params )
+	_endif
+
+	condition.raise (:user_error, :string, "structure type not understood " + type.write_string)
+_endmethod
+$
+
+_method pni_network_factory.place_equipment (type, position, _optional params)
+	## 
+	## 
+	
+	_dynamic !current_world!
+	!current_world! << .view.world 
+
+	_if type _is :amplifier
+	_then
+		_return _self.place_amplifier( position, params )
+	_elif type _is :internal_coupler
+	_then
+		_return _self.place_internal_coupler( position, params )
+	_elif type _is :tap
+	_then
+		_return _self.place_tap( position, params )
+	_elif type _is :terminator
+	_then
+		_return _self.place_terminator( position, params )
+	_elif type _is :end_of_line
+	_then
+		_return _self.place_end_of_line( position, params )
+	_elif type _is :coax_splitter
+	_then
+		_return _self.place_coax_splitter( position, params )
+	_elif type _is :in_line_equalizer
+	_then
+		_return _self.place_in_line_equalizer( position, params )
+	_elif type _is :channel_insertion
+	_then
+		_return _self.place_channel_insertion( position, params )
+	_elif type _is :optical_node
+	_then
+		_return _self.place_optical_node( position, params )
+	_elif type _is :power_supply
+	_then
+		t_params << property_list.new_with(:housing_type, "Single")
+		a_psh << _self.place_power_supply_housing (position, t_params)
+		params << params.default(property_list.new())
+		_if params[:name] _is _unset
+		_then
+			params[:name] << "XXX"
+		_endif
+		_return _self.place_power_supply( position, params )
+	_endif 
+	condition.raise (:user_error, :string, "equipment type not understood " + type.write_string)
+
+_endmethod
+$
+
+_method pni_network_factory.place_route (type, position, _optional params)
+	## 
+	## 
+	
+	_handling db_create__created_world
+	_with _proc(condition)
+	_endproc
+	
+	_dynamic !current_world!
+	!current_world! << .view.world 
+
+	_if type _is :aerial_route
+	_then
+		_return _self.place_aerial_route ( position, params )
+	_elif type _is :underground_route
+	_then
+		_return _self.place_underground_route ( position, params )
+	_elif type _is :conduit_route
+	_then
+		_return _self.place_conduit_route ( position, params )
+	_endif
+
+	condition.raise (:user_error, :string, "route type not understood " + type.write_string)
+_endmethod
+$
+
+_method pni_network_factory.place_riser (position, _optional params)
+	## 
+	## 
+
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:construction_status, _self.default_construction_status)
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location]         << t_params[:location].default(position)
+	t_params[:height]          << t_params[:height].default(length_value.new(20, :feet))
+
+	a_rt << record_transaction.new_insert(_self.risers, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+
+
+_method pni_network_factory.place_conduit_route(a_route, _optional params)
+	## 
+	## 
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new()
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:route] << t_params[:route].default(a_route)
+	t_params[:construction_status] << _self.default_construction_status
+	
+	a_rt << record_transaction.new_insert(_self.conduit_routes, t_params)
+	_return a_rt.run()
+	
+_endmethod
+$
+
+_method pni_network_factory.place_aerial_route(a_route, _optional params)
+	## 
+	## 
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new()
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:route] << t_params[:route].default(a_route)
+	t_params[:construction_status] << _self.default_construction_status
+	t_params[:guy_type] << t_params[:guy_type].default("None")
+	t_params[:cogeco_operational_status] << t_params[:cogeco_operational_status].default("Existing" )
+	t_params[:cogeco_size] << t_params[:cogeco_size].default("Unknown" )
+	t_params[:cogeco_usage] << t_params[:cogeco_owner].default("Cogeco" )
+	a_rt << record_transaction.new_insert(_self.aerial_routes, t_params)
+	_return a_rt.run()
+	
+_endmethod
+$
+
+_method pni_network_factory.place_underground_route(a_route, _optional params)
+	## 
+	## 
+
+	_dynamic !current_dsview!
+	!current_dsview! << .view
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new()
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:route] << t_params[:route].default(a_route)
+	t_params[:construction_status] << _self.default_construction_status
+	t_params[:underground_route_type] << t_params[:underground_route_type].default("Trench")
+	t_params[:surrounding_material] << t_params[:surrounding_material].default("Unknown")
+	t_params[:base_material] << t_params[:base_material].default("Unknown")
+	t_params[:core_material] << t_params[:core_material].default("Unknown")
+	t_params[:upper_material] << t_params[:upper_material].default("Unknown")
+	t_params[:surface_material] << t_params[:surface_material].default("Unknown")
+	
+	a_rt << record_transaction.new_insert(_self.underground_routes, t_params)
+	_return a_rt.run()
+	
+_endmethod
+$
+
+_private
+_method pni_network_factory.place_other_utility ( position, _optional params )
+	## 
+	## 
+
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:feature_type, "Telephone Pedestal")
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location] << t_params[:location].default(position)
+	
+	a_rt << record_transaction.new_insert(_self.other_utilities, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+
+_method pni_network_factory.place_ground (parent_pole, _optional params)
+	## 
+	## 
+
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:construction_status, _self.default_construction_status)
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location]         << t_params[:location].default(parent_pole.location.coord)
+	t_params[:pole] << t_params[:pole].default(parent_pole)
+	
+	a_rt << record_transaction.new_insert(_self.grounds, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+_method pni_network_factory.place_extension_arm (parent_pole, _optional params)
+	## 
+	## 
+
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:construction_status, _self.default_construction_status)
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location]         << t_params[:location].default(parent_pole.location.coord)
+	t_params[:pole_id] << t_params[:pole_id].default(parent_pole.id)
+	
+	a_rt << record_transaction.new_insert(_self.extension_arms, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+_method pni_network_factory.place_pole( position, _optional params )
+	## 
+	## 
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:construction_status, _self.default_construction_status)
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location] << t_params[:location].default(position)
+	t_params[:extension_arm] << t_params[:extension_arm].default(_true )
+	t_params[:cogeco_operational_status] << t_params[:cogeco_operational_status].default("Existing" )
+	
+	a_rt << record_transaction.new_insert(_self.poles, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+
+_private
+_method pni_network_factory.place_midspan_junction( position, _optional params )
+	## 
+	## 
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:construction_status, _self.default_construction_status,
+						   :type, "Mid Span")
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location] << t_params[:location].default(position)
+	a_rt << record_transaction.new_insert(_self.midspan_junctions, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+_private
+_method pni_network_factory.place_transition_marker( position, _optional params )
+	## 
+	## 
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:transition_type, "Underground -> Aerial")
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location] << t_params[:location].default(position)
+	a_rt << record_transaction.new_insert(_self.transition_markers, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+_private
+_method pni_network_factory.place_figure_eight( position, _optional params )
+	## 
+	## 
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:construction_status, _self.default_construction_status,
+						   :length, length_value.new(10,:feet))
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location] << t_params[:location].default(position)
+	a_rt << record_transaction.new_insert(_self.figure_eights, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+
+_private
+_method pni_network_factory.place_uub( position, _optional params )
+	## 
+	## 
+
+	_local t_params
+	_if params _is _unset 
+	_then
+		t_params << property_list.new()
+	_else
+		t_params << params.deep_copy()
+	_endif
+	_if t_params[:construction_status] _is _unset 
+	_then
+		t_params[:construction_status] << _self.default_construction_status
+	_endif
+	_if t_params[:type] _is _unset 
+	_then
+		t_params[:type] << "Manhole"
+	_endif
+	_if t_params[:spec_id] _is _unset 
+	_then
+		t_params[:spec_id] << "GENERIC UUB"
+	_endif
+	_if t_params[:drop_code] _is _unset 
+	_then
+		t_params[:drop_code] << "None"
+	_endif
+
+	t_params[:location] << t_params[:location].default(position)
+	a_rt << record_transaction.new_insert(_self.uubs, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+_method pni_network_factory.place_hub ( position, _optional params )
+	## 
+	## 
+	
+	_handling db_create__created_world
+	_with _proc(condition)
+	_endproc
+
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:construction_status, _self.default_construction_status)
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location] << t_params[:location].default(position)
+	t_params[:name] << t_params[:name].default("No name")
+	t_params[:type] << t_params[:type].default("Primary")
+	
+	a_rt << record_transaction.new_insert(_self.hubs, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+_private
+_method pni_network_factory.place_lockbox( position, _optional  params )
+	## 
+	## 
+
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:construction_status, _self.default_construction_status)
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location] << t_params[:location].default(position)
+
+	a_rt << record_transaction.new_insert(_self.lockboxes, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+_method pni_network_factory.place_building( p_position, _optional  p_params )
+	## 
+	## 
+
+	_dynamic !current_world!
+	!current_world! << .view.world
+	
+	_local t_params<< property_list.new()
+	_if p_params _isnt _unset
+	_then
+		t_params << p_params.deep_copy()
+	_endif
+	t_params[:location] << t_params[:location].default(p_position)
+
+	a_rt << record_transaction.new_insert(_self.buildings, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+
+_pragma(classify_level=restricted, topic={unit_testing})
+_method pni_network_factory.create_internals (p_building)
+	## 
+	## 
+	
+	_local l_length << length_value.new(120, :feet)
+	_local l_width << length_value.new(80, :feet)
+	_if  p_building.mit_building_structure _isnt _unset 
+	_then
+		condition.raise (:user_error, :string, "Building already has a structure")
+	_endif
+
+	_local l_structures << _self.building_structures
+	
+	_local l_pl << property_list.new()
+	l_pl[:number_of_floors] << 2
+	l_pl[:underground_floors] << 0
+	l_pl[:floor_length] << l_length
+	l_pl[:floor_width] << l_width
+	l_pl[:room_number_length] << 2
+	l_pl[:room_number_width] << 2
+	l_pl[:room_type] << "Commercial"
+	l_pl[:service_type] << "Cable Only"
+	l_pl[:riser_length] << length_value.zero
+	l_pl[:riser_ownership] << "Cable"
+
+	_local l_rt << record_transaction.new_insert (l_structures, l_pl, "")
+	_local l_structure << l_rt.run()
+
+	_local l_base << coordinate.new (0, 0)
+	_local l_sec << sector.new()
+	_local l_l_coord << l_length.convert_to (:mm).value
+	_local l_w_coord << l_width.convert_to (:mm).value
+	l_sec.add (l_base)
+	l_sec.add (l_base + coordinate.new (0, l_l_coord))
+	l_sec.add (l_base + coordinate.new (l_w_coord, l_l_coord))
+	l_sec.add (l_base + coordinate.new (l_w_coord, 0))
+	l_sec.add (coordinate.new (0, 0))
+	_local l_area << pseudo_area.new_for_world(l_sec, l_structure.world)
+	l_pl << property_list.new_with(:box, l_area)
+	l_rt << record_transaction.new_update (l_structure, l_pl, "")
+	l_structure << l_rt.run()
+
+	p_building.mit_building_structure << l_structure
+
+	_return l_structure
+_endmethod
+$
+
+
+_pragma(classify_level=restricted, topic={unit_testing})
+_method pni_network_factory.place_bay (p_position, p_world, _optional p_params)
+	## 
+	## 
+
+	_local l_params << property_list.new()
+	_if p_params _isnt _unset  
+	_then
+		l_params << p_params.deep_copy()
+	_endif
+
+	_if l_params[:spec_id] _is _unset 
+	_then
+		l_params[:spec_id] << "NGF-MDF EQUIP/SPLICE"
+	_endif
+	_if l_params[:number] _is _unset 
+	_then
+		l_params[:number] << "007"
+	_endif
+	_if l_params[:description] _is _unset 
+	_then
+		l_params[:description] << "007"
+	_endif
+	_if l_params[:date_installed] _is _unset 
+	_then
+		l_params[:date_installed] << date.now()
+	_endif
+
+	_if l_params[:boundary] _is _unset 
+	_then
+		_local l_sec << sector.new()
+		l_sec.add(p_position)
+		l_sec.add(p_position + coordinate.new(600, 0))
+		l_sec.add(p_position + coordinate.new(600, 400))
+		l_sec.add(p_position + coordinate.new(0, 400))
+		l_sec.add(p_position)
+		l_pa << pseudo_area.new_for_world(l_sec, p_world)
+		l_params[:boundary] << l_pa
+	_endif
+
+
+
+	_local l_rt << record_transaction.new_insert(_self.bays, l_params)
+	_return l_rt.run()
+_endmethod
+$
+
+_pragma(classify_level=restricted, topic={unit_testing})
+_method pni_network_factory.place_shelf (p_position, p_world, _optional p_params)
+	## 
+	## 
+	_local l_params << property_list.new()
+	_if p_params _isnt _unset  
+	_then
+		l_params << p_params.deep_copy()
+	_endif
+
+	_if l_params[:description] _is _unset 
+	_then 
+		l_params[:description] << "Shelfy"
+	_endif
+	_if l_params[:spec_id] _is _unset 
+	_then 
+		l_params[:spec_id] << "FDS-190000"
+	_endif
+	_if l_params[:date_installed] _is _unset 
+	_then
+		l_params[:date_installed] << date.now()
+	_endif
+	_if l_params[:access_status] _is _unset 
+	_then
+		l_params[:access_status] << "0-Unset"
+	_endif
+	_if l_params[:user!sep_verified] _is _unset 
+	_then
+		l_params[:user!sep_verified] << "No" 
+	_endif
+	_if l_params[:user!manufacturer] _is _unset 
+	_then
+		l_params[:user!manufacturer] << "0-UNKNOWN" 
+	_endif
+	_if l_params[:user!ne_model] _is _unset 
+	_then
+		l_params[:user!ne_model] << "0-UNKNOWN" 
+	_endif
+
+	_local l_rt << record_transaction.new_insert(_self.shelves, l_params)
+	_return l_rt.run()
+	
+_endmethod
+$
+
+
+_pragma(classify_level=restricted, topic={unit_testing})
+_method pni_network_factory.place_card (p_position, p_world, _optional p_params)
+	## 
+	## 
+	
+	_local l_params << property_list.new()
+	_if p_params _isnt _unset  
+	_then
+		l_params << p_params.deep_copy()
+	_endif
+
+	_local l_rt << record_transaction.new_insert(_self.cards, l_params)
+	_return l_rt.run()
+_endmethod
+$
+
+_method pni_network_factory.place_amplifier ( position, _optional params, place_coupler?, coupler_params )
+	## 
+	## 
+
+	_dynamic !current_world!
+	!current_world! << .view.world
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:construction_status, _self.default_construction_status)
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location] << t_params[:location].default(position)
+	t_params[:spec_id]  << t_params[:spec_id].default("(DA-63) MB-750DH (EX) [46]-15")
+
+	a_rt << record_transaction.new_insert(_self.amplifiers, t_params)
+	a_amp << a_rt.run()
+
+	_if place_coupler? _is _true
+	_then
+		_if coupler_params _is _unset
+		_then
+			t_params << property_list.new_with(:construction_status, _self.default_construction_status)
+		_else
+			t_params << coupler_params.deep_copy()
+		_endif
+		t_params[:location] << a_amp.get_output_ports().an_element().location.coord
+		t_params[:spec_id]  << t_params[:spec_id].default("INT. DC-12")
+		a_rt << record_transaction.new_insert(_self.internal_couplers, t_params)
+		a_rt.run()
+	_endif
+
+	_return a_amp
+_endmethod
+$
+
+
+_method pni_network_factory.place_vyyo_amplifier (position, _optional params, place_coupler?, coupler_params )
+	## 
+	## 
+
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:construction_status, _self.default_construction_status)
+	_else
+		t_params << params.deep_copy()
+	_endif
+
+	t_params[:spec_id]  << t_params[:spec_id].default("VYYO-1")
+
+	_return _self.place_amplifier ( position, t_params, place_coupler?, coupler_params )
+_endmethod
+$
+
+
+_method pni_network_factory.place_cmi ( position, _optional  params )
+	## 
+	## 
+	
+	_dynamic !current_world!
+	!current_world! << .view.world
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new()
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location] << t_params[:location].default(position)
+	t_params[:spec_id]  << t_params[:spec_id].default("CMI")
+
+	a_rt << record_transaction.new_insert(_self.cmis, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+_method pni_network_factory.place_coax_cable ( route, _optional  params )
+	## 
+	## 
+
+	_dynamic !current_world!
+	!current_world! << .view.world
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:construction_status, _self.default_construction_status)
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:route] << t_params[:route].default(route)
+	t_params[:spec_id]  << t_params[:spec_id].default("715-Q O\H[16]")
+
+	a_rt << record_transaction.new_insert(_self.coaxial_cables, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+_method pni_network_factory.place_coax_splitter ( position, _optional  params )
+	## 
+	## 
+	
+	_dynamic !current_world!
+	!current_world! << .view.world
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:construction_status, _self.default_construction_status)
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location] << t_params[:location].default(position)
+	t_params[:spec_id]  << t_params[:spec_id].default("(2 WAY) S-15G-2")
+
+	a_rt << record_transaction.new_insert(_self.coaxial_splitters, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+_method pni_network_factory.place_coax_splice ( position, _optional  params )
+	## 
+	## 
+	
+	_dynamic !current_world!
+	!current_world! << .view.world
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:construction_status, _self.default_construction_status)
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location] << t_params[:location].default(position)
+	t_params[:spec_id]  << t_params[:spec_id].default("STR8 SPLICE")
+
+	a_rt << record_transaction.new_insert(_self.coaxial_splices, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+_method pni_network_factory.place_hi_leg (position, port, _optional params)
+	## 
+	## 
+	
+	_dynamic !current_world!
+	!current_world! << .view.world
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:construction_status, _self.default_construction_status)
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location] << t_params[:location].default(position)
+	t_params[:port_id]  << t_params[:port_id].default(port.id)
+
+	a_rt << record_transaction.new_insert(_self.hi_legs, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+_method pni_network_factory.place_end_of_line ( position, _optional  params )
+	## 
+	## 
+	
+	_dynamic !current_world!
+	!current_world! << .view.world
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new()
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location] << t_params[:location].default(position)
+
+	a_rt << record_transaction.new_insert(_self.end_of_lines, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+_method pni_network_factory.place_footstamp (location, parent_sheath, _optional params)
+	## 
+	## LOCATION needs to be a pseudo point
+	## PARENT_SHEATH is the sheath that will own the footstamp
+	## PARAMS needs to be a property list with attribute values for
+	## the new footstamp.  If an attribute is not set it will get a
+	## suitable default
+
+	_dynamic !current_world!
+	!current_world! << .view.world
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new()
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location] << location
+	t_params[:sheath] << parent_sheath
+	t_params[:marker_value] << t_params[:marker_value].default(length_value.new(100, :feet))
+	
+	a_rt << record_transaction.new_insert(_self.footstamps, t_params)
+	_return a_rt.run()
+_endmethod
+$
+	
+_method pni_network_factory.place_sheath (route, _optional params)
+	## 
+	## ROUTE needs to be a pseudo chain
+	## PARAMS needs to be a property list with attribute values for
+	## the new sheath.  If an attribute is not set it will get a
+	## suitable default
+	
+	_dynamic !current_world!
+	!current_world! << .view.world
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new()
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:route] << t_params[:route].default(route)
+	t_params[:spec_id] << t_params[:spec_id].default("ALCATEL (04F/04B) (ESM-LT-ARM)")
+	
+	a_rt << record_transaction.new_insert(_self.sheaths, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+_method pni_network_factory.place_splice_closure (position, _optional params)
+	## 
+	## 
+	
+	_dynamic !current_world!
+	!current_world! << .view.world
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new()
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location] << t_params[:location].default(position)
+	t_params[:spec_id]  << t_params[:spec_id].default("3-M 2178-LL(XLARGE)")
+	t_params[:name]     << t_params[:name].default("SC")
+	
+	a_rt << record_transaction.new_insert(_self.splice_closures, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+_method pni_network_factory.place_sheath_splice (position, _optional params)
+	## 
+	## 
+	
+	_dynamic !current_world!
+	!current_world! << .view.world
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new()
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location] << t_params[:location].default(position)
+	t_params[:spec_id]  << t_params[:spec_id].default("Generic 144")
+	t_params[:name]     << t_params[:name].default("SS")
+	t_params[:splice_method]     << t_params[:splice_method].default("Straight Through")
+	t_params[:cogeco_operational_status]     << t_params[:cogeco_operational_statu].default("Existing")
+	
+	
+	a_rt << record_transaction.new_insert(_self.sheath_splices, t_params)
+	_return a_rt.run()
+_endmethod
+$
+_method pni_network_factory.place_power_inserter ( position, _optional  params )
+	## 
+	## 
+	
+	_dynamic !current_world!
+	!current_world! << .view.world
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:construction_status, _self.default_construction_status)
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location] << t_params[:location].default(position)
+	t_params[:spec_id]          << t_params[:spec_id].default("SSP-PIK")
+		
+	a_rt << record_transaction.new_insert(_self.power_inserters, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+_method pni_network_factory.place_power_block( position, _optional  params )
+	## 
+	## 
+	
+	_dynamic !current_world!
+	!current_world! << .view.world
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:construction_status, _self.default_construction_status)
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location] << t_params[:location].default(position)
+	t_params[:spec_id]          << t_params[:spec_id].default("POWER BLOCK")
+	
+	a_rt << record_transaction.new_insert(_self.power_blocks, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+_method pni_network_factory.place_optical_node(position, _optional  params, a_world )
+	## 
+	## 
+
+	_handling db_create__created_world
+	_with _proc(condition)
+	_endproc
+
+	_dynamic !current_world!
+	_if a_world _isnt _unset
+	_then
+		!current_world! << a_world
+	_else
+		!current_world! << .view.world
+	_endif
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:construction_status, _self.default_construction_status,
+						   :internal_splitter, "None",
+						   :name, "XXX",
+						   :cogeco_operational_status, "Existing",
+						   :cogeco_node_type, "Fibre Node"
+					  )
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location]         << t_params[:location].default(position)
+	t_params[:spec_id]          << t_params[:spec_id].default("Generic 4-way")
+
+	a_rt << record_transaction.new_insert(_self.optical_nodes, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+_method pni_network_factory.place_power_supply_housing ( position, _optional params, world )
+	## 
+	## 
+	
+	_dynamic !current_world!
+	!current_world! << world.default(.view.world)
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:construction_status, _self.default_construction_status)
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location]         << t_params[:location].default(position)
+
+	a_rt << record_transaction.new_insert(_self.ps_housings, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+_method pni_network_factory.place_power_supply ( position, _optional params )
+	## 
+	## 
+	
+	_dynamic !current_world!
+	!current_world! << .view.world
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:construction_status, _self.default_construction_status)
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location]         << t_params[:location].default(position)
+	t_params[:spec_id]          << t_params[:spec_id].default ("LPHA XP9015UPE")
+
+	a_rt << record_transaction.new_insert(_self.power_supplies, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+_method pni_network_factory.place_internal_coupler (position, _optional params )
+	## 
+	## 
+	
+	_dynamic !current_world!
+	!current_world! << .view.world
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:construction_status, _self.default_construction_status)
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location]         << t_params[:location].default(position)
+	t_params[:spec_id]          << t_params[:spec_id].default("6944 INT SPLIT")
+
+	a_rt << record_transaction.new_insert(_self.internal_couplers, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+_method pni_network_factory.place_tap (position, _optional params )
+	## 
+	## 
+	
+	_dynamic !current_world!
+	!current_world! << .view.world
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:construction_status, _self.default_construction_status)
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location]         << t_params[:location].default(position)
+	t_params[:spec_id]          << t_params[:spec_id].default("FFT2-4K-10")
+
+	a_rt << record_transaction.new_insert(_self.taps, t_params)
+	_return a_rt.run()
+_endmethod
+$
+
+_method pni_network_factory.place_terminator (position, _optional params )
+	## 
+	## 
+	
+	_dynamic !current_world!
+	!current_world! << .view.world
+	
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:construction_status, _self.default_construction_status,
+										   :underground?, _false
+								  )
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:location]         << t_params[:location].default(position)
+
+	a_rt << record_transaction.new_insert(_self.terminators, t_params)
+	_return a_rt.run()
+_endmethod
+$
+_pragma(classify_level=restricted, topic={unit_testing})
+_method pni_network_factory.check_for_existing_geometry( _optional base_coord )
+	## 
+	## checks for existing geometry in a box of size +/-
+	## half_width centred around BASE_COORD
+
+	half_width << 2000
+	a_scan << .view.geometry_scanner(:point)
+	geoms << equality_set.new()
+
+	t_coord << base_coord.default (_self.base_location)
+	_protect
+		
+		low_x << t_coord.x - half_width
+		low_y << t_coord.y - half_width
+		high_x << t_coord.x + half_width
+		high_y << t_coord.y + half_width
+		a_scan.start_scan (bounding_box.new(low_x, low_y, high_x, high_y))
+
+		_loop
+			_local rc << a_scan.get()
+			_if rc _is _unset 
+			_then
+				_leave 
+			_endif
+			_if rc.rwo _isnt _unset _andif
+			    _not rc.rwo.is_kind_of? (swg_dsn_project_area)
+			_then
+				geoms.add(rc)
+			_endif
+		_endloop
+
+	_protection
+		a_scan.return_to_scanner_pool()	
+	_endprotect
+
+	_if _not geoms.empty?
+	_then
+		_local l_owner
+		condition.raise (:geometry_found_in_temporary_place, :x, geoms.an_element().rwo, :y, geoms.an_element().bounds.centre.write_string)
+	_endif
+	_return geoms
+_endmethod
+$
+
+
+_method pni_network_factory.build_fiber_network (no_of_hops, _optional location, sheath_spec, splice_spec)
+	## 
+	##
+	## returns an n-tuple HUBS, SPLICES, SHEATHS
+	
+	_local sheath_length << length_value.new(20, :m)
+	
+	_if no_of_hops < 1
+	_then
+		condition.raise (:user_error, :string, "NO_OF_HOPS in pni_network_factory.build_fiber_network should be at least 1")
+	_endif
+
+	_local t_sheath_spec << sheath_spec.default("ALCATEL (04F/04B) (EZP/2JKARM)")
+	_local t_splice_spec << splice_spec.default("3-M 2178-LL(XLARGE)")
+	
+	_local sheath_length_in_world_coords << sheath_length.convert_to(:cm).value
+	_local sheath_length_as_offset_coord << coordinate.new (sheath_length_in_world_coords, 0)
+	_local a_sec, a_pl
+
+	splices << rope.new()
+	sheaths << rope.new()
+	hubs << rope.new()
+	
+	a_hub_pos << location.default(_self.base_location)
+	a_hub << _self.place_hub (a_hub_pos)
+	hubs.add_last(a_hub)
+	b_hub_pos << a_hub_pos + coordinate.new (no_of_hops * sheath_length_in_world_coords, 0)
+	b_hub << _self.place_hub (b_hub_pos)
+	hubs.add_last(b_hub)
+
+	last_coord << a_hub.location.coord
+	_for a_splice_no _over range ( 1, no_of_hops-1 )
+	_loop
+		
+		splice_coord<< last_coord + sheath_length_as_offset_coord
+		a_pt << pseudo_point.new(splice_coord)
+		a_pl << property_list.new_with(:location, a_pt, :spec_id, t_splice_spec)
+		a_rt << record_transaction.new_insert (_self.splice_closures, a_pl)
+		splices.add_last(a_rt.run())
+
+		a_sec << sector.new()
+		a_sec.add(last_coord)
+		a_sec.add(splice_coord)
+		a_pl << property_list.new_with(:spec_id, t_sheath_spec)
+		sheaths.add_last(_self.place_sheath(a_sec, a_pl))
+		last_coord << splice_coord
+	_endloop
+
+	# place the last sheath from last coord to the b_hub
+	a_sec << sector.new()
+	a_sec.add(last_coord)
+	a_sec.add(b_hub_pos)
+	a_pl << property_list.new_with(:spec_id, t_sheath_spec)
+	sheaths.add_last(_self.place_sheath (a_sec, a_pl))
+
+	_for i _over  range(1, 10)
+	_loop
+		_thisthread.sleep(1000)
+	_endloop
+
+	_return (hubs, splices, sheaths) 
+_endmethod
+$
+
+_method pni_network_factory.uub_array (location)
+	## 
+	## 
+
+	_handling db_create__created_world
+	_with _proc(condition)
+	_endproc
+
+	_dynamic !current_world!
+	!current_world! << .view.world
+	
+	_local t_coord << location
+	_local orig_x << t_coord.x
+	_local counter << 0
+	_local offset << 600
+	_local a_pl << property_list.new_with(:construction_status, _self.default_construction_status, :spec_id, "GENERIC UUB")
+	_local uub_types << {"200 Vault", "400 Vault", "Coffin Vault", "EF30 Vault", "T16 Bellbox", "Manhole", "Vault", "Handhole"}
+	_for a_type _over uub_types.fast_elements() 
+	_loop
+		_for a_owner _over {"Private", "State", "Telephone"}.fast_elements() 
+		_loop
+			a_pl[:type] << a_type
+			a_uub << _self.place_uub (t_coord, a_pl)
+
+			_if (counter +<< 1) _mod  uub_types.size = 0
+			_then
+				t_coord << coordinate.new (orig_x, t_coord.y - offset)
+			_else
+				t_coord +<< coordinate.new (offset, 0)
+			_endif
+		_endloop
+	_endloop
+_endmethod
+$
+
+_method pni_network_factory.place_anchor (parent_pole, _optional params)
+	## 
+	## 
+
+	_local t_params
+	_if params _is _unset
+	_then
+		t_params << property_list.new_with(:construction_status, _self.default_construction_status)
+	_else
+		t_params << params.deep_copy()
+	_endif
+	t_params[:type] << t_params[:type].default("Existing")
+	t_params[:location] << t_params[:location].default(parent_pole.location.coord)
+	t_params[:pole_id] << t_params[:pole_id].default(parent_pole.id)
+# 	t_params[:user_is_drop_pole] << t_params[:user_is_drop_pole].default(_false)
+	a_rt << record_transaction.new_insert(_self.anchors, t_params)
+	_return a_rt.run()
+	
+	
+_endmethod
+$
+
+_pragma(classify_level=restricted, topic={unit_testing})
+_method pni_network_factory.set_specification(spec_name)
+	## 
+	## 
+
+	spec_view << gis_program_manager.databases[:template]
+	a_pred << predicate.eq(:name, "ALL SPECIFICATIONS")
+	a_tab << spec_view.collections[:spec_assembly]
+
+	_if (a_spec << a_tab.select(a_pred).an_element()) _isnt _unset
+	_then 
+		.view.set_current_design_spec(a_spec.id)
+	_endif 
+_endmethod
+$
+
+_method pni_network_factory.build_basic_fiber_network()
+	## 
+	##
+	
+	_dynamic !current_world!
+	_dynamic !current_dsview!
+
+	_if !current_dsview! _is _unset
+	_then
+		!current_dsview! << .view
+	_endif
+	_if !current_world! _is _unset
+	_then
+		!current_world! << .view.world
+	_endif
+	
+	c1 << _self.base_location
+
+	# Set all fiber specs
+	_self.set_specification("ALL SPECIFICATIONS")
+
+	a_hub << _self.place_hub(c1)
+	a_sheath << _self.place_sheath(_self.new_route(c1,100,0))
+	a_splice << _self.place_splice_closure(a_sheath.route.mid_point)
+	a_marker << _self.place_transition_marker(_self.new_position(c1, 25, 0))
+	a_ffe << _self.place_figure_eight(_self.new_position(a_splice.location.coord, 25, 0))
+	a_node << _self.place_optical_node(a_sheath.route.last_coord)
+_endmethod
+$
+
+_method pni_network_factory.build_basic_rf_network()
+	## 
+	##
+	
+	_dynamic !current_world!
+	_dynamic !current_dsview!
+
+	_if !current_dsview! _is _unset
+	_then
+		!current_dsview! << .view
+	_endif
+	_if !current_world! _is _unset
+	_then
+		!current_world! << .view.world
+	_endif
+	
+	c1 << _self.base_location
+
+	# Set all fiber specs
+	_self.set_specification("SDIEGO90")
+
+	a_pi << _self.place_power_inserter(c1)
+	a_amp << _self.place_amplifier(a_pi.return_port(3).location.coord)
+	a_coupler << _self.place_internal_coupler(a_amp.return_port(2).location.coord)
+	a_cable << _self.place_coax_cable(_self.new_route(a_coupler.return_port(2).location.coord,30,270))
+	a_equalizer << _self.place_in_line_equalizer(a_cable.route.last_coord)
+	a_splitter << _self.place_coax_splitter(a_equalizer.return_port(2).location.coord)
+	a_terminator << _self.place_terminator(a_splitter.return_port(2).location.coord)
+	a_eol << _self.place_end_of_line(a_splitter.return_port(2).location.coord)
+	a_eol.remove_data_blocks()
+	a_eol.create_data_block(_self.new_position(a_eol.location.coord,10, 180))
+	a_tap << _self.place_tap(a_splitter.return_port(3).location.coord)
+	a_cable << _self.place_coax_cable(_self.new_route(a_tap.return_port(2).location.coord,10,270))
+	a_pb << _self.place_power_block(a_cable.route.last_coord)
+	
+	a_cable << _self.place_coax_cable(_self.new_route(a_coupler.return_port(3).location.coord,10,90))
+	a_splice << _self.place_coax_splice(a_cable.route.last_coord)
+	a_cable << _self.place_coax_cable(_self.new_route(a_splice.return_port(2).location.coord,20,0))
+	a_cmi << _self.place_cmi(a_cable.route.last_coord)
+	a_cable << _self.place_coax_cable(_self.new_route(a_cmi.location.coord,20,0))
+	a_ci << _self.place_channel_insertion(a_cable.route.last_coord)
+	a_housing << _self.place_equipment(:power_supply,_self.new_position(a_coupler.location.coord,30,0))
+_endmethod
+$
+
+_method pni_network_factory.build_basic_structure_network()
+	## 
+	##
+	
+	_dynamic !current_world!
+	_dynamic !current_dsview!
+
+	_if !current_dsview! _is _unset
+	_then
+		!current_dsview! << .view
+	_endif
+	_if !current_world! _is _unset
+	_then
+		!current_world! << .view.world
+	_endif
+	
+	c1 << _self.base_location
+
+	# Set all fiber specs
+	#_self.set_specification("SDIEGO90")
+
+	a_pole << _self.place_pole(c1)
+	#a_pole.extension_arms.an_element().location.orientation << -float.pi/2
+	a_ground << _self.place_ground(a_pole)
+	a_ground.location.orientation << -float.pi/2
+	#a_arm << _self.place_extension_arm(a_pole)
+	a_riser << _self.place_riser(a_pole.location)
+	a_route << _self.place_aerial_route(_self.new_route(a_pole.location.coord,30,0))
+	a_mj << _self.place_midspan_junction(a_route.route.mid_point)
+	a_pole << _self.place_pole(a_route.route.last_coord)
+	a_anchor << _self.place_anchor(a_pole)
+	a_anchor.location.orientation << -float.pi/2
+	a_riser << _self.place_riser(a_pole.location)
+	a_route << _self.place_underground_route(_self.new_route(a_pole.location.coord,20,0))
+	a_uub << _self.place_uub(a_route.route.last_coord)
+	a_route << _self.place_underground_route(_self.new_route(a_uub.location.coord,20,0))
+	a_ped << _self.place_uub(a_route.route.last_coord)
+	a_route << _self.place_conduit_route(_self.new_route(a_ped.location.coord,20,270))
+	a_sum << _self.place_uub(a_route.route.last_coord)
+	a_route << _self.place_underground_route(_self.new_route(a_sum.location.coord,20,180))
+	a_ouf << _self.place_other_utility(a_route.route.last_coord)
+	a_route << _self.place_underground_route(_self.new_route(a_ouf.location.coord,20,180))
+_endmethod
+$
+
+_pragma(classify_level=restricted, topic={unit_testing})
+_method pni_network_factory.make_address_and_poles (no_of_poles, _optional base_coord)
+	## 
+	## makes a single address at the base_coord and a set of poles
+	## nearby.  No. of poles being given by NO_OF_POLES.
+	## the address is associated with the poles
+	## RETURNS the address, a rope of the poles
+	
+	_dynamic !current_world!
+	!current_world! << .view.world
+
+	addresses << _self.addresses
+	poles << _self.poles
+	add_loc << base_coord.default(_self.base_location)
+	pole_loc << add_loc + coordinate.new (500, 500)
+	
+	rp_poles << rope.new()
+	a_rt << record_transaction.new_insert(addresses, property_list.new_with(:location, add_loc,
+										:address_number, "1234"))
+	a_add << a_rt.run()
+
+	_for i _over range (1, no_of_poles) 
+	_loop
+		_if i > 1
+		_then
+			pole_loc +<< coordinate.new (5000, 0)
+		_endif
+		a_rt << record_transaction.new_insert(poles, property_list.new_with(:location, pole_loc,
+										    :construction_status, _self.default_construction_status))
+		a_pole << rp_poles.add_last ( a_rt.run() )
+	_endloop
+	
+	_return (a_add, rp_poles)
+_endmethod
+$
+
+_method pni_network_factory.create_datablocks( _optional base_coord, nodes_pl, cables_pl, amps_pl, vyyos_pl )
+	## 
+	## 
+
+	_dynamic !current_world!
+	!current_world! << .view.world
+	
+	t_base_coord << base_coord.default (_self.base_location)
+	# Place the optical node and its block
+	a_onode << _self.place_optical_node(t_base_coord, nodes_pl )
+	block_coord << a_onode.location.coord + coordinate.new (0, -3500)
+	a_pt << pseudo_point.new_for_world (block_coord, !current_world!)
+	a_pl << property_list.new_with (:location, a_pt)
+	a_rt << record_transaction.new_update (a_onode.get_data_block(), a_pl)
+	a_rt.run()
+
+
+	# connect a cable
+	a_sector << sector.new()
+	a_coord << a_onode.get_output_ports().an_element().location.coord
+	b_coord << a_coord + coordinate.new(2000, 200)
+	a_sector.add(a_coord)
+	a_sector.add(b_coord)
+	_self.place_coax_cable(a_sector, cables_pl)
+
+	# place an amplifier on the end of the cable
+	a_amp << _self.place_amplifier (b_coord, amps_pl)
+	block_coord << a_amp.location.coord + coordinate.new (0, +2500)
+	a_pt << pseudo_point.new_for_world (block_coord, !current_world!)
+	a_pl << property_list.new_with (:location, a_pt)
+	a_rt << record_transaction.new_update (a_amp.get_data_block(), a_pl)
+	a_rt.run()
+
+	# place a vyyo amplifier on the end of the previous amplifier
+	a_coord << a_amp.get_output_ports().an_element().location.coord
+	a_vyyo << _self.place_amplifier (a_coord, vyyos_pl)
+	block_coord << a_vyyo.location.coord + coordinate.new (0, -3500)
+	a_pt << pseudo_point.new_for_world (block_coord, !current_world!)
+	a_pl << property_list.new_with (:location, a_pt)
+	a_rt << record_transaction.new_update (a_vyyo.get_data_block(), a_pl)
+	a_rt.run()
+
+	#place an end of line on the output of the vyyo
+
+	a_coord << a_vyyo.get_output_ports().an_element().location.coord
+	a_eol << _self.place_end_of_line(a_coord)
+	block_coord << a_eol.location.coord + coordinate.new (0, +2500)
+	a_pt << pseudo_point.new_for_world (block_coord, !current_world!)
+	a_pl << property_list.new_with (:location, a_pt)
+	a_rt << record_transaction.new_update (a_eol.get_data_block(), a_pl)
+	a_rt.run()
+_endmethod
+$

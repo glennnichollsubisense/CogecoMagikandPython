@@ -1,0 +1,35 @@
+_package user 
+
+##
+## Extensions to optical_node class to provide behaviour for Cogeco
+##
+
+
+_pragma(classify_level=restricted, topic={structure, cogeco}, usage={redefinable, subclassable})
+_method optical_node.cogeco_annotation_1_text
+	## 
+	## 
+
+	_if _self.cogeco_id_code _isnt _unset 
+	_then
+		_return _self.cogeco_id_code.write_string
+	_endif
+	
+	_return "no value set for cogeco_id_code"
+_endmethod
+$
+_pragma(classify_level=restricted, topic={structure, cogeco}, usage={redefinable, subclassable})
+_method optical_node.cogeco_annotation_2_text
+	## 
+	## 
+
+	_if _self.cogeco_description _isnt _unset 
+	_then
+		_return _self.cogeco_description.write_string
+	_endif
+	
+	_return "no value set for cogeco_description"
+_endmethod
+$
+
+

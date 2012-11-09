@@ -1,0 +1,116 @@
+_package user
+$
+
+
+## Tests that the cogeco tables are not 64-bit ids
+## This file is machine generated.  Dont add any hand-edits
+## testing for class cogeco_optical_loss
+_method tc!cogeco_optical_loss.test_sysid()
+_local l_obj << _self.gis_view.collections[:cogeco_optical_loss]
+_local l_descriptor<< l_obj.descriptor
+_self.assert_not_equals (l_descriptor.all_fields[:id].type.name, 'sys_id64', '64 bit id !!')
+_self.assert_true (l_descriptor.all_fields[:id].is_key?, 'id field should be a key field')
+_endmethod
+$
+
+
+## testing for class cogeco_migration_attributes
+_method tc!cogeco_migration_attributes.test_sysid()
+_local l_obj << _self.gis_view.collections[:cogeco_migration_attributes]
+_local l_descriptor<< l_obj.descriptor
+_self.assert_not_equals (l_descriptor.all_fields[:id].type.name, 'sys_id64', '64 bit id !!')
+_self.assert_true (l_descriptor.all_fields[:id].is_key?, 'id field should be a key field')
+_endmethod
+$
+
+
+## testing for class cogeco_splice_tray_detail
+_method tc!cogeco_splice_tray_detail.test_sysid()
+_local l_obj << _self.gis_view.collections[:cogeco_splice_tray_detail]
+_local l_descriptor<< l_obj.descriptor
+_self.assert_not_equals (l_descriptor.all_fields[:id].type.name, 'sys_id64', '64 bit id !!')
+_self.assert_true (l_descriptor.all_fields[:id].is_key?, 'id field should be a key field')
+_endmethod
+$
+
+
+## testing for class cogeco_fibre_cell
+_method tc!cogeco_fibre_cell.test_sysid()
+_local l_obj << _self.gis_view.collections[:cogeco_fibre_cell]
+_local l_descriptor<< l_obj.descriptor
+_self.assert_not_equals (l_descriptor.all_fields[:id].type.name, 'sys_id64', '64 bit id !!')
+_self.assert_true (l_descriptor.all_fields[:id].is_key?, 'id field should be a key field')
+_endmethod
+$
+
+
+## testing for class cogeco_province_boundary
+_method tc!cogeco_province_boundary.test_sysid()
+_local l_obj << _self.gis_view.collections[:cogeco_province_boundary]
+_local l_descriptor<< l_obj.descriptor
+_self.assert_not_equals (l_descriptor.all_fields[:id].type.name, 'sys_id64', '64 bit id !!')
+_self.assert_true (l_descriptor.all_fields[:id].is_key?, 'id field should be a key field')
+_endmethod
+$
+
+
+## testing for class cogeco_frame
+_method tc!cogeco_frame.test_sysid()
+_local l_obj << _self.gis_view.collections[:cogeco_frame]
+_local l_descriptor<< l_obj.descriptor
+_self.assert_not_equals (l_descriptor.all_fields[:id].type.name, 'sys_id64', '64 bit id !!')
+_self.assert_true (l_descriptor.all_fields[:id].is_key?, 'id field should be a key field')
+_endmethod
+$
+
+
+## testing for class cogeco_franchise_tax_boundary
+_method tc!cogeco_franchise_tax_boundary.test_sysid()
+_local l_obj << _self.gis_view.collections[:cogeco_franchise_tax_boundary]
+_local l_descriptor<< l_obj.descriptor
+_self.assert_not_equals (l_descriptor.all_fields[:id].type.name, 'sys_id64', '64 bit id !!')
+_self.assert_true (l_descriptor.all_fields[:id].is_key?, 'id field should be a key field')
+_endmethod
+$
+
+
+## testing for class cogeco_fsa_boundary
+_method tc!cogeco_fsa_boundary.test_sysid()
+_local l_obj << _self.gis_view.collections[:cogeco_fsa_boundary]
+_local l_descriptor<< l_obj.descriptor
+_self.assert_not_equals (l_descriptor.all_fields[:id].type.name, 'sys_id64', '64 bit id !!')
+_self.assert_true (l_descriptor.all_fields[:id].is_key?, 'id field should be a key field')
+_endmethod
+$
+
+
+## testing for class cogeco_service_area
+_method tc!cogeco_service_area.test_sysid()
+_local l_obj << _self.gis_view.collections[:cogeco_service_area]
+_local l_descriptor<< l_obj.descriptor
+_self.assert_not_equals (l_descriptor.all_fields[:id].type.name, 'sys_id64', '64 bit id !!')
+_self.assert_true (l_descriptor.all_fields[:id].is_key?, 'id field should be a key field')
+_endmethod
+$
+
+
+## testing for class cogeco_customer
+_method tc!cogeco_customer.test_sysid()
+_local l_obj << _self.gis_view.collections[:cogeco_customer]
+_local l_descriptor<< l_obj.descriptor
+_self.assert_not_equals (l_descriptor.all_fields[:id].type.name, 'sys_id64', '64 bit id !!')
+_self.assert_true (l_descriptor.all_fields[:id].is_key?, 'id field should be a key field')
+_endmethod
+$
+
+
+## testing for class cogeco_rm_boundary
+_method tc!cogeco_rm_boundary.test_sysid()
+_local l_obj << _self.gis_view.collections[:cogeco_rm_boundary]
+_local l_descriptor<< l_obj.descriptor
+_self.assert_not_equals (l_descriptor.all_fields[:id].type.name, 'sys_id64', '64 bit id !!')
+_self.assert_true (l_descriptor.all_fields[:id].is_key?, 'id field should be a key field')
+_endmethod
+$
+
+

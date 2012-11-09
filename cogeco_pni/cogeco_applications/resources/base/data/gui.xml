@@ -1,0 +1,99 @@
+<gui base="pni_gui.gui">
+
+      <work_area>
+
+	<paned_window side_by_side="no" dynamic="no" cell_spacing="no" role="app_window">
+
+	    <plugin plugin_name="workspace_bar">
+		<actions>
+		    <action name="quality_control.activate_quality_check_dialog"/>
+		    <action name="connectivity_menu.activate_connectivity_menu"/>
+		    <action name="pni_cable_conduit.activate_cable_wizard" label_id="cable_wizard"/>
+		    <action name="pni_cable_conduit.activate_conduit_wizard" label_id="conduit_wizard"/>
+		    <action name="rme_plugin.add_rme" label_id="rme_wizard"/>
+		</actions>
+	    </plugin>
+
+	    <paned_window side_by_side="yes" dynamic="no" cell_spacing="no" 
+			  top_spacing="2" bottom_spacing="2" role="main_window">
+		
+		<paned_window side_by_side="no" dynamic="no" left_spacing="2" role="project_window">	
+		    <tab_box width="225" role="project_tab_box">  
+			
+			<!-- START: Remove for non Design Manager -->	      
+			<paned_window side_by_side="no" role="project_component_list" tab_label_id="project">
+			    <plugin plugin_name="job_detail_plugin"/> 
+			    <plugin plugin_name="job_component_plugin"/> 
+			</paned_window>
+			<!-- END: Remove for non Design Manager -->	     
+			
+			<plugin plugin_name="tools_plugin" role="favourites"/> 
+			<plugin plugin_name="object_control"/> 		    
+		    </tab_box>		
+		</paned_window>
+		
+		<separator side_by_side="yes" minimise_direction="left" size="8"/>
+		
+		<paned_window side_by_side="no" dynamic="no" cell_spacing="no" role="dashboard_window">  
+		    
+		    <paned_window side_by_side="no" dynamic="no" right_spacing="2" role="dashboard_tab_window"> 			
+			<tab_box height="200" role="dashboard_tab_box">		     
+			    <plugin plugin_name="find_plugin" role="find"/>
+			    <plugin plugin_name="trace_plugin" role="trace"/>
+			    <plugin plugin_name="schematic" aspect="schematic_manager" role="schematic"/>
+			    <plugin plugin_name="path_plugin" role="path"/>
+			    <plugin plugin_name="diversity"/>
+			</tab_box>
+		    </paned_window>
+		    
+		    <separator side_by_side="no" minimise_direction="up" size="8"/>
+		    
+		    <paned_window side_by_side="yes" dynamic="no" cell_spacing="no" role="map_window">
+			
+			<paned_window side_by_side="yes" dynamic="no" stretch="1" role="main_map_window">
+			    <plugin plugin_name="document_manager" height="600">
+				<document plugin_name="map_plugin" map_type="Geographic" map_name="Geographic"/>
+			    </plugin>
+			</paned_window>
+			
+			<separator side_by_side="yes" minimise_direction="right" size="8"/>
+			
+			<paned_window side_by_side="no" dynamic="no" cell_spacing="no"
+				      right_spacing="2" stretch="0" role="detailer_window">
+			    
+			    <paned_window side_by_side="yes" height="200" role="editor_window">
+				<paned_window dynamic="no" role="editor">
+				    <plugin plugin_name="editor_manager"/>
+				</paned_window>
+				<plugin plugin_name="transaction_plugin" role="transaction_viewer"/>
+			    </paned_window>
+			    
+			    <separator side_by_side="no" minimise_direction="up" size="8"/>
+			    
+			    <paned_window side_by_side="yes" dynamic="no" role="viewer_window">	
+				<tab_box role="viewer_tab_box">			
+				    <plugin plugin_name="viewer_plugin" role="viewer"/>
+				    <paned_window side_by_side="no" role="embedded_connectivity" tab_label_id="connectivity">
+					<plugin plugin_name="connectivity_gui"/>
+					<plugin plugin_name="connectivity_trees_placeholder">
+					    <plugin plugin_name="connectivity_menu"/>
+					    <plugin plugin_name="conduit_connections"/>
+					</plugin>
+				    </paned_window>
+				    <plugin plugin_name="recordset_viewer"/>
+				</tab_box>
+			    </paned_window>  
+			    
+			</paned_window>  
+			
+		    </paned_window>
+		    
+		</paned_window>
+		
+	    </paned_window>
+
+	</paned_window>
+	
+    </work_area>
+
+</gui>

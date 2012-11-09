@@ -1,0 +1,27 @@
+_package user 
+
+##
+## Extensions to sheath_with_loc_terminal class to provide behaviour for Cogeco
+##
+
+
+_pragma(classify_level=restricted, topic={structure, cogeco}, usage={redefinable, subclassable})
+_method sheath_with_loc_terminal.cogeco_annotation_1_text
+	## 
+	## returns cogeco_nb_ports / size pair
+
+
+	_try
+		_local l_nb_ports << _self.cogeco_nb_ports_needed
+		_local l_size << _self.get_spec_record().size
+
+		_return "".concatenation(l_nb_ports.write_string, "/", l_size) 
+	_when error
+		write ("error during cogeco_annotation_1_text")
+		
+	_endtry
+
+_endmethod
+$
+
+

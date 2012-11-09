@@ -1,0 +1,10 @@
+#% text_encoding = iso8859_1
+
+cogeco_network_builder	1
+
+description
+	Code to assist with auto-building networks
+end
+
+requires
+end

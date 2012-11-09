@@ -1,0 +1,14 @@
+cogeco_iud_tests	1
+
+description
+	Module for testing insert/update/delete for all the objects within the Cogeco model
+end
+
+tests_modules
+	cogeco_applications
+end
+
+requires
+	cogeco_network_builder
+	cogeco_test_base
+end

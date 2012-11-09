@@ -1,0 +1,5 @@
+_package user
+
+_global g_version<< "Cogeco Applications"
+$
+

@@ -1,0 +1,8 @@
+_package user
+$
+
+_pragma(classify_level=basic,topic=munit)
+test_case.define_shared_variable(:csv_report_stream,
+				    _unset,
+				    :public)
+$

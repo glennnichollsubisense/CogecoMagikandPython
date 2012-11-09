@@ -1,0 +1,95 @@
+# %text_encoding = iso8859_1
+_package user
+
+
+def_slotted_exemplar (:munit_xml_generator,
+
+
+					  {
+						  {:xml_generator, _unset},
+						  {:test_start_time, _unset}
+					  },
+							  {:test_listener_interface}
+)
+$
+
+munit_xml_generator.define_shared_constant (:dtd, {"<!-- no DTD -->"}, :public)
+$
+munit_xml_generator.define_shared_constant (:stylesheet_ref, "<?xml-stylesheet type='text/xsl' href='unit_test_results.xsl'?>", :private)
+$
+
+_method munit_xml_generator.new( a_filename, a_view )
+	## 
+	## 
+
+	_return _clone.init( a_filename, a_view )
+_endmethod
+$
+
+_method munit_xml_generator.init( a_filename, a_view  )
+	## 
+	## 
+
+	.xml_generator << xml_generator.new()
+	.xml_generator.set_log_file( a_filename )
+
+	.xml_generator.write_preamble(_self.stylesheet_ref, _self.dtd)
+	.xml_generator.begin_tag("document")
+	.xml_generator.write_boilerplate ("glenn", a_view)
+	
+	_return _self
+_endmethod
+$
+
+_method munit_xml_generator.close()
+	## 
+	## 
+
+	.xml_generator.end_tag("document")
+	.xml_generator.close_log_file()
+_endmethod
+$
+
+_method munit_xml_generator.start_test( a_test )
+	## 
+	## 
+
+	.xml_generator.begin_tag("unit_test")
+	.xml_generator.write_simple_tag ("test_name", a_test.write_string)
+	.test_start_time << date_time.now()
+_endmethod
+$
+_method munit_xml_generator.end_test (a_test )
+	## 
+	## 
+
+	time_interval << date_time.now() - .test_start_time
+	(d, h, m, s, ms) << time_interval.days_hours_minutes_seconds()
+	.xml_generator.write_simple_tag ("duration_days", d)
+	.xml_generator.write_simple_tag ("duration_hours", h)
+	.xml_generator.write_simple_tag ("duration_minutes", m)
+	.xml_generator.write_simple_tag ("duration_seconds", s)
+	.xml_generator.write_simple_tag ("duration_milliseconds", ms)
+
+	.xml_generator.end_tag("unit_test")
+_endmethod
+$
+
+_method munit_xml_generator.add_error( a_test_failure)
+	## 
+	## 
+	
+	write (a_test_failure)
+
+	.xml_generator.write_simple_tag ("error", a_test_failure.write_string)
+_endmethod
+$
+
+_method munit_xml_generator.add_failure( a_test_failure )
+	## 
+	## 
+	
+	.xml_generator.write_simple_tag ("failure", a_test_failure.write_string)
+
+_endmethod
+$

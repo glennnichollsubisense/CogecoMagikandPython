@@ -1,0 +1,11 @@
+_package sw
+
+
+_global g_image_name_generator<< _proc(p_base_name)
+					 _local l_day_number << date_time.now().day_of_year
+					 _local l_milliseconds << date_time.now().milliseconds 
+					 _local l_name_components << p_base_name.split_by (%.)
+					 
+					 _return ("".concatenation(l_name_components[1], "-", l_day_number.write_string, "-", l_milliseconds.write_string, %..write_string, l_name_components[2]))
+				 _endproc
+$

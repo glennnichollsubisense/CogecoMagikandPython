@@ -1,0 +1,146 @@
+_package user
+$
+
+
+## Tests that the annotation methods are available in the image
+## This file is machine generated.  Dont add any hand-edits
+## testing for class uub
+_method tc!uub.test_method_for_cogeco_annotation_1()
+_self.assert_not_unset (uub.method(:|cogeco_annotation_1_text|), 'missing an annotation method')
+_endmethod
+$
+
+
+## testing for class uub
+_method tc!uub.test_method_for_cogeco_annotation_2()
+_self.assert_not_unset (uub.method(:|cogeco_annotation_2_text|), 'missing an annotation method')
+_endmethod
+$
+
+
+## testing for class figure_eight
+_method tc!figure_eight.test_method_for_cogeco_annotation_1()
+_self.assert_not_unset (figure_eight.method(:|cogeco_annotation_1_text|), 'missing an annotation method')
+_endmethod
+$
+
+
+## testing for class figure_eight
+_method tc!figure_eight.test_method_for_cogeco_location_1()
+_self.assert_not_unset (figure_eight.method(:|cogeco_location_1_text|), 'missing an annotation method')
+_endmethod
+$
+
+
+## testing for class figure_eight
+_method tc!figure_eight.test_method_for_cogeco_location_2()
+_self.assert_not_unset (figure_eight.method(:|cogeco_location_2_text|), 'missing an annotation method')
+_endmethod
+$
+
+
+## testing for class figure_eight
+_method tc!figure_eight.test_method_for_cogeco_location_3()
+_self.assert_not_unset (figure_eight.method(:|cogeco_location_3_text|), 'missing an annotation method')
+_endmethod
+$
+
+
+## testing for class figure_eight
+_method tc!figure_eight.test_method_for_cogeco_type_annotation()
+_self.assert_not_unset (figure_eight.method(:|cogeco_type_annotation_text|), 'missing an annotation method')
+_endmethod
+$
+
+
+## testing for class sheath_with_loc_terminal
+_method tc!sheath_with_loc_terminal.test_method_for_cogeco_annotation_1()
+_self.assert_not_unset (sheath_with_loc_terminal.method(:|cogeco_annotation_1_text|), 'missing an annotation method')
+_endmethod
+$
+
+
+## testing for class sheath_annotation
+_method tc!sheath_annotation.test_method_for_cogeco_annotation_1()
+_self.assert_not_unset (sheath_annotation.method(:|cogeco_annotation_1_text|), 'missing an annotation method')
+_endmethod
+$
+
+
+## testing for class sheath_annotation
+_method tc!sheath_annotation.test_method_for_cogeco_annotation_2()
+_self.assert_not_unset (sheath_annotation.method(:|cogeco_annotation_2_text|), 'missing an annotation method')
+_endmethod
+$
+
+
+## testing for class sheath_annotation
+_method tc!sheath_annotation.test_method_for_cogeco_annotation_3()
+_self.assert_not_unset (sheath_annotation.method(:|cogeco_annotation_3_text|), 'missing an annotation method')
+_endmethod
+$
+
+
+## testing for class address
+_method tc!address.test_method_for_cogeco_annotation_1()
+_self.assert_not_unset (address.method(:|cogeco_annotation_1_text|), 'missing an annotation method')
+_endmethod
+$
+
+
+## testing for class address
+_method tc!address.test_method_for_cogeco_annotation_2()
+_self.assert_not_unset (address.method(:|cogeco_annotation_2_text|), 'missing an annotation method')
+_endmethod
+$
+
+
+## testing for class optical_node
+_method tc!optical_node.test_method_for_cogeco_annotation_1()
+_self.assert_not_unset (optical_node.method(:|cogeco_annotation_1_text|), 'missing an annotation method')
+_endmethod
+$
+
+
+## testing for class optical_node
+_method tc!optical_node.test_method_for_cogeco_annotation_2()
+_self.assert_not_unset (optical_node.method(:|cogeco_annotation_2_text|), 'missing an annotation method')
+_endmethod
+$
+
+
+## testing for class sheath_splice
+_method tc!sheath_splice.test_method_for_cogeco_annotation_1()
+_self.assert_not_unset (sheath_splice.method(:|cogeco_annotation_1_text|), 'missing an annotation method')
+_endmethod
+$
+
+
+## testing for class sheath_splice
+_method tc!sheath_splice.test_method_for_cogeco_annotation_2()
+_self.assert_not_unset (sheath_splice.method(:|cogeco_annotation_2_text|), 'missing an annotation method')
+_endmethod
+$
+
+
+## testing for class sheath_splice
+_method tc!sheath_splice.test_method_for_cogeco_annotation_3()
+_self.assert_not_unset (sheath_splice.method(:|cogeco_annotation_3_text|), 'missing an annotation method')
+_endmethod
+$
+
+
+## testing for class mit_underground_route_annotation
+_method tc!mit_underground_route_annotation.test_method_for_cogeco_annotation_1()
+_self.assert_not_unset (mit_underground_route_annotation.method(:|cogeco_annotation_1_text|), 'missing an annotation method')
+_endmethod
+$
+
+
+## testing for class mit_underground_route_annotation
+_method tc!mit_underground_route_annotation.test_method_for_cogeco_annotation_2()
+_self.assert_not_unset (mit_underground_route_annotation.method(:|cogeco_annotation_2_text|), 'missing an annotation method')
+_endmethod
+$
+
+

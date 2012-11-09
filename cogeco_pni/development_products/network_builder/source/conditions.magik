@@ -1,0 +1,10 @@
+_package user
+
+
+
+
+condition.define_condition (:network_builder_user_error, :user_error, {})
+$
+
+condition.define_condition (:geometry_found_in_temporary_place, :network_builder_user_error, {:string}, "Geom found in temporary place")
+$

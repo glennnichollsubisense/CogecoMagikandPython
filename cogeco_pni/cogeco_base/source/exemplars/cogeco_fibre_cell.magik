@@ -1,0 +1,37 @@
+
+_pragma(classify_level=basic, topic={cogeco,fibre}, usage={not_international, redefinable})
+##
+## The exemplar behind one of the Cogeco 'boundary' tables.
+## 
+def_slotted_exemplar(:cogeco_fibre_cell,
+	##
+	## 
+	## 
+	{
+	},
+	{:mit_rwo_record, :cogeco_boundary_mixin})
+$
+
+
+_pragma(classify_level=restricted, topic={cogeco,fibre}, usage={redefinable})
+_method cogeco_fibre_cell.insert_trigger()
+	## 
+	## Stub
+	
+_endmethod
+$
+_pragma(classify_level=restricted, topic={cogeco,fibre}, usage={redefinable})
+_method cogeco_fibre_cell.update_trigger()
+	## 
+	## Stub
+	
+_endmethod
+$
+_pragma(classify_level=restricted, topic={cogeco,fibre}, usage={redefinable})
+_method cogeco_fibre_cell.delete_trigger()
+	## 
+	## Stub
+	
+_endmethod
+$
+

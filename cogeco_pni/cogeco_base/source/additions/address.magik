@@ -1,0 +1,50 @@
+_package sw
+
+##
+## Extensions to address class to provide behaviour for Cogeco
+##
+
+
+_pragma(classify_level=restricted, topic={structure, cogeco}, usage={redefinable, subclassable})
+_method address.cogeco_annotation_1_text
+	## 
+	## 
+
+	_try 
+	_local l_no_of_residentials<< 0
+	_local l_no_of_commercials<< 0
+	_local l_no_of_industrials<< 0
+
+	_if _self.cogeco_no_of_residential _isnt _unset
+	_then
+		l_no_of_residentials<< _self.cogeco_no_of_residential
+	_endif
+	_if _self.cogeco_no_of_commercial _isnt _unset
+	_then
+		l_no_of_commercials<< _self.cogeco_no_of_commercial
+	_endif
+	_if _self.cogeco_no_of_industrial _isnt _unset
+	_then
+		l_no_of_industrials<< _self.cogeco_no_of_industrial
+	_endif
+
+	_return "".concatenation(l_no_of_residentials.write_string, ":",
+				 l_no_of_commercials.write_string, ":",
+				 l_no_of_industrials.write_string)
+	
+	_when error
+		_return "error in address.cogeco_annotation_1_text"
+	_endtry
+	
+_endmethod
+$
+_pragma(classify_level=restricted, topic={structure, cogeco}, usage={redefinable, subclassable})
+_method address.cogeco_annotation_2_text
+	## 
+	## 
+
+	_return "address.cogeco_annotation_2_text"
+_endmethod
+$
+
+

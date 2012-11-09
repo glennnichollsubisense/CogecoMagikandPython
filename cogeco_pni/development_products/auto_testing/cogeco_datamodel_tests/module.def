@@ -1,0 +1,14 @@
+cogeco_datamodel_tests	1
+
+description
+	Module for checking the model of an installation
+end
+
+tests_modules
+	cogeco_applications
+end
+
+requires
+	cogeco_network_builder
+	cogeco_test_base
+end

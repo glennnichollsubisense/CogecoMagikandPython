@@ -1,0 +1,11 @@
+##
+## There are several Cogeco-specific boundary rwos (FSA
+## Boundary, Service Area etc.)
+## Any common behaviour to the boundary objects is defined
+## in this mixin
+##
+def_mixin(:cogeco_boundary_mixin,
+	 {}
+)
+$
+

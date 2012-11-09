@@ -1,0 +1,413 @@
+#% text_encoding = iso8859_1
+#
+#Type: Patch
+#Change-Number: 148583_1
+#Fixes-Bug-Numbers: 148583
+#Who: Malletjo
+#Date: 14 Sep 2012
+#Bug-Originated-In-Version: pni430
+#Patch-Intended-For-Release: pni430TSB
+#Topic: System Administration
+#Sub-Topic: 
+#
+#Release-Note:
+# New PNI databases use the new convention of storing the coordinate
+# system records in the ACE dataset; the coordinate system
+# editor in PNI Admin was only compatible with the old
+# convention where separate datasets had their own tables.
+# The editor is now compatible with both
+# conventions, the new convention taking precedence. 
+#Impact-Note:
+# 
+#XML-Impact: No
+#XML-Details:
+# 
+#Approved-By: Lakkimbh
+#Approved-Date: 26 Sep 2012
+#--------------------------------------------------------------
+
+sw!patch_software("mit_sw_changes_gui", 1)
+$
+
+_pragma(classify_level=restricted)
+_method coordinate_system_editor.activate_in(f)
+
+        ## Creates a panel with the necessary menus.
+
+        p << panel.new(f)
+
+        us << unit_system.new(:m, :m)   
+
+        .status_item << label_item.new(p, :ready,
+                                       :model, _self,
+                                       :aspect, :run_status_string)
+
+
+        p.start_row()
+        rc << rowcol.new(p,2 + 4 + 3 + 1+_self.max_proj_param_list_len,2)
+        rc.row_spacing << 2
+
+        group_spacing << p.height_spacing
+        row << 0
+
+        
+        # Dataset item
+        # ------------
+
+        (ds_views, ds_view_names) << _self.figure_ds_views_with_coordinate_systems()
+        
+        row +<< 1
+        label_item.new(rc,_self.message(:dataset),:row,row,:col,1)
+        
+        .dataset_item <<
+                choice_item.new_safe(rc, "",
+                                     ds_view_names, ds_views,
+                                     :model, _self,
+                                     :display_all?, _false,
+                                     :row,row,:col,2,
+                                     :change_selector, :check_dataset|()|,
+                                     :help_id, :dataset_help)
+
+        
+        
+        # Description items
+        # -----------------
+        # Spacer
+        row +<< 1
+        label_item.new(rc,"",:height,group_spacing,:row,row,:col,1)
+
+         
+        row +<< 1
+        label_item.new(rc, _self.message(:name),:row,row,:col,1)
+        .name_item <<
+                text_item.new(rc, "",
+                              :model, _self,
+                              :row,row,:col,2,
+                              :display_length, 32,
+                              :max_length, 64, # Should come from descriptor really
+                              :incremental_change_selector, :text_item_changed|()|,
+                              :help_id, :name_help)
+
+        row +<< 1
+        label_item.new(rc, _self.message(:external_cs_name),:row,row,:col,1)
+        .external_cs_name_item <<
+                text_item.new(rc, "",
+                              :model, _self,
+                              :row,row,:col,2,
+                              :display_length, 32,
+                              :max_length, 64,
+                              :incremental_change_selector, :text_item_changed|()|,
+                              :help_id, :external_cs_name_help)
+
+        row +<< 1
+        label_item.new(rc, _self.message(:description),:row,row,:col,1)
+        .description_item <<
+                text_item.new(rc, "",
+                              :model, _self,
+                              :row,row,:col,2,
+                              :display_length, 32,
+                              :max_length, 255,
+                              :incremental_change_selector, :text_item_changed|()|,
+                              :help_id, :description_help)
+
+
+
+        # Datum item
+        # ----------
+        # Spacer
+        row +<< 1
+        label_item.new(rc,"",:height,group_spacing,:row,row,:col,1)
+
+        row +<< 1
+        datum_label << label_item.new(rc, _self.message(:datum),:row,row,:col,1)
+
+        item_rc << rowcol.new(rc,1,2)
+        item_rc.row << row
+        item_rc.col << 2
+        item_rc.col_spacing << 5
+        
+        button_item.new(item_rc, _self.message(:question_mark),
+                        _self, :start_datum_popup|()|,
+                        :row,1,:col,1,
+                        :help_id, :datum_question_mark_help)
+
+
+        .datum_item << text_item.new(
+                               item_rc, "",
+                               :model, _self,
+                               :row,1,:col,2,
+                               :incremental_change_selector, :text_item_changed|()|,
+                               :display_length, 26,
+                               :help_id, :datum_item_help)
+
+        row +<< 1
+        label_item.new(rc,_self.message(:ellipsoid),:row,row,:col,1)
+        .ellipsoid_item << label_item.new(
+                               rc, "",
+                               :model, _self,
+                               :row,row,:col,2)
+
+        # Projection item
+        # ---------------
+        # Spacer
+        row +<< 1
+        label_item.new(rc,"",:height,group_spacing,:row,row,:col,1)
+
+        # Construct choices
+        _local myself << _self
+        values  << _self.proj_types.as_sorted_collection(
+                           _proc (a, b)
+                                   _import myself
+                                   >> myself.message(:proj_type_ + a) _cf
+                                           myself.message(:proj_type_ + b)
+                           _endproc)
+
+        strings << {}.new(values.size)
+        _for i, val _over values.keys_and_elements()
+        _loop
+                msg << :proj_type_ + val
+                strings[i] << _self.message(msg)
+        _endloop
+
+        row +<< 1
+        label_item.new(rc, _self.message(:projection_type),:row,row,:col,1)
+        .projtype_item << choice_item.new_safe(
+                                  rc, "",
+                                  strings, values,
+                                  :model, _self,
+                                  :row,row,:col,2,
+                                  :display_all?, _false,
+                                  :change_selector, :projtype_changed|()|,
+                                  :help_id, :proj_type_help)
+
+        len << _self.max_proj_param_list_len
+
+        .proj_param_name_items    << {}.new(len)
+        .proj_param_value_items   << {}.new(len)
+
+        _for i _over 1.upto(len)
+        _loop
+                row +<< 1
+                
+                .proj_param_name_items[i] << label_item.new(rc, "",:row,row,:col,1)
+
+                .proj_param_value_items[i] <<
+                        text_item.new(rc, "",
+                                      :model, _self,
+                                      :row,row,:col,2,
+                                      :incremental_change_selector, :text_item_changed|()|,
+                                      :display_length, 20,
+                                      :help_id, :proj_param_value_help)
+
+        _endloop
+
+
+        # Flags
+        # -----
+        p.start_row()
+
+        .no_rot_item << toggle_item.new(
+                                p, _self.message(:no_rot),
+                                :model, _self,
+                                :change_selector, :|text_item_changed()|,
+                                :help_id, :no_rot_help)
+
+        .no_uoff_item << toggle_item.new(
+                                p, _self.message(:no_uoff),
+                                :model, _self,
+                                :change_selector, :|text_item_changed()|,
+                                :help_id, :no_uoff_help)
+
+        .rot_conv_item << toggle_item.new(
+                                p, _self.message(:rot_conv),
+                                :model, _self,
+                                :change_selector, :|text_item_changed()|,
+                                :help_id, :rot_conv_help)
+
+        .no_skew_item << toggle_item.new(
+                                p, _self.message(:no_skew),
+                                :model, _self,
+                                :change_selector, :|text_item_changed()|,
+                                :help_id, :no_skew_help)
+
+        .no_rot_item  .set_below(rc, 10)
+        .no_uoff_item .set_below(rc, 10)
+        .rot_conv_item.set_below(rc, 10)
+        .no_skew_item .set_below(rc, 10)
+
+        .no_uoff_item.set_right_of(.no_rot_item, 30)
+        .rot_conv_item.set_right_of(.no_uoff_item, 30)
+        .no_skew_item.set_right_of(.rot_conv_item, 30)
+
+        # False Northing and Easting
+        # --------------------------
+        p.start_row()
+
+        .east_item << unit_text_item.new ( p, _self.message(:false_easting), us,
+                                           :model, _self,
+                                           :display_length, 10,
+                                           :incremental_change_selector, :text_item_changed|()|,
+                                           :help_id, :origin_shift_help)
+
+        .east_item.set_below(.no_rot_item, group_spacing)
+
+        .north_item << unit_text_item.new( p, _self.message(:false_northing), us,
+                                           :model, _self,
+                                           :display_length, 10,
+                                           :incremental_change_selector, :text_item_changed|()|,
+                                           :help_id, :origin_shift_help)
+
+        .north_item.set_right_of(.east_item, 30)
+
+
+        # Units item and user_visible toggle
+        # ----------------------------------
+        p.start_row()
+
+        #
+        # Get the current-typed group for the 'All Units' group of
+        # dimensionality Length. 
+        #        
+        group        << unit_manager.typed_display_group_for ( :length ) 
+
+        # Get all units from the group, sorted in a sensible way (by
+        # factor first, then by any names). Should really use sorted
+        # units instead of sorted unit symbols. 
+
+        (sorted_units, unit_strings) << group.sorted_unit_symbols_and_strings
+        
+        .unit_item << choice_item.new_safe(
+                              p, _self.message(:units),
+                              unit_strings,
+                              sorted_units,
+                              :model, _self,
+                              :display_all?, _false,
+                              :change_selector, :unit_item_changed|()|,
+                              :help_id, :unit_help)
+        .unit_item.set_below(.east_item, 20)
+
+        .coord_ndec_item << numeric_text_item.new(
+                                    p,_self.message(:coord_ndec),
+                                    :model, _self,
+                                    :change_selector, :|text_item_changed()|,
+                                    :display_length,4,
+                                    :help_id,:coord_ndec_help)
+        .coord_ndec_item.set_right_of(.unit_item, 20)
+
+        .user_visible_item << toggle_item.new(
+                                      p, _self.message(:user_visible),
+                                      :model, _self,
+                                      :change_selector, :|text_item_changed()|,
+                                      :help_id, :user_visible_help)
+        .user_visible_item.set_right_of(.coord_ndec_item, 20)
+
+
+        # Buttons
+        # -------
+        p.start_row()
+
+        .buttons << hash_table.new()
+
+        .buttons[:insert] << button_item.new_safe(
+                                     p, _self.message(:insert), _self,
+                                     {:perform_with_housekeeping|()|, :insert},
+                                     :help_id, :insert_help)
+
+        .buttons[:update] << button_item.new_safe(
+                                     p, _self.message(:update), _self,
+                                     {:perform_with_housekeeping|()|, :update},
+                                     :help_id, :update_help)
+
+        .buttons[:delete] << button_item.new_safe(
+                                     p, _self.message(:delete), _self,
+                                     {:perform_with_housekeeping|()|, :delete},
+                                     :help_id, :delete_help)
+
+        .buttons[:get] << button_item.new_safe(
+                                  p, _self.message(:get), _self,
+                                  :get|()|,   :help_id, :get_help)
+
+        .buttons[:clear] << button_item.new_safe(
+                                    p, _self.message(:clear), _self,
+                                    :clear|()|, :help_id, :clear_help)
+
+        .buttons[:list] << button_item.new_safe( 
+                                     p, _self.message(:list),
+                                     _self, :browse|()|, :help_id, :browse_help)
+        
+        .buttons[:help] << button_item.new_safe(
+                                   p, _self.message(:help), _self,
+                                   :help|()|, :help_id, :help_help)
+
+        .buttons[:quit] << button_item.new(
+                                   p, _self.message(:quit), _self,
+                                   :suspend|()|, :help_id, :quit_help)
+
+        .buttons[:help].set_right_of(.buttons[:list], 20)
+        .buttons[:get ].set_right_of(.buttons[:delete], 20)
+
+        # Set up labels for projection parameter items
+        
+        _self.set_proj_params_according_to_projtype()
+
+        >> _self
+_endmethod
+$
+
+
+_pragma(classify_level=advanced)
+_private _method coordinate_system_editor.datasets_of_interest()
+        # .owner does not have the right datasets (it is the admin application)
+        # - this method is overwritten to supply those
+        dsviews << rope.new()
+        
+         _for a_ds,name _over gis_program_manager.cached_datasets()
+         _loop
+                 _if a_ds.is_kind_of?( gis_ds_view ) _andif
+                     _not a_ds.mit_template_view? _andif
+                     _not a_ds.mit_dynamic_enumerator_view?
+                 _then
+                         dsviews.add( a_ds )
+                 _endif
+         _endloop
+        >> dsviews
+_endmethod
+$
+
+_pragma(classify_level=restricted)
+_private _method coordinate_system_editor.figure_ds_views_with_coordinate_systems()
+
+        ## Return two collections of view and view names, in the same
+        ## order, which contain coordinate system tables.
+        ##
+        ## If the ACE top view contains a filled coordinate system
+        ## table then that will be the only one returned.  If it not
+        ## there (or is empty) then the all the datasets open by the
+        ## SOC willl be checked.
+        
+        ds_view_data << sorted_collection.new(_unset, {:method_result, :last})
+
+        # Get the ACE copy of the table if available.  The swdp views
+        # will only be returned by coordinate_system_collections() if
+        # no filled coordinate system table exists in the ACE top view.
+        #PNI mod
+        # was ds_views << .owner.spatial_object_controller.swdp_datasets
+        ds_views << _self.datasets_of_interest()
+        #PNI end
+        _for cs_table _over ds_coordinate_system.coordinate_system_collections(ds_views).fast_elements()
+        _loop
+                v << cs_table.source_view
+                ds_view_data.add({v, v.original_view_name})
+        _endloop 
+
+        # Retrieve the views and their names
+        view_data_vec << {}.new_from(ds_view_data)
+        ds_views << view_data_vec.map(_proc@first_element(data) >> data.first _endproc)
+        ds_view_names << view_data_vec.map(_proc@last_element(data) >> data.last _endproc)
+
+        >> ds_views, ds_view_names
+_endmethod
+$
+
+sw!declare_patch(148583, "1", "LCS41 : Coordinate system editor now shows correct Ace dataset for newly created pni 430 databases")
+$

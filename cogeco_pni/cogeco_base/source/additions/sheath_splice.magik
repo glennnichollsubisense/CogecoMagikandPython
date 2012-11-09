@@ -1,0 +1,47 @@
+_package user 
+
+##
+## Extensions to sheath_splice class to provide behaviour for Cogeco
+##
+
+
+_pragma(classify_level=restricted, topic={structure, cogeco}, usage={redefinable, subclassable})
+_method sheath_splice.cogeco_annotation_1_text
+	## return the model from the spec 
+
+	_try
+		_return _self.get_spec_record().model.write_string
+	_when error
+		_return "error in sheath_splice.cogeco_annotation_1_text"
+	_endtry
+_endmethod
+$
+
+_pragma(classify_level=restricted, topic={structure, cogeco}, usage={redefinable, subclassable})
+_method sheath_splice.cogeco_annotation_2_text
+	## return cogeco_location
+
+	_if _self.cogeco_location _isnt _unset 
+	_then
+		_return _self.cogeco_location.write_string
+	_endif
+	
+	_return "no value set for sheath_splice.cogeco_location"
+_endmethod
+$
+
+_pragma(classify_level=restricted, topic={structure, cogeco}, usage={redefinable, subclassable})
+_method sheath_splice.cogeco_annotation_3_text
+	## return cogeco_legacy_name
+
+	_if _self.cogeco_legacy_name _isnt _unset 
+	_then
+		_return _self.cogeco_legacy_name.write_string
+	_endif
+	
+	_return "no value set for sheath_splice.cogeco_legacy_name"
+_endmethod
+$
+
+
+

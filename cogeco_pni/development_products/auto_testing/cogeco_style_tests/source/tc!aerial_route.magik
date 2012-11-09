@@ -1,0 +1,83 @@
+_package user
+$
+
+_pragma(classify_level=advanced, topic={unit_tests, cogeco}, usage={redefinable, subclassable})
+_method tc!aerial_route.test_route_style()
+	## 
+	## 
+
+
+	_local lpoleA << _self.nf.place_pole(_self.base_coord)
+	_local lpoleB << _self.nf.place_pole(_self.base_coord + coordinate.new(5000, 0))
+	_local l_sec << sector.new()
+	l_sec.add(_self.base_coord)
+	l_sec.add(_self.base_coord+coordinate.new(5000, 0))
+	_local l_pc << pseudo_chain.new_for_world (l_sec, _self.gis_view.world)
+	_local l_aerial_route << _self.nf.place_aerial_route (l_pc)
+
+
+	
+	_return 
+	_for iusage _over {"Cogeco", "Other", "Telco", "Unknown"}.elements() 
+	_loop
+		_for iopstatus _over {"Abandoned", "Existing", "In Service", "Out of Service", "Removed", "To be Installed", "To be Removed", "To be Replaced", "Unknown"}.elements() 
+		_loop
+			write (iusage, ":", iopstatus)
+			_local l_pl << property_list.new_with(:cogeco_operational_status, iopstatus,
+							      :cogeco_usage, iusage
+						     )
+			_local l_rt << record_transaction.new_update(l_aerial_route, l_pl)
+			l_aerial_route<<l_rt.run()
+
+			_if iusage = "Cogeco"
+			_then
+				_if iopstatus = "To be Installed"
+				_then
+					_self.assert_not_unset(l_aerial_route.cogeco_route_2, "Expecting route 2 to be set here")
+				_else
+					_self.assert_not_unset(l_aerial_route.cogeco_route_1, "Expecting route 1 to be set here")
+				_endif
+				_continue
+			_endif
+			_if iusage="Telco"
+			_then
+				_self.assert_not_unset(l_aerial_route.cogeco_route_3, "Expecting route 3 to be set here")
+				_continue
+			_endif
+			_if iusage="Other"
+			_then
+				_self.assert_not_unset(l_aerial_route.cogeco_route_4, "Expecting route 4 to be set here")
+				_continue
+			_endif
+				
+			_if iopstatus="To be Removed"
+			_then
+				_self.assert_not_unset(l_aerial_route.cogeco_route_5, "Expecting route 5 to be set here")
+				_continue
+			_endif
+
+			_local l_no_mapped_geoms<< _true
+			l_no_mapped_geoms << l_no_mapped_geoms _and l_aerial_route.cogeco_route_1 _is _unset 
+			l_no_mapped_geoms << l_no_mapped_geoms _and l_aerial_route.cogeco_route_2 _is _unset 
+			l_no_mapped_geoms << l_no_mapped_geoms _and l_aerial_route.cogeco_route_3 _is _unset 
+			l_no_mapped_geoms << l_no_mapped_geoms _and l_aerial_route.cogeco_route_4 _is _unset 
+			l_no_mapped_geoms << l_no_mapped_geoms _and l_aerial_route.cogeco_route_5 _is _unset 
+			_self.assert_true (l_no_mapped_geoms, "Not expecting any mapped geoms here")
+			_self.assert_not_unset (l_aerial_route.route, "Expecting route to be set here")
+
+			_leave 
+		_endloop
+
+		_leave 
+	_endloop
+	
+_endmethod
+$
+
+
+_pragma(classify_level=advanced, topic={unit_testing, cogeco}, usage={subclassable})
+_method tc!aerial_route.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!aerial_route)
+_endmethod
+$
+

@@ -1,0 +1,31 @@
+_package user
+
+_block
+	_if tc!cogeco_customer.method(:|make_attributes_for_insert|) _is _unset 
+	_then
+		tc!cogeco_boundary_object_mixin.add_child(tc!cogeco_customer)
+	_endif
+_endblock
+
+_pragma(classify_level=advanced, topic={unit_tests,cogeco}, usage={subclassable})
+_method tc!cogeco_customer.test_iud()
+	## 
+	## Places an optical node and then places a cogeco_customer
+	## joined to the node
+
+	_local l_node << _self.nf.place_optical_node(_self.base_coord)
+	
+	_local l_pl << property_list.new_with(:id_code, "IDXXX", :origin_port_fib_nbr, 23, :optical_node_id, l_node.id)
+	_local l_rt << record_transaction.new_insert(_self.gis_view.collections[:cogeco_customer], l_pl, "Adding cogeco_customer")
+	_local l_obj << l_rt.run()
+	_self.assert_not_unset(l_obj, "No object created")
+
+_endmethod
+$
+
+
+_pragma(classify_level=advanced, topic={unit_tests,cogeco}, usage={subclassable})
+_method tc!cogeco_customer.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!cogeco_customer)
+_endmethod
+$

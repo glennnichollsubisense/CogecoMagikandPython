@@ -1,0 +1,49 @@
+_package user
+$
+
+## Tests the joins added as part of the datamapping
+
+_pragma(classify_level=basic, topic={unit_testing,cogeco}, usage={redefinable, subclassable})
+_method tc!cogeco_migration_attributes.test_joins()
+	## 
+	## 
+
+	_local l_colls << _self.gis_view.collections
+	_local l_tables_with_migration_attributes << {
+
+							     :underground_route,
+							     :midspan_junction,
+							     :mit_hub,
+							     :pole,
+							     :street,
+							     :ground,
+							     :uub,
+							     :sheath_with_loc,
+							     :mit_shelf,
+							     :figure_eight,
+							     :aerial_route,
+							     :sheath_with_loc_terminal,
+							     :mit_conduit,
+							     :address,
+							     :mit_rme_port,
+							     :optical_node,
+							     :sheath_splice,
+							     :anchor,
+							     :cogeco_fibre_cell,
+							     :cogeco_province_boundary,
+							     :cogeco_frame,
+							     :cogeco_franchise_tax_boundary,
+							     :cogeco_fsa_boundary,
+							     :cogeco_service_area,
+							     :cogeco_customer,
+							     :cogeco_rm_boundary
+
+						     }
+	_for i_tablename _over l_tables_with_migration_attributes.fast_elements()
+	_loop
+		_local l_all_fields << l_colls[i_tablename].descriptor.all_fields
+		_self.assert_not_unset (l_all_fields[:cogeco_migration_attributes], "No join to cogeco_migration_attributes from " + i_tablename.write_string)
+	_endloop
+_endmethod
+$
+

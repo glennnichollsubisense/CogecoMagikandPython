@@ -1,0 +1,154 @@
+<project name="PNI Images" basedir="." default="build">
+  <description>
+    Build the PNI images.
+
+    Run "ant help" for more.
+    
+    Run "ant Properties" for display of properties
+
+    Run "ant -p" to list all targets
+  </description>
+
+  <property environment="ENV"/>
+
+  <property name="xml.magik_image_build" value="${ENV.SMALLWORLD_GIS}/sw_core/magik_image_build.xml"/>
+  <import file="${xml.magik_image_build}"/>
+
+  <target name="init"
+	  depends="sw_save_image_dir_format"
+	  description="Initialise settings for building Magik images in a spin directory format.">
+
+    <property name="sw.stream_name"            value="${ENV.SW_STREAM}"/>
+    <property name="sw.pni.dir"                location="${basedir}"/>
+    <property name="sw.pni_custom.dir"         location="${basedir}/../pni430_custom"/>
+    <property name="sw.sw_dm.dir"              location="${basedir}/../dm430"/>
+    <property name="sw.sw_schematics.dir"      location="${basedir}/../schematics430"/>
+
+    <property name="sw_gis_alias_files"        location="${sw.pni.dir}/config/magik_images/resources/base/data/gis_aliases"/>
+    <property name="sw_save_image_dir"         location="${sw.pni.dir}/images"/>
+
+    <condition property="sw_ace_db_dir" value="${sw.ace_db.dir}" else="${basedir}/../demo_pni430_ds/ds/ds_admin">
+	<isset property="sw.ace_db.dir"/>
+    </condition>
+
+    <property name="sw_log_file_stdout"        value=""/>
+
+    <mkdir dir="${sw_save_image_dir}"/>
+  </target>
+
+  <target name="clean"
+	  depends="init">
+    <delete dir="${sw_save_image_dir}"/>
+    <mkdir  dir="${sw_save_image_dir}"/>
+  </target>
+
+  <target name="build"
+	  depends="pni_closed,pni_open,pni_custom_closed,pni_custom_open"
+	  description="Build images"/>
+
+  <target name="pni_closed"
+	  depends="init"
+	  description="build pni_closed.msf">
+    <build_pni_image alias="build_pni_closed"/>
+  </target>
+
+  <target name="pni_open"
+	  depends="init"
+	  description="build pni_open.msf using Database from property sw_ace_db_dir">
+    <build_pni_image alias="build_pni_open"/>
+  </target>
+
+  <target name="pni_custom_closed"
+	  depends="init"
+	  description="build pni_custom_closed.msf">
+    <build_pni_image alias="build_pni_custom_closed"/>
+  </target>
+
+  <target name="pni_custom_open"
+	  depends="init"
+	  description="build pni_custom_open.msf using Database from property sw_ace_db_dir">
+    <build_pni_image alias="build_pni_custom_open"/>
+  </target>
+
+  <target name="help"
+	  description="Display help for this process">
+    <echo>
+ This process builds PNI images.
+
+ The following properties are required.
+ sw_gis_alias_files           PATH of locations of gis_aliases files.
+ sw_save_image_dir            Directory to store images to
+ sw_save_image_dir_format     Subdirectory structure format to use 
+ spin                         Spin number to use if appropriate
+ date                         Date format string to use (not implemented here)
+
+ The following properties are used to help provide defaults for the above.
+ sw.stream_name               Name of Code stream, obtained from SW_STREAM
+ sw.pni.dir                   Directory containing PNI layered product
+ sw.pni_custom.dir            Directory containing PNI CUSTOM layered product
+ sw.sw_dm.dir                 Directory containing Design Manager layered product
+ sw.sw_schematics.dir         Directory containing Schematics layered product
+
+ The following property is required for building the open image
+ sw.ace_db.dir                Location of database to open.
+
+ Environment variables of the same name may be specified for SPIN
+
+ Requires SMALLWORLD_GIS to be set.
+    </echo>
+  </target>
+
+  <target name="Properties"
+	  depends="init"
+	  description="Display the properties used by this process">
+    <echo>
+      sw.pni.dir=${sw.pni.dir}
+      sw.pni_custom.dir=${sw.pni_custom.dir}
+      sw.pni_dev_db.dir=${sw.pni_dev_db.dir}
+      sw_ace_db_dir=${sw_ace_db_dir}
+
+      spin=${spin}
+      sw.stream_name=${sw.stream_name}
+      sw_gis_alias_files=${sw_gis_alias_files}
+      sw_save_image_dir=${sw_save_image_dir}
+      sw_save_image_dir_format=${sw_save_image_dir_format}
+    </echo>
+  </target>
+
+  <macrodef name="build_pni_image">
+    <attribute name="alias"/>
+    <attribute name="format"  default="${sw_save_image_dir_format}"/>
+    <attribute name="aliases" default="${sw_gis_alias_files}"/>
+    
+    <attribute name="failonerror"  default="true"/>
+    <element   name="environment" optional="yes"/>
+
+    <sequential>
+	<echo>
+	    aliases=@{aliases}
+	    PNI_HOME=${sw.pni.dir}
+	    PNI_DIR=${sw.pni.dir}
+	    PNI_CUSTOM_DIR=${sw.pni_custom.dir}
+	    SW_ACE_DB_DIR=${sw_ace_db_dir}
+	</echo>
+      <magik_image_builder alias   ="@{alias}"
+			 dir     ="${sw_save_image_dir}"
+			 aliases ="@{aliases}"
+			 format  ="@{format}"
+			 spin    ="${spin}"
+			 stdout  ="${sw_log_file_stdout}"
+			 taskname="@{alias}"
+			 failonerror="@{failonerror}">
+	  <env key="SW_ACE_DB_DIR"             value="${sw_ace_db_dir}"/>
+	  <env key="PNI_HOME"                   file="${sw.pni.dir}"/>
+	  <env key="PNI_DIR"                    file="${sw.pni.dir}"/>
+	  <env key="PNI_CUSTOM_DIR"             file="${sw.pni_custom.dir}"/>
+	  <env key="SW_DM_DIR"                  file="${sw.sw_dm.dir}"/>
+	  <env key="SW_SCHEMATICS_DIR"          file="${sw.sw_schematics.dir}"/>
+	  <env key="GIS_WINDOWING_PROGRAM"     value="sw_magik"/>
+	  <environment/>
+      </magik_image_builder>
+    </sequential>
+  </macrodef>
+
+</project>

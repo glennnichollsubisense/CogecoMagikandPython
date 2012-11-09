@@ -1,0 +1,5 @@
+_package sw
+
+_block
+	message_handler.new (:cogeco_applications).set_uses_list({:pni_gui})
+_endblock

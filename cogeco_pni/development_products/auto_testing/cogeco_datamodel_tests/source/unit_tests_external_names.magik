@@ -1,0 +1,301 @@
+## This file is machine generated.  Dont add any hand-edits
+_package user
+$
+## testing for class sheath_with_loc
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!sheath_with_loc.test_externalname()
+	_local l_obj << _self.gis_view.collections[:sheath_with_loc]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Cable','external name should be Cable')
+_endmethod
+$
+
+
+## testing for class sheath_splice
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!sheath_splice.test_externalname()
+	_local l_obj << _self.gis_view.collections[:sheath_splice]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'FOSC','external name should be FOSC')
+_endmethod
+$
+
+
+## testing for class figure_eight
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!figure_eight.test_externalname()
+	_local l_obj << _self.gis_view.collections[:figure_eight]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Figure Eight','external name should be Figure Eight')
+_endmethod
+$
+
+
+## testing for class sheath_with_loc_terminal
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!sheath_with_loc_terminal.test_externalname()
+	_local l_obj << _self.gis_view.collections[:sheath_with_loc_terminal]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'NAP','external name should be NAP')
+_endmethod
+$
+
+
+## testing for class optical_node
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!optical_node.test_externalname()
+	_local l_obj << _self.gis_view.collections[:optical_node]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Optical Node','external name should be Optical Node')
+_endmethod
+$
+
+
+## testing for class building
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!building.test_externalname()
+	_local l_obj << _self.gis_view.collections[:building]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Building','external name should be Building')
+_endmethod
+$
+
+
+## testing for class mit_hub
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!mit_hub.test_externalname()
+	_local l_obj << _self.gis_view.collections[:mit_hub]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Hub','external name should be Hub')
+_endmethod
+$
+
+
+## testing for class uub
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!uub.test_externalname()
+	_local l_obj << _self.gis_view.collections[:uub]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Underground Utility','external name should be Underground Utility')
+_endmethod
+$
+
+
+## testing for class lockbox
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!lockbox.test_externalname()
+	_local l_obj << _self.gis_view.collections[:lockbox]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Lockbox','external name should be Lockbox')
+_endmethod
+$
+
+
+## testing for class aerial_route
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!aerial_route.test_externalname()
+	_local l_obj << _self.gis_view.collections[:aerial_route]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Strand','external name should be Strand')
+_endmethod
+$
+
+
+## testing for class underground_route
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!underground_route.test_externalname()
+	_local l_obj << _self.gis_view.collections[:underground_route]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Underground Route','external name should be Underground Route')
+_endmethod
+$
+
+
+## testing for class pole
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!pole.test_externalname()
+	_local l_obj << _self.gis_view.collections[:pole]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Pole','external name should be Pole')
+_endmethod
+$
+
+
+## testing for class anchor
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!anchor.test_externalname()
+	_local l_obj << _self.gis_view.collections[:anchor]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Anchor and Guy','external name should be Anchor and Guy')
+_endmethod
+$
+
+
+## testing for class riser
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!riser.test_externalname()
+	_local l_obj << _self.gis_view.collections[:riser]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Riser','external name should be Riser')
+_endmethod
+$
+
+
+## testing for class midspan_junction
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!midspan_junction.test_externalname()
+	_local l_obj << _self.gis_view.collections[:midspan_junction]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Midspan Junction','external name should be Midspan Junction')
+_endmethod
+$
+
+
+## testing for class ground
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!ground.test_externalname()
+	_local l_obj << _self.gis_view.collections[:ground]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Ground','external name should be Ground')
+_endmethod
+$
+
+
+## testing for class address
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!address.test_externalname()
+	_local l_obj << _self.gis_view.collections[:address]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Address','external name should be Address')
+_endmethod
+$
+
+
+## testing for class access_point
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!access_point.test_externalname()
+	_local l_obj << _self.gis_view.collections[:access_point]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Access Point','external name should be Access Point')
+_endmethod
+$
+
+
+## testing for class extension_arm
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!extension_arm.test_externalname()
+	_local l_obj << _self.gis_view.collections[:extension_arm]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Extension Arm','external name should be Extension Arm')
+_endmethod
+$
+
+
+## testing for class cogeco_fibre_cell
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!cogeco_fibre_cell.test_externalname()
+	_local l_obj << _self.gis_view.collections[:cogeco_fibre_cell]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Fibre Cell','external name should be Fibre Cell')
+_endmethod
+$
+
+
+## testing for class cogeco_rm_boundary
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!cogeco_rm_boundary.test_externalname()
+	_local l_obj << _self.gis_view.collections[:cogeco_rm_boundary]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'RM Boundary','external name should be RM Boundary')
+_endmethod
+$
+
+
+## testing for class cogeco_fsa_boundary
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!cogeco_fsa_boundary.test_externalname()
+	_local l_obj << _self.gis_view.collections[:cogeco_fsa_boundary]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'FSA','external name should be FSA')
+_endmethod
+$
+
+
+## testing for class cogeco_franchise_tax_boundary
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!cogeco_franchise_tax_boundary.test_externalname()
+	_local l_obj << _self.gis_view.collections[:cogeco_franchise_tax_boundary]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Franchise Tax Boundary','external name should be Franchise Tax Boundary')
+_endmethod
+$
+
+
+## testing for class cogeco_province_boundary
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!cogeco_province_boundary.test_externalname()
+	_local l_obj << _self.gis_view.collections[:cogeco_province_boundary]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Provincial Boundary','external name should be Provincial Boundary')
+_endmethod
+$
+
+
+## testing for class cogeco_frame
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!cogeco_frame.test_externalname()
+	_local l_obj << _self.gis_view.collections[:cogeco_frame]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Map Frame','external name should be Map Frame')
+_endmethod
+$
+
+
+## testing for class lot
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!lot.test_externalname()
+	_local l_obj << _self.gis_view.collections[:lot]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Lot','external name should be Lot')
+_endmethod
+$
+
+
+## testing for class mit_rme_port
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!mit_rme_port.test_externalname()
+	_local l_obj << _self.gis_view.collections[:mit_rme_port]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Port','external name should be Port')
+_endmethod
+$
+
+
+## testing for class mit_shelf
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!mit_shelf.test_externalname()
+	_local l_obj << _self.gis_view.collections[:mit_shelf]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Shelf','external name should be Shelf')
+_endmethod
+$
+
+
+## testing for class mit_card
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!mit_card.test_externalname()
+	_local l_obj << _self.gis_view.collections[:mit_card]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Card','external name should be Card')
+_endmethod
+$
+
+
+## testing for class mit_cable
+_pragma(classify_level=advanced,topic={unit_tests,cogeco},usage={subclassable})
+_method tc!mit_cable.test_externalname()
+	_local l_obj << _self.gis_view.collections[:mit_cable]
+	_local l_descriptor<< l_obj.descriptor
+	_self.assert_equals (l_descriptor.external_name, 'Internal Cable','external name should be Internal Cable')
+_endmethod
+$

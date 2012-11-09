@@ -1,0 +1,485 @@
+#% text_encoding = iso8859_1
+
+!global_auto_declare?! << _true
+!print_length! << 1000
+
+
+# What's the source file ?
+# method_name is a symbol
+_global sf << _proc (class_name, method_name)
+		      >> class_name.method(method_name).source_file
+	      _endproc
+$
+
+# A debugger
+_global dbg << _proc( thing, _optional  print? )
+
+		    _if print? _is unset
+		    _then
+			    print? << _false 
+		    _endif
+		    
+		    _if print?
+		    _then
+			    write ("#############", thing.class_name, "###########")
+			    print (thing)
+			    write ("############# end ", thing.class_name, "###########")
+
+		    _else
+			    write ("************", thing.class_name, "*********")
+			    write (thing)
+			    write ("************ end ", thing.class_name, "*********")
+		    _endif
+	       _endproc
+$
+
+_method database_view.all_tables( _optional sorted )
+	## 
+	## 
+
+	_local sort_proc << _proc (table1, table2)
+				    >> table1.size > table2.size 
+			    _endproc
+
+	_if (sorted _isnt _unset _andif
+	     sorted = _true)
+	_then
+		_local a_sc << sorted_collection.new(_unset, sort_proc)
+		_for e _over _self.collections.fast_elements() 
+		_loop
+			a_sc.add (e)
+		_endloop
+		_for e _over a_sc.fast_elements() 
+		_loop
+			write (e.descriptor.external_name, character.tab, "(", e.name, ") ", character.tab, ":", e.size)
+		_endloop
+		
+	_else
+		
+		_for e _over _self.collections.fast_elements() 
+		_loop
+			write (e.descriptor.external_name, character.tab, "(", e.name, ") ", character.tab, ":", e.size)
+		_endloop
+
+	_endif
+_endmethod
+$
+
+_global goto_alternative_all_partitions << _proc (alternative_name)
+
+						   _for a_view _over gis_program_manager.databases.fast_elements() 
+						   _loop
+							   _if a_view.name _isnt :electric
+							   _then
+								   _try _with cond
+									write ("Going to alternative ", alternative_name, " in view ", a_view.name)
+									a_view.go_to_alternative (alternative_name, :write)
+								   _when error
+									 write ("Error ", cond.report_contents_string, " for dataset ", a_view.name)
+								   _endtry
+							   _endif
+							   
+						   _endloop
+
+						   # Now do the rogue style and Ace databases
+						   _local g << gis_program_manager.applications.an_element()
+						   write ("Going to alternative ", alternative_name, " in style")
+						   _if alternative_name = "|"
+						   _then
+							   g.style_dsview.goto_top_alternative()
+						   _else
+							   g.style_dsview.go_to_alternative (alternative_name)
+						   _endif
+
+					   _endproc
+$
+
+_global cpoint_all_partitions << _proc (checkpoint_name)
+					 
+	_for a_view _over gis_program_manager.databases.fast_elements() 
+	_loop
+		write ("Putting checkpoint ", checkpoint_name, " in view ", a_view.name)
+		a_view.checkpoint (checkpoint_name)
+	_endloop
+
+	# Now do the rogue style and Ace databases
+	_local g << gis_program_manager.applications.an_element()
+	write ("Putting checkpoint ", checkpoint_name, " in style")
+	g.style_dsview.checkpoint (checkpoint_name)
+	write ("Putting checkpoint ", checkpoint_name, " in ace")
+	g.ace.source_view.checkpoint (checkpoint_name)
+_endproc
+$
+
+
+_global print_cpoints_all_partitions << _proc ()
+					 
+	_for a_view _over gis_program_manager.databases.fast_elements() 
+	_loop
+		write ("Checkpoints for ", a_view.name)
+		_for a_cpoint _over a_view.checkpoints.fast_elements() 
+		_loop
+			write (character.tab, a_cpoint)
+		_endloop
+	_endloop
+
+	# Now do the rogue style and Ace databases
+	_local g << gis_program_manager.applications.an_element()
+	write ("Checkpoints for style")
+	_for a_cpoint _over g.style_dsview.checkpoints.fast_elements() 
+	_loop
+		write (character.tab, a_cpoint)
+	_endloop
+	write ("Checkpoints for ace")
+	_for a_cpoint _over g.ace.source_view.checkpoints.fast_elements() 
+	_loop
+		write (character.tab, a_cpoint)
+	_endloop
+_endproc
+$
+
+_global goto_cpoint_all_partitions << _proc (checkpoint_name)
+					 
+	_for a_view _over gis_program_manager.databases.fast_elements() 
+	_loop
+		_try _with cond
+		     write ("Going to checkpoint ", checkpoint_name, " in view ", a_view.name)
+		     a_view.go_to_checkpoint (checkpoint_name, :write)
+		_when error
+		      write ("Error ", cond.report_contents_string, " for dataset ", a_view.name)
+		_endtry
+		
+	_endloop
+
+	# Now do the rogue style and Ace databases
+	_local g << gis_program_manager.applications.an_element()
+	write ("Going to checkpoint ", checkpoint_name, " in style")
+	g.style_dsview.checkpoint (checkpoint_name)
+	write ("Going to checkpoint ", checkpoint_name, " in ace")
+	g.ace.source_view.checkpoint (checkpoint_name)
+_endproc
+$
+
+
+_global remove_cpoints_all_partitions <<
+_proc ( checkpoint_names )
+	##
+	## Removes the checkpoints from all te partitions.
+	## CHECKPOINT_NAMES must be a vector
+	
+	_for a_view _over gis_program_manager.databases.fast_elements() 
+	_loop
+		_for a_cpoint _over a_view.checkpoints.fast_elements() 
+		_loop
+			_for a_name _over checkpoint_names.fast_elements() 
+			_loop
+				_if a_cpoint.checkpoint_name = a_name
+				_then
+					write ("Removing ", a_name, " from ", a_view.name)
+					a_view.remove_checkpoint (a_name)
+				_endif
+			_endloop
+		_endloop
+	_endloop
+
+	# Now do the rogue style and Ace databases
+	_local g << gis_program_manager.applications.an_element()
+	_for a_cpoint _over g.style_dsview.checkpoints.fast_elements() 
+	_loop
+		_for a_name _over checkpoint_names.fast_elements() 
+		_loop
+			_if a_cpoint.checkpoint_name = a_name
+			_then
+				write ("Removing ", a_name, " from style")
+				g.style_dsview.remove_checkpoint (a_name)
+			_endif
+		_endloop
+	_endloop
+	_for a_cpoint _over g.ace.source_view.checkpoints.fast_elements() 
+	_loop
+		_for a_name _over checkpoint_names.fast_elements() 
+		_loop
+			_if a_cpoint.checkpoint_name = a_name
+			_then
+				write ("Removing ", a_name, " from ace")
+				g.ace.source_view.remove_checkpoint (a_name)
+			_endif
+		_endloop
+	_endloop
+_endproc
+$
+
+
+_method gis_ds_view.all_alternatives_and_versions( _optional fname )
+	## 
+	## 
+
+	_local op_stream
+	_if fname _isnt _unset
+	_then
+		op_stream << xml_output_stream.new_file(fname)
+		op_stream.start_element("document")
+	_endif
+
+	current_alternative_name << _self.current_alternative_details.alternative_name
+	_self.goto_top_alternative()
+	_self.show_versions_in_subtree( op_stream )
+	_self.go_to_alternative (current_alternative_name)
+
+	_if fname _isnt _unset
+	_then
+		op_stream.start_element("document")
+		op_stream.close()
+	_endif
+
+	write ("finished all_alternatives_and_versions")
+
+_endmethod
+$
+
+
+_private
+_method gis_ds_view.show_versions_in_subtree( _optional op_stream )
+	## 
+	## 
+
+	_local current_alternative_name << _self.current_alternative_details.alternative_name
+
+	_if op_stream _is _unset
+	_then
+	write ("Name: ", _self.current_alternative_details.alternative_name,
+	       " Version: ", _self.current_dd_version)
+	_else
+		op_stream.start_element("alternative")
+		op_stream.write_element ("name", _self.current_alternative_details.alternative_name)
+		op_stream.write_element ("version", _self.current_dd_version)
+		op_stream.write_element( "current_data_model", (_self.current_dd_version=47340330).write_string)
+		op_stream.end_element("alternative")
+	_endif
+	
+
+	_for a_alternative _over _self.alternatives.fast_elements() 
+	_loop
+		_self.down(a_alternative.alternative_name)
+		_self.show_versions_in_subtree( op_stream )
+		_self.up()
+		
+	_endloop
+
+	_self.go_to_alternative (current_alternative_name)
+
+_endmethod
+$
+
+
+_method simple_xml_thing.to_stream( a_stream, _optional first_one? )
+	## 
+	## 
+
+	t_first_one? << first_one?.default(_true)
+
+	a_stream.write ("<")
+	a_stream.write(.type, %newline)
+	_if .attributes _isnt _unset
+	_then
+		_for k,v _over .attributes.keys_and_elements()
+		_loop 
+			a_stream.write(k,%=,v, %newline)
+		_endloop
+	_endif
+	a_stream.write (">")
+	_if .elements _isnt _unset
+	_then
+		_for e _over .elements.elements()
+		_loop
+			_if e.is_kind_of?("")
+			_then
+				a_stream.write(e)
+			_elif _not e.responds_to?(:to_stream|()|)
+			_then
+			_else
+				e.to_stream(a_stream, _false)
+			_endif
+		_endloop
+	_endif
+
+	a_stream.write ("</")
+	a_stream.write(.type, ">")
+_endmethod
+$
+
+
+_method simple_xml_thing_ns.to_stream( a_stream, _optional first_one? )
+	## 
+	## 
+
+	t_first_one? << first_one?.default(_true)
+
+	a_stream.write ("<")
+	_if _self.namespaces _isnt _unset
+	_then
+		a_stream.write (_self.namespaces[:prefix], ":")
+	_endif
+	a_stream.write(.type, %newline)
+	_if _self.namespaces _isnt _unset _andif
+		t_first_one?
+	_then
+		a_stream.write (" ", "xmlns:", _self.namespaces[:prefix], "=", %", _self.namespaces[:uri], %")
+	_endif
+	_if .attributes _isnt _unset
+	_then
+		_for k,v _over .attributes.keys_and_elements()
+		_loop 
+			a_stream.write(k,%=,v, %newline)
+		_endloop
+	_endif
+	a_stream.write (">")
+	_if .elements _isnt _unset
+	_then
+		_for e _over .elements.elements()
+		_loop
+			_if e.is_kind_of?("")
+			_then
+				a_stream.write(e)
+			_elif _not e.responds_to?(:to_stream|()|)
+			_then
+			_else
+				e.to_stream(a_stream, _false)
+			_endif
+		_endloop
+	_endif
+
+	a_stream.write ("</")
+	_if _self.namespaces _isnt _unset
+	_then
+		a_stream.write (_self.namespaces[:prefix], ":")
+	_endif
+	a_stream.write(.type, ">")
+_endmethod
+$
+
+
+
+_global descriptor_details <<
+_proc(table)
+	_for a_field _over table.descriptor.all_fields.fast_elements()
+	_loop
+		write ("#######")
+		write (a_field.name)
+		write (a_field.description)
+	_endloop
+_endproc
+$
+
+_global p << _proc ( thing )
+
+		     print ( thing )
+	     _endproc
+$
+
+
+
+_global all_datasets <<
+_proc()
+	_for e _over gis_program_manager.cached_datasets() 
+	_loop
+		write (e.name)
+	_endloop
+_endproc
+$
+
+_global methods_as_xml <<
+_proc (a_class)
+	write ("<document>")
+	_for e _over connectivity_menu_framework.method_table.elements()
+	_loop
+		write ("<entry>")
+		write ("<method_name>")
+		write (e.name)
+		write ("</method_name>")
+		write ("<source_file>")
+		write (e.source_file)
+		write ("</source_file>")
+		write ("</entry>")
+	_endloop
+	write ("</document>")
+_endproc
+$
+
+_global dump_styles_for <<
+_proc (a_rwo_name, a_file)
+	## dump out all geoms of a named rwo to the named file
+
+	a_sv << gpm.style_view
+	a_sd << style_dumper.new(a_sv)
+	a_sd.dump_style_tables(a_file, {:all}, _unset, {a_rwo_name})
+_endproc
+$
+
+
+_global tree_merge<< _proc ( p_view, p_checkpoint_name )
+			      write ("found p_view ", p_view.current_alternative_details)
+			      _if _not p_view.current_alternative_details.alternative_name.empty?
+			      _then
+				      p_view.checkpoint (p_checkpoint_name)
+				      _try
+					      p_view.merge(_true, _false)
+				      _when db_version_changed
+					      write (p_view.current_alternative_details.alternative_name, " has a different datamodel, cannot be merged")
+				      _when ds_table_multiply_defined
+					      write ("hit a ds_table_multiply_defined error")
+				      _when db_conversion_missing
+					      write ("db_conversion_missing error found")
+				      _endtry
+			      _endif
+
+			      _for i_alt _over p_view.alternatives.fast_elements() 
+			      _loop
+				      p_view.go_to_alternative (i_alt.alternative_name)
+				      p_view.switch(:write)
+				      _local l_view << gis_program_manager.cached_dataset(:gis)
+				      tree_merge (l_view, p_checkpoint_name)
+				      l_view.up()
+						  
+			      _endloop
+		      _endproc
+$
+
+
+_global co << _proc ()
+		      
+		      _return smallworld_product.pni_application().plugin(:editor_manager).current_embedded_editor.current_object
+	      _endproc
+
+
+
+_global a_ed << _proc()
+			_return smallworld_product.pni_application().plugin(:editor_manager).current_embedded_editor	
+		_endproc
+$
+
+
+_block 
+	!global_auto_declare?! << _true
+	gpm << gis_program_manager
+
+	_global v_g
+	_global colls_g
+	v_g << gpm.cached_dataset(:gis)
+	_if v_g _isnt _unset
+	_then
+		colls_g << v_g.collections
+	_endif
+
+	_global v_t
+	_global colls_t
+	v_t << gpm.cached_dataset(:template)
+	_if v_t _isnt _unset
+	_then
+		colls_t << v_t.collections
+	_endif
+
+	_global a_app
+	a_app << smallworld_product.pni_application()
+_endblock
+$

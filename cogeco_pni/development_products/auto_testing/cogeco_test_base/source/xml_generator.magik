@@ -1,0 +1,531 @@
+#% text_encoding = iso8859_1
+# Copyright GE Power Systems - Network Reliability Services 2003 - 2005
+_package user
+
+_pragma(topic={xml, static_analyser})
+def_slotted_exemplar (:xml_generator,
+		      {
+			      {:a_xml_op_stream, _unset},
+			      {:message_accessor, _unset},
+				  {:stylesheet_ref, _unset},
+				  {:zzz_dtd, _unset}
+		      },
+		      {}
+)
+$
+
+_pragma(classify_level=restricted, topic={xml, static_analysis})
+## returns the line to go at the top of a xml file
+xml_generator.define_shared_constant (:header_line, "<?xml version=" + %" + "1.0" + %" + " encoding=" + %" + "UTF-8" + %" + "?>", :private)
+$
+
+_pragma(classify_level=restricted, topic={xml, static_analysis})
+## returns the line defining the stylesheet file
+xml_generator.define_shared_constant (:default_stylesheet_reference, "<?xml-stylesheet type=" + %" + "text/xsl" + %" + " href=" + %" + "error_report.xsl" + %" + "?>", :private)
+$
+
+_pragma(classify_level=restricted, topic={xml, static_analysis})
+## returns the dtd for the document
+xml_generator.define_shared_constant (:dtd, rope.new_with (
+								  "<!DOCTYPE document [",
+								  "<!ELEMENT username (#PCDATA)>",
+								  "<!ELEMENT date (#PCDATA)>",
+								  "<!ELEMENT error_id (#PCDATA)>",
+								  "<!ELEMENT boundary_type (#PCDATA)>",
+								  "<!ELEMENT boundary_id (#PCDATA)>",
+								  "<!ELEMENT no_of_methods (#PCDATA)>",
+								  "<!ELEMENT boilerplate (username | date)>",
+								  "<!ELEMENT data_error  (error_id, table_name, record_id, details, incident_id, status, object_name)>",
+								  "<!ELEMENT boundary (boundary_id)>",
+								  "<!ELEMENT document (boilerplate, boundary)>",
+								  "]>"
+						 ),
+	      :private)
+$
+
+
+xml_generator.define_shared_constant (:stylesheet, rope.new_with (
+"<?xml version='1.0' encoding='UTF-8'?>",
+"<xsl:stylesheet xmlns:xsl='http://www.w3.org/1999/XSL/Transform' version='1.0'>",
+"<xsl:template match='/'>",
+"<html>",
+"<title>Error Objects</title>",
+"<body>",
+"<table border='2'>",
+"<tr>",
+"<th>",
+"<xsl:value-of select='document/boundary/boundary_type'/>",
+"</th>",
+"<th rowspan='2'><img src='base/bitmaps/coxlogo.bmp'/></th>",
+"</tr>",
+"<tr>",
+"<th>",
+"<xsl:value-of select='document/boundary/boundary_id'/>",
+"</th>",
+"</tr>",
+"<tr>",
+"<th>Report Date</th>",
+"<th><xsl:value-of select='document/boilerplate/date'/></th>",
+"</tr>",
+"<tr>",
+"<th>By</th>",
+"<th><xsl:value-of select='document/boilerplate/username'/></th>",
+"</tr>",
+"</table>",
+"<br/><br/>",
+"<table border='2'>",
+"<tr>",
+"<th><h3>Incident ID</h3></th>",
+"<th><h3>Object</h3></th>",
+"<th><h3>Status</h3></th>",
+"<th><h3>Details</h3></th>",
+"</tr>",
+"<xsl:for-each select='document/error_object'>",
+"<xsl:sort select='error_id'/>",
+"<tr>",
+"<th><xsl:value-of select='incident_id'/></th>",
+"<th><xsl:value-of select='object_name'/></th>",
+"<th><xsl:value-of select='status'/></th>",
+"<th><xsl:value-of select='details'/></th>",
+"</tr>",
+"</xsl:for-each>",
+"</table>",
+"</body>",
+"</html>",
+"</xsl:template>",
+"</xsl:stylesheet>"
+							), :private)
+$
+
+_pragma(classify_level=restricted, topic={xml, static_analysis})
+## returns the line to go at the top of an embedded-xsl xml file
+xml_generator.define_shared_constant (:embedded_header_line, "<xsl:stylesheet version=" + %" + "1.0" + %" + " xmlns:xsl=" + %" + "http://www.w3.org/1999/XSL/Transform" + %" + " xmlns:data=" +%" + "http://www.example.com/" + %" + ">", :private)
+$
+
+_pragma(classify_level=restricted, topic={xml, static_analysis})
+## returns the line to go at the bottom of an embedded-xsl xml file
+xml_generator.define_shared_constant (:embedded_footer_line, "</xsl:stylesheet>", :private)
+$
+
+_pragma(classify_level=restricted, topic={xml, static_analysis})
+## returns the line defining the embedded-xsl stylesheet
+xml_generator.define_shared_constant (:embedded_stylesheet_reference, "<?xml-stylesheet type=" + %" + "text/xsl" + %" + " href=" + %", :private)
+$
+
+_pragma(classify_level=restricted, topic={xml, static_analysis})
+## returns the line defining the default embedded-xsl stylesheet filename
+xml_generator.define_shared_constant (:default_embedded_filename_reference, "splice_report.xml" + %" + "?>", :private)
+$
+
+
+_pragma(classify_level=restricted, topic={xml, static_analysis})
+_method xml_generator.new()
+	## 
+	## 
+
+	_return _clone.init()
+_endmethod
+$
+
+_pragma(classify_level=restricted, topic={xml, static_analysis})
+_method xml_generator.init()
+	## 
+	## 
+
+	_return _self
+_endmethod
+$
+
+_method xml_generator.stylesheet_ref<< a_ref
+	## 
+	## 
+
+	.stylesheet_ref << a_ref
+_endmethod
+$
+
+_method xml_generator.dtd<< a_dtd
+	## 
+	## 
+
+	.zzz_dtd << a_dtd
+_endmethod
+$
+
+_pragma(classify_level=basic, topic={xml, static_analysis})
+_method xml_generator.set_log_file ( file_name )
+	## 
+	## 
+
+	_if .a_xml_op_stream _isnt _unset 
+	_then
+		.a_xml_op_stream.close()
+	_endif
+
+	.a_xml_op_stream << xml_output_stream.new_file ( file_name )
+_endmethod
+$
+
+_pragma(classify_level=basic, topic={xml, static_analyser})
+_method xml_generator.close_log_file()
+	## 
+	## 
+
+	_if .a_xml_op_stream _isnt _unset 
+	_then
+		.a_xml_op_stream.close()
+	_endif
+_endmethod
+$
+
+_pragma(classify_level=basic, topic={xml, static_analyser})
+_method xml_generator.test_log_file
+	## 
+	## 
+	
+	_if .a_xml_op_stream _is _unset 
+	_then
+		condition.raise (:no_log_file)
+	_endif
+	
+_endmethod
+$
+
+_pragma(classify_level=advanced, topic={xml, static_analyser})
+_method xml_generator.begin_tag ( tag_name, _optional args )
+	## 
+	## 
+
+	_self.test_log_file
+	_if args _is _unset
+	_then
+		.a_xml_op_stream.start_element(tag_name)
+	_else
+		.a_xml_op_stream.start_element(tag_name, args)
+	_endif
+_endmethod
+$
+
+_pragma(classify_level=basic, topic={xml, static_analyser})
+_method xml_generator.write_simple_tag(tag_name, tag_body, _optional esc?)
+	## 
+	## Create xml tag and body. If ESC? is _false then special characters
+	## such as '<', '>' etc will NOT be escape processed to '&lt;',
+	## '&gt;' etc.
+	
+	esc? << esc?.default(_true)
+	_self.test_log_file
+
+	_if esc?
+	_then
+		.a_xml_op_stream.write_element(tag_name, tag_body)
+	_else
+		.a_xml_op_stream.write_unesc_element(tag_name, tag_body)
+	_endif
+_endmethod
+$
+
+_pragma(classify_level=basic, topic={xml, static_analyser})
+_method xml_generator.end_tag( tag_name )
+
+	_self.test_log_file
+
+	.a_xml_op_stream.end_element(tag_name)
+_endmethod
+$
+
+_pragma(classify_level=basic, topic={xml, static_analyser})
+_private
+_method xml_generator.creation_comment
+	## 
+	## 
+	
+	_return ("".concatenation ("File Created", ":", date_time.now().write_string))
+_endmethod
+$
+
+_method xml_generator.write_dtd( _optional a_dtd )
+	## 
+	## 
+
+	l_dtd << a_dtd.default (_self.dtd)
+	
+	_for a_line _over l_dtd.fast_elements() 
+	_loop
+		.a_xml_op_stream.write_unescaped_content (a_line)
+		.a_xml_op_stream.write (character.newline)
+	_endloop
+	
+_endmethod
+$
+
+_method xml_generator.write_boundary ( a_fnb )
+	## 
+	## 
+
+	_self.begin_tag ("boundary") #(_self.message(:fiber_node_boundary))
+	_self.write_simple_tag ("boundary_type", a_fnb.source_collection.external_name.write_string)
+	_self.write_simple_tag ("boundary_id", a_fnb.identifier.write_string)
+	_self.end_tag ("boundary")
+	
+_endmethod
+$
+
+_private
+_method xml_generator.write_creation_comment()
+	## 
+	## 
+	.a_xml_op_stream.write_comment (_self.creation_comment)
+	.a_xml_op_stream.write (character.newline)
+_endmethod
+$
+
+_private
+_method xml_generator.write_header_line()
+	## 
+	## 
+
+	.a_xml_op_stream.write_unescaped_content (_self.header_line)
+	.a_xml_op_stream.write (character.newline)
+_endmethod
+$
+
+_method xml_generator.write_too_many_args_xml(no_of_args, a_class_name, a_method_name)
+	## 
+	## writes out the xml for too many arguments
+	
+	_self.begin_tag (_self.message(:smell))
+	_self.write_simple_tag (_self.message(:smell_type), _self.message(:too_many_args))
+	_self.write_simple_tag (_self.message(:class_name), a_class_name)
+	_self.write_simple_tag (_self.message(:method_name), a_method_name)
+	_self.write_simple_tag (_self.message(:no_of_args), no_of_args.write_string)
+	_self.end_tag (_self.message(:smell))
+	
+_endmethod
+$
+
+_method xml_generator.write_large_class_xml (a_class_name, a_class_size)
+	## 
+	## writes out the xml for a large class definition
+	
+	_self.begin_tag (_self.message(:smell))
+	_self.write_simple_tag (_self.message(:smell_type), _self.message(:long_class))
+	_self.write_simple_tag (_self.message(:class_name), a_class_name)
+	_self.write_simple_tag (_self.message(:no_of_methods), a_class_size.write_string)
+	_self.end_tag (_self.message(:smell))
+_endmethod
+$
+
+_method xml_generator.write_large_method_xml (class_name, method_name, no_of_lines)
+	## 
+	## 
+	
+	_self.begin_tag (_self.message(:smell))
+	_self.write_simple_tag (_self.message(:smell_type), _self.message(:long_method))
+	_self.write_simple_tag (_self.message(:class_name), class_name)
+	_self.write_simple_tag (_self.message(:method_name), method_name)
+	_self.write_simple_tag (_self.message(:no_of_lines), no_of_lines.write_string)
+	_self.end_tag (_self.message(:smell))
+_endmethod
+$
+
+_method xml_generator.write_current_grs_found (class_name, method_name)
+	## 
+	## 
+
+	_self.begin_tag (_self.message(:smell))
+	_self.write_simple_tag (_self.message(:smell_type), "current_grs")
+	_self.write_simple_tag (_self.message(:class_name), class_name)
+	_self.write_simple_tag (_self.message(:method_name), method_name)
+	_self.end_tag (_self.message(:smell))
+	
+_endmethod
+$
+
+_method xml_generator.write_grs_found (class_name, method_name)
+	## 
+	## 
+
+	_self.begin_tag (_self.message(:smell))
+	_self.write_simple_tag (_self.message(:smell_type), "grs")
+	_self.write_simple_tag (_self.message(:class_name), class_name)
+	_self.write_simple_tag (_self.message(:method_name), method_name)
+	_self.end_tag (_self.message(:smell))
+	
+_endmethod
+$
+
+_method xml_generator.write_method_definition (class_name, method_name, has_parens?, _optional p_module_name, p_module_version)
+	## 
+	## 
+
+	_self.begin_tag ("method_def")
+	_self.write_simple_tag ("class_name", class_name)
+	_self.write_simple_tag ("method_name", method_name)
+	_self.write_simple_tag ("has_parentheses", has_parens?)
+	_if p_module_name _isnt _unset 
+	_then
+		_self.write_simple_tag ("module_name", p_module_name.write_string)
+		_if p_module_version _isnt _unset 
+		_then
+			_self.write_simple_tag ("module_name", p_module_version.write_string)
+		_endif
+	_endif
+	_self.end_tag ("method_def")
+_endmethod
+$
+
+_private
+_method xml_generator.write_stylesheet_reference( _optional stylesheet_ref )
+	## 
+	## 
+
+	l_stylesheet_ref << stylesheet_ref.default(_self.default_stylesheet_reference)
+	.a_xml_op_stream.write_unescaped_content (l_stylesheet_ref)
+	.a_xml_op_stream.write (character.newline)
+_endmethod
+$
+
+_pragma(classify_level=basic, topic={xml, static_analyser})
+_method xml_generator.write_embedded_xsl_preamble(_optional p_filename_ref)
+	## 
+	##
+	_self.write_embedded_stylesheet_reference(p_filename_ref)
+	_self.write_embedded_header_line()
+_endmethod
+$
+
+_pragma(classify_level=basic, topic={xml, static_analyser})
+_private
+_method xml_generator.write_embedded_stylesheet_reference(_optional p_filename_ref)
+	## 
+	## 
+
+	l_default_ref << _self.default_embedded_filename_reference
+	l_filename_ref << write_string(p_filename_ref, %", "?>").default(l_default_ref)
+	l_stylesheet_ref << write_string(_self.embedded_stylesheet_reference, l_filename_ref)
+	.a_xml_op_stream.write_unescaped_content (l_stylesheet_ref)
+	.a_xml_op_stream.write (character.newline)
+_endmethod
+$
+
+_pragma(classify_level=basic, topic={xml, static_analyser})
+_private
+_method xml_generator.write_embedded_header_line()
+	## 
+	## 
+
+	.a_xml_op_stream.write_unescaped_content (_self.embedded_header_line)
+	.a_xml_op_stream.write (character.newline)
+_endmethod
+$
+
+_pragma(classify_level=basic, topic={xml, static_analyser})
+_private
+_method xml_generator.write_embedded_footer_line()
+	## 
+	## 
+
+	.a_xml_op_stream.write_unescaped_content (_self.embedded_footer_line)
+	.a_xml_op_stream.write (character.newline)
+_endmethod
+$
+
+_pragma(classify_level=basic, topic={xml, static_analyser})
+_method xml_generator.write_preamble( _optional stylesheet_ref, dtd )
+	## 
+	## 
+	_self.write_header_line()
+	_self.write_stylesheet_reference( stylesheet_ref )
+	_self.write_dtd( dtd )
+	_self.write_creation_comment()
+_endmethod
+$
+
+_method xml_generator.write_boilerplate(username, _optional a_view)
+	## 
+	## 
+	_self.begin_tag ("boilerplate")
+	_self.write_simple_tag ("username", username)
+	_self.write_simple_tag ("date",    date_time.now().write_string)
+	_if a_view _isnt _unset
+	_then
+		(symb, text) << a_view.alternative_path_name()
+		_self.write_simple_tag ("alternative", text[1].write_string)
+		_self.write_simple_tag ("datastore", a_view.searchpath.an_element())
+	_endif
+	_self.end_tag ("boilerplate")
+	.a_xml_op_stream.write (character.newline)
+_endmethod
+$
+
+_method xml_generator.write_error_object( a_obj )
+	## 
+	## 
+
+	_self.begin_tag ("error_object")
+	_self.write_simple_tag("error_id", a_obj.id.write_string)
+	_self.write_simple_tag("table_name", a_obj.table_name.default("No Table").write_string)
+	_self.write_simple_tag("record_id", a_obj.record_id.default("No Record").write_string)
+	_self.write_simple_tag("details", a_obj.details.default("No Details").write_string)
+	_self.write_simple_tag("incident_id", a_obj.incident_id.default("No Incident ID").write_string)
+	_self.write_simple_tag("status", a_obj.status.default("No Status").write_string)
+	_self.write_simple_tag("object_name", a_obj.object_name.default("No Object Name").write_string)
+	_self.end_tag ("error_object")
+	
+_endmethod
+$
+
+_method xml_generator.write_stylesheet (a_fname)
+	## 
+	## writes the elements of the stylesheet out to the file given
+	## by A_FNAME
+
+	op_stream << external_text_output_stream.new ( a_fname )
+
+	_protect
+		_for a_line _over _self.stylesheet.fast_elements() 
+		_loop
+			op_stream.write (a_line)
+			op_stream.write (character.newline)
+		_endloop
+	_protection
+		op_stream.close()
+	_endprotect
+_endmethod
+$
+
+_method xml_generator.write_bitmaps(target_dir)
+	## 
+	## 
+
+	a_mod << sw_module_manager.module(:cox_pni_editor_plugin)
+	a_mod.copy_resources (target_dir, "bitmaps")
+_endmethod
+$
+
+_pragma(classify_level=basic, topic={cornerstone}, usage={internal})
+_method xml_generator.message(message_id, _gather args)
+	## Returns a message using the cached message handler.
+	## 
+	## Arguments: message_id, args
+	## Return Values: a printable string
+
+	_if (ma << .message_accessor) _is _unset 
+	_then
+		.message_accessor << ma << message_handler.new(:static_analyser)
+	_endif
+	
+	_return  ma.human_string(message_id, _scatter args)
+_endmethod
+$
+
+_method xml_generator.write_comment( p_comment )
+	## 
+	## 
+
+	l_str << "".concatenation("<!-- ", p_comment, "-->")
+	.a_xml_op_stream.write(l_str)
+	.a_xml_op_stream.write (character.newline)
+_endmethod
+$

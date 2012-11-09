@@ -1,0 +1,75 @@
+## testing for class cogeco_province_boundary
+_package user
+$
+
+## checks that the sheath specs have the right number of fibres
+## checks only the Generic specs
+def_slotted_exemplar (:tc!sheath_spec,
+	{
+	},
+	{:tc!cogeco})
+$
+
+
+_pragma(classify_level=advanced, topic={unit_testing, cogeco}, usage={subclassable})
+_private
+_method tc!sheath_spec.get_generics()
+	## 
+	## 
+	
+	_local l_generic_specs <<  rope.new()
+	_for i_spec _over _self.template_view.collections[:sheath_spec].fast_elements() 
+	_loop
+		_if i_spec.is_generic_spec?
+		_then
+			l_generic_specs.add(i_spec)
+		_endif
+	_endloop
+
+	_return l_generic_specs
+_endmethod
+$
+
+_pragma(classify_level=advanced, topic={unit_testing, cogeco}, usage={subclassable})
+_private
+_method tc!sheath_spec.check_a_spec(pSpec)
+	## 
+	## 
+
+
+	_local l_spec_id << pSpec.id
+	_local l_fiber_specs << _self.template_view.collections[:sheath_fiber_group].select(predicate.eq(:sheath_spec_id, l_spec_id))
+
+	_self.assert_equals(l_fiber_specs.size, pSpec.fiber_quantity, pSpec.model.write_string + " doesnt have the right no. of fibers")
+_endmethod
+$
+
+
+_pragma(classify_level=advanced, topic={unit_testing, cogeco}, usage={subclassable})
+_method tc!sheath_spec.test_generic_specs_exist()
+	## 
+	## 
+
+	_local l_generic_specs << _self.get_generics()
+	_self.assert_true (l_generic_specs.empty? _is _false, "Expecting some generic specs")
+_endmethod
+$
+
+_pragma(classify_level=advanced, topic={unit_testing, cogeco}, usage={subclassable})
+_method tc!sheath_spec.test_generic_sheath_specs_for_fibres()
+
+	_local l_generic_specs << _self.get_generics()
+	_for i_spec _over l_generic_specs.fast_elements() 
+	_loop
+		_self.check_a_spec(i_spec)
+	_endloop
+
+_endmethod
+$
+
+_pragma(classify_level=advanced, topic={unit_testing, cogeco}, usage={subclassable})
+_method tc!sheath_spec.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!sheath_spec)
+_endmethod
+$
+

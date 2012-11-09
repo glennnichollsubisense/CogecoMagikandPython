@@ -1,0 +1,13 @@
+cogeco_style_tests	1
+
+description
+	Module for testing the selection of the styles
+end
+
+tests_modules
+	cogeco_applications
+end
+
+requires
+	cogeco_test_base
+end

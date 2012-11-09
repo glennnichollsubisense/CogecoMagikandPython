@@ -1,0 +1,10 @@
+#% text_encoding = iso8859_1
+
+command_line_tools	1
+
+description
+	A series of tools you can run from a Magik CL.
+end
+
+requires
+end

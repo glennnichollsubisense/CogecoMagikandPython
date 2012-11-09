@@ -1,0 +1,16 @@
+cogeco_all_tests	1
+
+description
+	All the tests for Cogeco - a collector module
+end
+
+tests_modules
+	cogeco_applications
+end
+
+requires
+	cogeco_style_tests
+	cogeco_datamodel_tests
+	cogeco_spec_tests
+	cogeco_iud_tests
+end

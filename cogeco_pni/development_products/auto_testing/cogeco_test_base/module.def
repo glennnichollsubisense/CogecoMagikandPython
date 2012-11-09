@@ -1,0 +1,13 @@
+cogeco_test_base	1
+
+description
+	The base code for all the unit tests
+end
+
+tests_modules
+	cogeco_applications
+end
+
+requires
+	munit_base
+end

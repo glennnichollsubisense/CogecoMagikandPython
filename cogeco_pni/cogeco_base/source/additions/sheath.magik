@@ -1,0 +1,33 @@
+_package user 
+
+##
+## Extensions to sheath class to provide behaviour for Cogeco
+##
+
+
+_pragma(classify_level=restricted, topic={structure, cogeco}, usage={redefinable, subclassable})
+_method sheath.cogeco_annotation_1_text
+	## 
+	## 
+
+	_return "sheath.cogeco_annotation_1_text"
+_endmethod
+$
+_pragma(classify_level=restricted, topic={structure, cogeco}, usage={redefinable, subclassable})
+_method sheath.cogeco_annotation_2_text
+	## 
+	## 
+
+	_return "sheath.cogeco_annotation_2_text"
+_endmethod
+$
+_pragma(classify_level=restricted, topic={structure, cogeco}, usage={redefinable, subclassable})
+_method sheath.cogeco_annotation_3_text
+	## 
+	## 
+
+	_return "sheath.cogeco_annotation_3_text"
+_endmethod
+$
+
+

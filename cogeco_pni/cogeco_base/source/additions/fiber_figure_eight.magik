@@ -1,0 +1,40 @@
+_package user 
+
+##
+## Extensions to fiber_figure_eight class to provide behaviour for Cogeco
+##
+
+
+_pragma(classify_level=restricted, topic={structure, cogeco}, usage={redefinable, subclassable})
+_method fiber_figure_eight.cogeco_annotation_1_text
+	## 
+	## 
+
+	_try
+		
+	_if length _is _unset
+	_then
+		_return "No length set"
+	_endif
+	_local l_length << _self.length.convert_to(:m)
+	_return l_length.write_string
+
+	_when error
+		_return "error in fiber_figure_eight.cogeco_annotation_1_text"
+	_endtry
+	
+_endmethod
+$
+_pragma(classify_level=restricted, topic={structure, cogeco}, usage={redefinable, subclassable})
+_method fiber_figure_eight.cogeco_type_annotation_text
+	## 
+	## 
+
+	_try
+		_return _self.type.write_string
+	_when error
+		_return "error in fiber_figure_eight.cogeco_type_annotation_text"
+	_endtry
+_endmethod
+$
+

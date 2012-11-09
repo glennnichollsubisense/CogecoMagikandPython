@@ -1,0 +1,12 @@
+cogeco_boundary_mixin.magik
+cogeco_customer.magik
+cogeco_fibre_cell.magik
+cogeco_frame.magik
+cogeco_franchise_tax_boundary.magik
+cogeco_fsa_boundary.magik
+cogeco_migration_attributes.magik
+cogeco_optical_loss.magik
+cogeco_rm_boundary.magik
+cogeco_service_area.magik
+cogeco_splice_tray_detail.magik
+cogeco_province_boundary

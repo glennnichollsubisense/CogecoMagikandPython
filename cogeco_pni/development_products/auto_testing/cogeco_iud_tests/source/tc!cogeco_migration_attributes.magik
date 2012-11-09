@@ -1,0 +1,23 @@
+_package user
+
+_pragma(classify_level=advanced, topic={unit_tests,cogeco}, usage={subclassable})
+_method tc!cogeco_migration_attributes.test_iud()
+	## 
+	## 
+
+
+	_local l_pl << property_list.new_with(:project_number, "12345", :ngf_id, "100", :grf_id, "200")
+	_local l_rt << record_transaction.new_insert(_self.gis_view.collections[:cogeco_migration_attributes], l_pl, "Adding cogeco_migration_attributes")
+	_local l_obj << l_rt.run()
+	_self.assert_not_unset(l_obj, "No object created")
+
+
+_endmethod
+$
+
+
+_pragma(classify_level=advanced, topic={unit_tests,cogeco}, usage={subclassable})
+_method tc!cogeco_migration_attributes.suite(_gather keys_and_elements)
+	_return test_suite.new( tc!cogeco_migration_attributes)
+_endmethod
+$

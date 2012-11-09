@@ -1,0 +1,14 @@
+tc!cogeco_boundary_object_mixin
+tc!cogeco_customer
+tc!cogeco_fibre_cell
+tc!cogeco_frame
+tc!cogeco_franchise_tax_boundary
+tc!cogeco_fsa_boundary
+tc!cogeco_migration_attributes
+tc!cogeco_optical_loss
+tc!cogeco_province_boundary
+tc!cogeco_province_boundary
+tc!cogeco_rm_boundary
+tc!cogeco_service_area
+tc!cogeco_splice_tray_detail
+

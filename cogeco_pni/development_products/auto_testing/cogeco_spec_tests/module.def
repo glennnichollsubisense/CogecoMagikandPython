@@ -1,0 +1,13 @@
+cogeco_spec_tests	1
+
+description
+	Module for testing the completeness of the specs
+end
+
+tests_modules
+	cogeco_applications
+end
+
+requires
+	cogeco_test_base
+end

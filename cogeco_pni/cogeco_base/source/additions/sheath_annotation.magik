@@ -1,0 +1,65 @@
+_package user 
+
+##
+## Extensions to sheath_annotation class to provide behaviour for Cogeco
+##
+
+
+_pragma(classify_level=restricted, topic={structure, cogeco}, usage={redefinable, subclassable})
+_method sheath_annotation.cogeco_annotation_1_text
+	## return the value for the owning sheath.no of fibres
+
+	_local l_owner << _self.sheath_with_loc
+	_if l_owner _is _unset 
+	_then
+		_return "no owning sheath"
+	_endif
+
+	_if l_owner.cogeco_number_of_fibres _isnt _unset
+	_then
+		_return l_owner.cogeco_number_of_fibres 
+	_endif
+
+	_return " no value for owning sheath . cogeco_number_of_fibres"
+_endmethod
+$
+
+_pragma(classify_level=restricted, topic={structure, cogeco}, usage={redefinable, subclassable})
+_method sheath_annotation.cogeco_annotation_2_text
+	## return the measured length of the owning sheath
+
+	_local l_owner << _self.sheath_with_loc
+	_if l_owner _is _unset 
+	_then
+		_return "no owning sheath"
+	_endif
+
+
+	_if l_owner.measured_length _isnt _unset
+	_then
+		_return l_owner.measured_length.convert_to (:m).write_string
+	_endif
+	_return "no value for measured_length"
+_endmethod
+$
+
+_pragma(classify_level=restricted, topic={structure, cogeco}, usage={redefinable, subclassable})
+_method sheath_annotation.cogeco_annotation_3_text
+	## return the value of the cogeco_legacy_name field
+
+	_local l_owner << _self.sheath_with_loc
+	_if l_owner _is _unset 
+	_then
+		_return "no owning sheath"
+	_endif
+
+	_if l_owner.cogeco_legacy_name _isnt _unset 
+	_then
+		_return _self.cogeco_legacy_name.write_string
+	_endif
+
+	_return "no value sest for cogeco_legacy_name"
+_endmethod
+$
+
+

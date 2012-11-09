@@ -1,0 +1,17 @@
+_package user
+
+## Extensions to mit_hub class to provide behaviour for Cogeco
+
+_pragma(classify_level=restricted, topic={structure, cogeco}, usage={redefinable, subclassable})
+_method mit_hub.annotation_2_text
+	## 
+	## Returns the value for cogeco_location
+
+	_if _self.cogeco_location _isnt _unset 
+	_then
+		_return _self.cogeco_location.write_string
+	_endif
+
+	_return 'No value set for cogeco_location'
+_endmethod
+$

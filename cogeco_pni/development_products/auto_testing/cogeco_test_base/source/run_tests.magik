@@ -1,0 +1,17 @@
+
+
+_block
+	_local l_file << "C:\temp\munit_results\cox_410.xml"
+	_local l_view << gis_program_manager.databases[:gis]
+	_local l_listener << munit_xml_generator.new(l_file, l_view)
+	_local l_tr << test_result.new()
+	
+	l_tr.add_listener (l_listener)
+
+	_for i_test _over cox_410_suite.suite().all_leaf_tests()
+	_loop
+		l_tr.run(i_test)
+	_endloop
+	
+	l_listener.close()
+_endblock

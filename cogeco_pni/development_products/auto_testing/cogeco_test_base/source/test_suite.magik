@@ -1,0 +1,23 @@
+#% text_encoding = iso8859_1
+_package sw
+
+_iter
+_method test_suite.all_leaf_tests()
+	## 
+	## An extension to the test suite to return all its leaf tests
+	## from an iterator
+
+	_for a_test _over _self.tests() 
+	_loop
+		_if a_test.is_kind_of? (test_suite)
+		_then
+			_for b_test _over a_test.all_leaf_tests()
+			_loop
+				_loopbody(b_test)
+			_endloop
+		_else
+			_loopbody (a_test)
+		_endif
+	_endloop
+_endmethod
+$

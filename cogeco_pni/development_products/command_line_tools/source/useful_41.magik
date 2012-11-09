@@ -1,0 +1,29 @@
+
+!global_auto_declare?! << _true
+
+_global random_element << _proc(table_name, _optional g_rnd)
+
+							  _local size << colls_g[table_name].size
+
+							  _thisthread.sleep(1000)
+							  
+							  _local a_rnd << g_rnd
+							  _if a_rnd _is _unset
+							  _then
+								  a_rnd << random.new(size, date_time.now().as_milliseconds)
+							  _endif
+							  no << a_rnd.get()
+							  write ("no = ", no)
+
+							  _return colls_g[table_name].nth_record(no)
+						  _endproc
+$
+
+
+_block
+	_global a_mview
+
+	a_mview << a_app.databus.request_data( :current_document )[1]
+	
+_endblock
+$

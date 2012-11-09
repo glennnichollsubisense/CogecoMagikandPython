@@ -1,0 +1,8 @@
+cogeco_base	1
+
+description
+	Base Cogeco Application
+end
+
+requires
+end
