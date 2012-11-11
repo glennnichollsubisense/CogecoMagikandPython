@@ -6,12 +6,22 @@ $
 _pragma(classify_level=basic, topic={unit_testing})
 def_slotted_exemplar(:cogeco_network_factory,
                      {
-			     {:view, _unset}
+			     {:gis_view, _unset}
 		     },
 		     {:pni_network_factory}
 )
 $
 
+
+_pragma(classify_level=basic, topic={unit_testing})
+_method cogeco_network_factory.init()
+	## 
+	## 
+
+	.gis_view << gis_program_manager.cached_dataset(:gis)
+	_return _super.init()
+_endmethod
+$
 
 _pragma(classify_level=restricted, topic={unit_testing})
 _method cogeco_network_factory.cogeco_customers
@@ -20,24 +30,24 @@ _endmethod
 $
 
 _pragma(classify_level=restricted, topic={network_factory, cogeco})
-_method cogeco_network_factory.cogeco_fibre_cell
+_method cogeco_network_factory.cogeco_fibre_cells
 	_return _self.view.collections[:cogeco_fibre_cell]
 _endmethod
 $
 
 _pragma(classify_level=restricted, topic={network_factory, cogeco})
-_method cogeco_network_factory.cogeco_frame
+_method cogeco_network_factory.cogeco_frames
 	_return _self.view.collections[:cogeco_frame]
 _endmethod
 $
 
 _pragma(classify_level=restricted, topic={network_factory, cogeco})
-_method cogeco_network_factory.cogeco_franchise_tax_boundary
+_method cogeco_network_factory.cogeco_franchise_tax_boundaries
 	_return _self.view.collections[:cogeco_franchise_tax_boundary]
 _endmethod
 $
 _pragma(classify_level=restricted, topic={network_factory, cogeco})
-_method cogeco_network_factory.cogeco_fsa_boundary
+_method cogeco_network_factory.cogeco_fsa_boundaries
 	_return _self.view.collections[:cogeco_fsa_boundary]
 _endmethod
 $
@@ -47,29 +57,215 @@ _method cogeco_network_factory.cogeco_migration_attributes
 _endmethod
 $
 _pragma(classify_level=restricted, topic={network_factory, cogeco})
-_method cogeco_network_factory.cogeco_optical_loss
+_method cogeco_network_factory.cogeco_optical_losses
 	_return _self.view.collections[:cogeco_optical_loss]
 _endmethod
 $
 _pragma(classify_level=restricted, topic={network_factory, cogeco})
-_method cogeco_network_factory.cogeco_province_boundary
+_method cogeco_network_factory.cogeco_province_boundaries
 	_return _self.view.collections[:cogeco_province_boundary]
 _endmethod
 $
 _pragma(classify_level=restricted, topic={network_factory, cogeco})
-_method cogeco_network_factory.cogeco_rm_boundary
+_method cogeco_network_factory.cogeco_rm_boundaries
 	_return _self.view.collections[:cogeco_rm_boundary]
 _endmethod
 $
 _pragma(classify_level=restricted, topic={network_factory, cogeco})
-_method cogeco_network_factory.cogeco_service_area
+_method cogeco_network_factory.cogeco_service_areas
 	_return _self.view.collections[:cogeco_service_area]
 _endmethod
 $
 _pragma(classify_level=restricted, topic={network_factory, cogeco})
-_method cogeco_network_factory.cogeco_splice_tray_detail
+_method cogeco_network_factory.cogeco_splice_tray_details
 	_return _self.view.collections[:cogeco_splice_tray_detail]
 _endmethod
 $
 
 
+_pragma(classify_level=restricted, topic={network_factory, cogeco})
+_method cogeco_network_factory.place_figure_eights_for_styles (pBaseLocation)
+	## 
+	## 
+
+
+	_local l_attributes<< hash_table.new_with(1, property_list.new(),
+						  2, property_list.new_with(:cogeco_usage, "Cogeco",
+									    :cogeco_operational_status, "To be Installed"),
+						  3, property_list.new_with(:cogeco_usage, "Telco"),
+						  4, property_list.new_with(:cogeco_usage, "Other"),
+						  5, property_list.new_with(:cogeco_usage, "Cogeco",
+									    :cogeco_operational_status, "To be Removed")
+					 )
+	
+	_local lstartlocation << pBaseLocation
+	_for i _over range(1,5)
+	_loop
+		_local l_pl << l_attributes[i]
+
+		_local l_sec << sector.new()
+		l_sec.add(lstartlocation)
+		l_sec.add(lstartlocation + coordinate.new(1000, 0))
+		_local l_pc << pseudo_chain.new_for_world(l_sec, .gis_view.world)
+		l_pl[:route]<< l_pc
+
+		_self.place_aerial_route(l_pc, l_pl)
+
+		lstartlocation<< lstartlocation + coordinate.new(0, -500)
+	_endloop
+
+	_return  lstartlocation
+_endmethod
+$
+
+_pragma(classify_level=restricted, topic={network_factory, cogeco})
+_method cogeco_network_factory.place_aerial_routes_for_styles (pBaseLocation)
+	## 
+	## 
+
+
+	_local l_attributes<< hash_table.new_with(1, property_list.new(),
+						  2, property_list.new_with(:cogeco_usage, "Cogeco",
+									    :cogeco_operational_status, "To be Installed"),
+						  3, property_list.new_with(:cogeco_usage, "Telco"),
+						  4, property_list.new_with(:cogeco_usage, "Other"),
+						  5, property_list.new_with(:cogeco_usage, "Cogeco",
+									    :cogeco_operational_status, "To be Removed")
+					 )
+	
+	_local lstartlocation << pBaseLocation
+	_for i _over range(1,5)
+	_loop
+		_local l_pl << l_attributes[i]
+
+		_local l_sec << sector.new()
+		l_sec.add(lstartlocation)
+		l_sec.add(lstartlocation + coordinate.new(1000, 0))
+		_local l_pc << pseudo_chain.new_for_world(l_sec, .gis_view.world)
+		l_pl[:route]<< l_pc
+
+		_self.place_aerial_route(l_pc, l_pl)
+
+		lstartlocation<< lstartlocation + coordinate.new(0, -500)
+	_endloop
+
+	_return  lstartlocation
+_endmethod
+$
+
+_pragma(classify_level=restricted, topic={network_factory, cogeco})
+_method cogeco_network_factory.place_anchors_for_styles(pBaseLocation)
+	## 
+	## 
+
+
+	_local l_attributes<< hash_table.new_with(1, property_list.new_with(:cogeco_representation, "Sidewalk"),
+						  2, property_list.new_with(:cogeco_representation, "Telco"),
+						  3, property_list.new_with(:cogeco_representation, "Owner-based",
+									    :cogeco_owner, "Cogeco",
+									    :cogeco_users, "Unknown"
+								   ),
+						  4, property_list.new_with(:cogeco_representation, "Owner-based",
+									    :cogeco_owner, "Hydro",
+									    :cogeco_users, "Unknown"
+								   ),
+						  5, property_list.new_with(:cogeco_representation, "Owner-based",
+									    :cogeco_owner, "Bell",
+									    :cogeco_users, "Unknown"
+								   ),
+						  6, property_list.new_with(:cogeco_representation, "Owner-based",
+									    :cogeco_owner, "Telus",
+									    :cogeco_users, "Unknown"
+								   ),
+						  7, property_list.new_with(:cogeco_representation, "Owner-based",
+									    :cogeco_owner, "Quebectel",
+									    :cogeco_users, "Unknown"
+								   ),
+						  8, property_list.new_with(:cogeco_representation, "Owner-based",
+									    :cogeco_owner, "Hydro",
+									    :cogeco_users, "Seul"
+								   ),
+						  9, property_list.new_with(:cogeco_representation, "Owner-based",
+									    :cogeco_owner, "Hydro",
+									    :cogeco_users, "Bell"
+								   ),
+						  10, property_list.new_with(:cogeco_representation, "Owner-based",
+									    :cogeco_owner, "Hydro",
+									    :cogeco_users, "Bell Cogeco"
+								   ),
+						  11, property_list.new_with(:cogeco_representation, "Owner-based",
+									    :cogeco_owner, "Bell",
+									    :cogeco_users, "Seul"
+								   ),
+						  12, property_list.new_with(:cogeco_representation, "Owner-based",
+									    :cogeco_owner, "Bell",
+									    :cogeco_users, "Hydro"
+								   ),
+						  13, property_list.new_with(:cogeco_representation, "Owner-based",
+									    :cogeco_owner, "Bell",
+									    :cogeco_users, "Cogeco"
+								   ),
+						  14, property_list.new_with(:cogeco_representation, "Owner-based",
+									    :cogeco_owner, "Bell",
+									    :cogeco_users, "Hydro Cogeco"
+								   ),
+						  15, property_list.new_with(:cogeco_representation, "Owner-based",
+									    :cogeco_owner, "Unknown", ## "Autre",
+									    :cogeco_users, "Electrique"
+								   ),
+						  16, property_list.new_with(:cogeco_representation, "Owner-based",
+									    :cogeco_owner, "Unknown", ## "Autre",
+									    :cogeco_users, "Telecom"
+								   ),
+						  17, property_list.new_with(:cogeco_representation, "Owner-based",
+									    :cogeco_owner, "Cogeco",
+									    :cogeco_users, "Cogeco"
+								   ),
+						  18, property_list.new_with(:cogeco_representation, "Owner-based",
+									    :cogeco_owner, "Unknown", ## "Maskatel",
+									    :cogeco_users, "Cogeco"
+								   ),
+						  19, property_list.new_with(:cogeco_representation, "Owner-based",
+									    :cogeco_owner, "Unknown", ## "Sogetel",
+									    :cogeco_users, "Cogeco"
+								   ),
+						  20, property_list.new_with(:cogeco_representation, "Owner-based",
+									    :cogeco_owner, "Unknown", ## "Telebec",
+									    :cogeco_users, "Cogeco"
+								   ),
+						  21, property_list.new_with(:cogeco_representation, "Owner-based",
+									    :cogeco_owner, "Telus",
+									    :cogeco_users, "Cogeco"
+								   )
+					 )
+	
+	_local lstartlocation << pBaseLocation
+	_for i _over range(1,21)
+	_loop
+		
+		_local l_pt << pseudo_point.new_for_world(lstartlocation, .gis_view.world)
+		_local l_pole << _self.place_pole (l_pt, property_list.new_with(:catv_pole_tag, i.write_string))
+		_local l_anchor <<_self.place_anchor (l_pole, l_attributes[i])
+
+		lstartlocation<< lstartlocation + coordinate.new(0, -750)
+
+	_endloop
+
+	
+
+	_return  lstartlocation
+	
+_endmethod
+$
+
+
+_pragma(classify_level=restricted, topic={network_factory, cogeco})
+_method cogeco_network_factory.place_all_for_styles (pBaseLocation)
+	## 
+	## 
+
+	_local lNextLocation << _self.place_aerial_routes_for_styles (pBaseLocation)
+	lNextLocation << _self.place_anchors_for_styles (lNextLocation)
+	
+_endmethod
+$
